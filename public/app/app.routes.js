@@ -19,6 +19,36 @@
         controller: 'aboutController',
         templateUrl: './components/about/about.html'
       })
+      // .state('start', {
+      //   url: '/start',
+      //   controller: 'startController',
+      //   templateUrl: './components/start/start.html'
+      // })
+      // .state('project-builder', {
+      //   url: '/project-builder',
+      //   controller: 'projectBuilderController',
+      //   templateUrl: './components/project-builder/project-builder.html'
+      // })
+      // .state('prints', {
+      //   url: '/prints',
+      //   controller: 'printsController',
+      //   templateUrl: './components/prints/prints.html'
+      // })
+      // .state('cart', {
+      //   url: '/cart',
+      //   controller: 'cartController',
+      //   templateUrl: './components/cart/cart.html'
+      // })
+      // .state('place-order', {
+      //   url: '/place-order',
+      //   controller: 'placeOrderController',
+      //   templateUrl: './components/place-order/place-order.html'
+      // })
+      // .state('confirmation', {
+      //   url: '/confirmation',
+      //   controller: 'confirmationController',
+      //   templateUrl: './components/confirmation/confirmation.html'
+      // })
 
     $urlRouterProvider
       .otherwise('/home');
