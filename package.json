@@ -1,0 +1,36 @@
+{
+  "name": "my-family-story",
+  "version": "0.0.1",
+  "main": "server/index.js",
+  "description": "",
+  "license": "",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burninators/my-family-story.git"
+  },
+  "bugs": {
+    "url": "https://github.com/burninators/my-family-story/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "babel-preset-es2015": "^6.22.0",
+    "gulp-cachebust": "0.0.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-print": "^2.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "cors": "^2.8.1",
+    "mongoose": "^4.8.6",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.6.0"
+  }
+}
