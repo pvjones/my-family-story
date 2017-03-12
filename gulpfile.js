@@ -10,8 +10,8 @@ const gulp = require('gulp')
 const cachebust = new CacheBuster();
 
 const paths = {
-  jsSource: ['./public/js/**/*.js'],
-  styleSource: ['./public/styles/**/*.*css'],
+  jsSource: ['./public/app/**/*.js'],
+  styleSource: ['./public/assets/**/*.*css'],
   htmlSource: ['./public/**/*.html']
 };
 
