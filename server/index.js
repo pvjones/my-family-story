@@ -2,8 +2,8 @@ const express = require('express')
   , session = require('express-session')
   , cors = require('cors')
   , bodyParser = require('body-parser')
-  , passport = require('passport')
-  , Auth0Strategy = require('passport-auth0')
+  // , passport = require('passport')
+  // , Auth0Strategy = require('passport-auth0')
   , mongoose = require('mongoose');
 
 //* CONFIG *// 
@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: true,
   secret: config.SESSION_SECRET
 }));
-app.use(passport.initialize());
-app.use(passport.session);
+// app.use(passport.initialize());
+// app.use(passport.session);
 
 //* PUBLIC SERVICE *//
 app.use(express.static(__dirname + './../dist'));
@@ -40,44 +40,44 @@ mongoose.connection.once('open', () => {
 
 
 //* AUTH0 STRATEGY *//
-passport.use(new Auth0Strategy(config.authConfig, (accessToken, refreshToken, extraParams, profile, done) => {
-  db.user.getUserByAuthId([profile.id], (err, result) => { //cb to execute after return from Auth0
-    // if (err) {
-    //   console.error(err)
-    // };
-    // let user = result[0];
-    // if (!user) { 
-    //   // if there isn't a matching user in the database, create one
-    //   db.user.createUserByAuth([
-    //     profile.displayName,
-    //     profile.id
-    //   ], (err, result) => {
-    //     if (err) {
-    //       console.error(err)
-    //     } else {
-    //       console.log('new user created')
-    //       db.user.getUserByAuthId([profile.id], function(err, result) {
-    //         if (err) {
-    //           console.error(err)
-    //         } else {
-    //           return done(err, result)
-    //         }
-    //       })
-    //     }
-    //   })
-    // } else {
-    //   return done(err, result);
-    // }
-  })
-}));
+// passport.use(new Auth0Strategy(config.authConfig, (accessToken, refreshToken, extraParams, profile, done) => {
+//   db.user.getUserByAuthId([profile.id], (err, result) => { //cb to execute after return from Auth0
+//     if (err) {
+//       console.error(err)
+//     };
+//     let user = result[0];
+//     if (!user) { 
+//       // if there isn't a matching user in the database, create one
+//       db.user.createUserByAuth([
+//         profile.displayName,
+//         profile.id
+//       ], (err, result) => {
+//         if (err) {
+//           console.error(err)
+//         } else {
+//           console.log('new user created')
+//           db.user.getUserByAuthId([profile.id], function(err, result) {
+//             if (err) {
+//               console.error(err)
+//             } else {
+//               return done(err, result)
+//             }
+//           })
+//         }
+//       })
+//     } else {
+//       return done(err, result);
+//     }
+//   })
+// }));
 
-passport.serializeUser((userA, done) => {
-  done(null, userA);
-});
+// passport.serializeUser((userA, done) => {
+//   done(null, userA);
+// });
 
-passport.deserializeUser((userB, done) => {
-  done(null, userB);
-});
+// passport.deserializeUser((userB, done) => {
+//   done(null, userB);
+// });
 
 //* USER ENDPOINTS *//
 

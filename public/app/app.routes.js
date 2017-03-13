@@ -12,12 +12,12 @@
       .state('home', {
         url: '/home',
         controller: 'homeController',
-        templateUrl: './components/home/home.html',
+        templateUrl: './app/components/home/home.html',
       })
       .state('about', {
         url: '/about',
         controller: 'aboutController',
-        templateUrl: './components/about/about.html'
+        templateUrl: './app/components/about/about.html'
       })
       // .state('start', {
       //   url: '/start',

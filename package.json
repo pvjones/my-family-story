@@ -26,9 +26,10 @@
     "gulp-uglify": "^2.1.0"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "cors": "^2.8.1",
     "mongoose": "^4.8.6",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0"
