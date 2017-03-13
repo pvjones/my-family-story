@@ -70,7 +70,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.lib_CSS, ['build-libCSS']);
   gulp.watch(paths.app_JS, ['build-appJS']);
   gulp.watch(paths.lib_JS, ['build-libJS']);
-  gulp.watch(paths.htmlSource, ['build-html']);
+  gulp.watch(paths.app_HTML, ['build-html']);
 });
 
 gulp.task('default', [
