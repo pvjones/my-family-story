@@ -34,11 +34,11 @@
       //   controller: 'printsController',
       //   templateUrl: './components/prints/prints.html'
       // })
-      // .state('cart', {
-      //   url: '/cart',
-      //   controller: 'cartController',
-      //   templateUrl: './components/cart/cart.html'
-      // })
+      .state('cart', {
+        url: '/cart',
+        controller: 'cartController',
+        templateUrl: './app/components/cart/cart.html'
+      })
       // .state('place-order', {
       //   url: '/place-order',
       //   controller: 'placeOrderController',
