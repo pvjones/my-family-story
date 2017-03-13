@@ -13,8 +13,18 @@
   height: 500px;
   color: white;
   background: transparent;
-  .bg-image {
-
+  position: relative;
+  .container {
+    height: 100%;
+    display: table;
+    .row {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+    h2 {
+      margin-bottom: 50px;
+      line-height: 40px;
+    }
   }
 }
 
@@ -24,4 +34,18 @@
   width: 30%;
   background-color: black;
   border-radius: 2px;
+}
+
+.btn-white {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+}
+
+.btn-white:hover {
+  color: white;
+  background-color: rgba(255,255,255,0.15);
+
 }
