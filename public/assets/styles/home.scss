@@ -1,0 +1,23 @@
+.bg {
+  background: url('../assets/images/jumbotron.jpg');
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.jumbotron {
+  height: 500px;
+  color: white;
+  background: transparent;
+}
+
+.divider {
+  margin: auto;
+  height: 3px;
+  width: 30%;
+  background-color: black;
+  border-radius: 2px;
+}
