@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 let user = new mongoose.Schema({
-  name: { type: String },
-  email: { type: String, index: true, trim: true },
+
+  firstname: { type: String },
+  lastname: { type: String },
+  email: { type: String, unique: true, dropDups: true, trim: true },
+  phone: {type: String},
+  dateregistered: { type: Date },
   auth0Id: { type: String }
+
 });
 
 // User.pre('save', function(next) {
@@ -20,4 +25,4 @@ let user = new mongoose.Schema({
 //   return bcrypt.compareSync(reqBodyPassword, user.password);
 // };
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('User', user);
