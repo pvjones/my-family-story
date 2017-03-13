@@ -7,6 +7,9 @@ node_modules
 # Gulp output
 dist
 
+# VScode
+*.vscode
+
 # Logs
 logs
 *.log
