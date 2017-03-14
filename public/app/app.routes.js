@@ -22,13 +22,13 @@
       // .state('start', {
       //   url: '/start',
       //   controller: 'startController',
-      //   templateUrl: './components/start/start.html'
+      //   templateUrl: './app/components/start/start.html'
       // })
-      // .state('project-builder', {
-      //   url: '/project-builder',
-      //   controller: 'projectBuilderController',
-      //   templateUrl: './components/project-builder/project-builder.html'
-      // })
+      .state('project-builder', {
+        url: '/project-builder',
+        controller: 'projectBuilderController',
+        templateUrl: './app/components/project-builder/project-builder.html'
+      })
       .state('prints', {
         url: '/prints',
         // controller: 'printsController',
