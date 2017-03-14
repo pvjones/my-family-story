@@ -91,27 +91,27 @@ app.get('/api/address', addressController.readAddress);             //x
 app.put('/api/address/:id', addressController.updateAddress);       //x
 app.delete('/api/address/:id', addressController.deleteAddress);    //x
 
-app.post('/api/book', bookController.createBook);
+app.post('/api/book', bookController.createBook);       //x
 app.get('/api/book', bookController.readBook);           //x
-app.put('/api/book/:id', bookController.updateBook);
-app.delete('/api/book/:id', bookController.deleteBook);
+app.put('/api/book/:id', bookController.updateBook);    //x
+app.delete('/api/book/:id', bookController.deleteBook);   //x
 
-app.post('/api/order', orderController.createOrder);
+app.post('/api/order', orderController.createOrder);      //x
 app.get('/api/order', orderController.readOrder);            //x
-app.put('/api/order/:id', orderController.updateOrder);
-app.delete('/api/order/:id', orderController.deleteOrder);
+app.put('/api/order/:id', orderController.updateOrder);       //x
+app.delete('/api/order/:id', orderController.deleteOrder);    //x
 
-app.post('/api/page', pageController.createPage);
+app.post('/api/page', pageController.createPage);         //x
 app.get('/api/page', pageController.readPage);            //x
-app.put('/api/page/:id', pageController.updatePage);
-app.delete('/api/page/:id', pageController.deletePage);
+app.put('/api/page/:id', pageController.updatePage);      //x
+app.delete('/api/page/:id', pageController.deletePage);   //x
 
-app.get('/api/product', productController.readProduct);           //x
+app.get('/api/product', productController.readProduct);     //x
 
-app.post('/api/user', userController.createUser);
+app.post('/api/user', userController.createUser);        //x
 app.get('/api/user', userController.readUser);           //x
-app.get('/api/user', userController.getCurrentUser);
-app.put('/api/user/:id', userController.updateUser);
+app.get('/api/user', userController.getCurrentUser);    
+app.put('/api/user/:id', userController.updateUser);     //x
 
 
 
