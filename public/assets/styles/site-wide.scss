@@ -13,3 +13,19 @@ body {
     display: inline-block;
     float: none;
 }
+
+.btn-white {
+  color: white;
+  font-family: 'Grand Hotel', cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+}
+
+.btn-white:hover {
+  color: white;
+  background-color: rgba(255,255,255,0.15);
+}
