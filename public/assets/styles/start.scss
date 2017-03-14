@@ -20,19 +20,10 @@
       }
     }
   }
+
   .startBtnDiv{
+    padding: 20px;
     text-align: center;
-    #startBtn{
-      margin-top: 20px;
-      width: 150px;
-      color: white;
-      p{
-        padding-top: 7px;
-      }
-      @media (max-width: 991px){
-        width: 190px;
-      }
-    }
   }
 }
 

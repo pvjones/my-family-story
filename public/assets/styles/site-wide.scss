@@ -4,6 +4,11 @@ body {
   font-size: 16px;
 }
 
+.view-wrapper {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .title {
   font-size: 22px;
   text-transform: uppercase;
@@ -30,7 +35,21 @@ body {
   background-color: rgba(255,255,255,0.15);
 }
 
-a.btn-white:before, a.btn-white:hover:before {
+.btn-blue, .btn-blue:focus {
+  color: #6fb3db;
+  font-weight: 800;
+  border: 2px solid #6fb3db;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+}
+
+.btn-blue:hover {
+  color: white;
+  background-color: #6fb3db;
+}
+
+a.btn:before, a.btn:hover:before {
   visibility: hidden;
 }
 
