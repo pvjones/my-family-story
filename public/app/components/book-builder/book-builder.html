@@ -1,0 +1,47 @@
+<div class="main-gray-bg">
+   <div class="container">
+      <p ng-click="toggleTopUI()">Toggle Options</p>
+      <div class="row text-center" ng-if="topVis">
+         <h2>Book Builder</h2>
+         <div class="col-sm-2">
+            <img class="img-responsive" src="./../assets/images/basic-page.jpg" />
+            <h5>BASIC PAGE</h5>
+            <p>One page of text and a corresponding custom drawing.</p>
+            <h3>$10.00</h3>
+         </div>
+         <div class="col-sm-2">
+            <img class="img-responsive" src="./../assets/images/activity-page.jpg" />
+            <h5>ACTIVITY PAGE</h5>
+            <p>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</p>
+            <h3>$15.00</h3>
+         </div>
+         <div class="col-sm-2">
+            <img class="img-responsive" src="./../assets/images/portrait-page.jpg" />
+            <h5>PORTRAIT PAGE</h5>
+            <p>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</p>
+            <h3>$20.00</h3>
+         </div>
+      </div>
+   </div>
+   <div ng-repeat="page in pages">
+      <book-page></book-page>
+   </div>
+   
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-right">
+            <button class="btn btn-danger" ng-click="addPage()">ADD PAGE</button>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="row">
+         <button class="btn btn-warning">SAVE</button><button class="btn btn-success">SUBMIT</button>
+      </div>
+   </div>
+</div>
+
+
+
+
+

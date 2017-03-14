@@ -1,0 +1,27 @@
+.main-gray-bg {
+   background-color: #ddd;
+   min-height: 100vh;
+}
+
+.custom-page {
+   h5{
+      font-weight: 800;
+      padding-left: 15px;
+   }
+   .main-body{
+      background-color: #fff;
+      padding: 20px 10px 10px 10px;
+   }
+   .tiny-text{
+      font-size: 12px;
+      width: 100%;
+   }
+   .select-box{
+      font-size: 14px;
+      font-weight: 800;
+      padding: 1px 0 0 4px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+   }
+}
