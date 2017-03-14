@@ -1,0 +1,59 @@
+#nav-main-container{
+  background: white;
+  height: 80px;
+  .nav-container{
+    width: 100%;
+    height: 80px;
+    .navDiv1{
+      width: calc(100%/3);
+      height: 80px;
+      float: left;
+      text-align: left;
+      padding-top: 30px;
+      span:nth-child(2), span:first-child{
+        margin-right: 15px;
+      }
+    }
+    .navDiv2{
+      width: calc(100%/3);
+      height: 80px;
+      float: left;
+      text-align: center;
+      img{
+        height: 65px;
+        width: 65px;
+      }
+    }
+    .navDiv3{
+      width: calc(100%/3);
+      height: 80px;
+      float: left;
+      padding-top: 30px;
+      text-align: right;
+      img{
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px){
+  .navDiv1Item{
+    display: none;
+  }
+}
+@media screen and (min-width: 768px){
+  #navDrop{
+    display: none;
+  }
+}
+.navBurger span{
+  background: black;
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin-bottom: 5px;
+  position: relative;
+  top: 0;
+  transition: all ease-in-out 0.4s;
+}

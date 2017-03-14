@@ -5,7 +5,8 @@ const gulp = require('gulp')
   , CacheBuster = require('gulp-cachebust')
   , print = require('gulp-print')
   , babel = require('gulp-babel')
-  , uglify = require('gulp-uglify');
+  , uglify = require('gulp-uglify')
+  , imagemin = require('gulp-imagemin');
 
 const cachebust = new CacheBuster();
 
@@ -14,7 +15,8 @@ const paths = {
   app_CSS: ['./public/assets/styles**/*.*css'],
   lib_JS: ['./public/assets/lib/**/*.js'],
   lib_CSS: ['./public/assets/lib/**/*.*css'],
-  app_HTML: ['./public/**/*.html']
+  app_HTML: ['./public/**/*.html'],
+  images: ['./public/assets/images/**/*.*']
 };
 
 gulp.task('build-appCSS', () => {
@@ -65,12 +67,19 @@ gulp.task('build-html', () => {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-images', () => {
+  gulp.src(paths.images)
+    .pipe(imagemin())
+    .pipe(gulp.dest('./dist/assets/images'));
+})
+
 gulp.task('watch', () => {
   gulp.watch(paths.app_CSS, ['build-appCSS']);
   gulp.watch(paths.lib_CSS, ['build-libCSS']);
   gulp.watch(paths.app_JS, ['build-appJS']);
   gulp.watch(paths.lib_JS, ['build-libJS']);
   gulp.watch(paths.app_HTML, ['build-html']);
+  gulp.watch(paths.images, ['copy-images']);
 });
 
 gulp.task('default', [
@@ -79,5 +88,6 @@ gulp.task('default', [
   'build-appJS',
   'build-libJS',
   'build-html',
+  'copy-images',
   'watch'
 ]);
