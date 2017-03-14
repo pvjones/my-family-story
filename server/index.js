@@ -6,10 +6,8 @@ const express = require('express')
   // , Auth0Strategy = require('passport-auth0')
   , mongoose = require('mongoose');
 
-//* CONFIG *// 
+//* CONFIG *//
 const config = require('./config');
-
-//* CONTROLLERS AND SERVICES *//
 
 //* EXPRESS *//
 const app = module.exports = express();
@@ -46,7 +44,7 @@ mongoose.connection.once('open', () => {
 //       console.error(err)
 //     };
 //     let user = result[0];
-//     if (!user) { 
+//     if (!user) {
 //       // if there isn't a matching user in the database, create one
 //       db.user.createUserByAuth([
 //         profile.displayName,
@@ -79,13 +77,42 @@ mongoose.connection.once('open', () => {
 //   done(null, userB);
 // });
 
-//* USER ENDPOINTS *//
+//* CONTROLLERS AND SERVICES *//
+var addressController = require('./controllers/address.controller.js');
+var bookController = require('./controllers/book.controller.js');
+var orderController = require('./controllers/order.controller.js');
+var pageController = require('./controllers/page.controller.js');
+var productController = require('./controllers/product.controller.js');
+var userController = require('./controllers/user.controller.js');
 
+//* OUR ENDPOINTS *//
+app.post('/api/address', addressController.createAddress);          //x
+app.get('/api/address', addressController.readAddress);             //x
+app.put('/api/address/:id', addressController.updateAddress);       //x
+app.delete('/api/address/:id', addressController.deleteAddress);    //x
 
-//* BOOK ENDPOINTS *//
+app.post('/api/book', bookController.createBook);
+app.get('/api/book', bookController.readBook);           //x
+app.put('/api/book/:id', bookController.updateBook);
+app.delete('/api/book/:id', bookController.deleteBook);
 
+app.post('/api/order', orderController.createOrder);
+app.get('/api/order', orderController.readOrder);            //x
+app.put('/api/order/:id', orderController.updateOrder);
+app.delete('/api/order/:id', orderController.deleteOrder);
 
-//* CART ENDPOINTS *//
+app.post('/api/page', pageController.createPage);
+app.get('/api/page', pageController.readPage);            //x
+app.put('/api/page/:id', pageController.updatePage);
+app.delete('/api/page/:id', pageController.deletePage);
+
+app.get('/api/product', productController.readProduct);           //x
+
+app.post('/api/user', userController.createUser);
+app.get('/api/user', userController.readUser);           //x
+app.get('/api/user', userController.getCurrentUser);
+app.put('/api/user/:id', userController.updateUser);
+
 
 
 //* LISTEN *//
