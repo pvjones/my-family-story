@@ -9,6 +9,11 @@ body {
   text-transform: uppercase;
 }
 
+.row.text-center > div {
+    display: inline-block;
+    float: none;
+}
+
 .btn-white {
   color: white;
   font-family: 'Grand Hotel', cursive;
