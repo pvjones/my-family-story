@@ -1,6 +1,5 @@
 .nav-wrapper {
   width: 100%;
-  height: 100px;
   background: rgba(255,255,255,0.9);
   border-bottom: 1px solid rgba(0,0,0,0.1);
   position: fixed;
@@ -9,39 +8,43 @@
 
 #nav-main-container{
   background: transparent;
-  height: 99px;
+  height: 100px;
+  transition: height 0.15s ease;
   .nav-container{
     width: 100%;
-    height: 80px;
+    height: 100%;
     .navDiv1{
       width: calc(100%/3);
-      height: 80px;
+      height: 100%;
       float: left;
       text-align: left;
       padding-top: 40px;
+      transition: padding-top 0.15s ease;
       span:nth-child(2), span:first-child{
         margin-right: 15px;
       }
     }
     .navDiv2{
       width: calc(100%/3);
-      height: 80px;
+      height: 100%;
       float: left;
       text-align: center;
       img{
-        height: 95px;
-        width: 95px;
+        height: 98%;
+        width: auto;
       }
     }
     .navDiv3{
       width: calc(100%/3);
-      height: 80px;
+      height: 100%;
       float: left;
       padding-top: 40px;
+      transition: padding-top 0.15s ease;
       text-align: right;
       img{
         height: 25px;
         width: 25px;
+        transition: height 0.15s ease, width 0.15s ease;
       }
     }
   }
@@ -65,4 +68,21 @@
   position: relative;
   top: 0;
   transition: all ease-in-out 0.4s;
+}
+
+.sticky-nav {
+  #nav-main-container, .nav-container {
+    height: 60px;
+    .navDiv1 {
+     padding-top: 20px;
+    }
+    .navDiv2 {
+      img {
+
+      }
+    }
+    .navDiv3 {
+      padding-top: 20px;
+    }
+  }
 }
