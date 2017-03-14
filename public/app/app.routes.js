@@ -3,7 +3,7 @@
   angular
     .module('app')
     .config(config)
-  
+
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function config($stateProvider, $urlRouterProvider) {
@@ -19,25 +19,25 @@
         controller: 'aboutController',
         templateUrl: './app/components/about/about.html'
       })
-      // .state('start', {
-      //   url: '/start',
-      //   controller: 'startController',
-      //   templateUrl: './components/start/start.html'
-      // })
-      // .state('project-builder', {
-      //   url: '/project-builder',
-      //   controller: 'projectBuilderController',
-      //   templateUrl: './components/project-builder/project-builder.html'
-      // })
-      // .state('prints', {
-      //   url: '/prints',
-      //   controller: 'printsController',
-      //   templateUrl: './components/prints/prints.html'
-      // })
+      .state('start', {
+        url: '/start',
+        templateUrl: './app/components/start/start.html',
+        controller: 'startController'
+      })
+      .state('book-builder', {
+        url: '/book-builder',
+        controller: 'bookBuilderController',
+        templateUrl: './app/components/book-builder/book-builder.html'
+      })
+      .state('prints', {
+        url: '/prints',
+        controller: 'printsController',
+        templateUrl: './app/components/prints/prints.html'
+      })
       // .state('cart', {
       //   url: '/cart',
       //   controller: 'cartController',
-      //   templateUrl: './components/cart/cart.html'
+      //   templateUrl: './app/components/cart/cart.html'
       // })
       // .state('place-order', {
       //   url: '/place-order',
@@ -48,6 +48,11 @@
       //   url: '/confirmation',
       //   controller: 'confirmationController',
       //   templateUrl: './components/confirmation/confirmation.html'
+      // })
+      // .state('project-builder', {
+      //   url: '/project-builder',
+      //   controller: 'projectBuilderController',
+      //   templateUrl: './components/project-builder/project-builder.html'
       // })
 
     $urlRouterProvider

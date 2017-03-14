@@ -1,0 +1,72 @@
+#printsMainContainer{
+  // background: green;
+  margin-top: 100px;
+  color: black;
+  .row{
+    #printsdiv1{
+      text-align: right;
+      margin-top: 84px;
+      h4{
+        font-weight: bold;
+      }
+      p{
+        font-weight: bold;
+      }
+      #printsdiv1Select{
+        width: 170px;
+        float: right;
+        font-size: 12px;
+        font-weight: bold;
+        color: black;
+      }
+    }
+    #printsdiv2{
+      img{
+        height: 300px;
+        width: 300px;
+      }
+      button{
+        margin-top: 80px;
+        width: 300px;
+        background: grey;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 991px){
+  #printsdiv1, #printsdiv2{
+    display: none;
+  }
+}
+@media screen and (max-width: 990px){
+  #printsdiv11{
+    text-align: center;
+    button{
+      margin-top: 80px;
+      width: 300px;
+      background: grey;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    #printsdiv1Select{
+      width: 300px;
+      margin: 0 auto;
+    }
+  }
+  #printsdiv22{
+    text-align: center;
+    img{
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
+@media screen and (min-width: 991px){
+  #printsdiv22, #printsdiv11{
+    display: none;
+  }
+}
