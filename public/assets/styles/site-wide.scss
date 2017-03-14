@@ -64,6 +64,10 @@ a:hover:before {
 a.blue-link {
   color: cornflowerblue;
 }
+a.blue-link:hover {
+  cursor: pointer;
+  color: royalblue;
+}
 a.blue-link:before, a.blue-link:hover:before {
   visibility: hidden;
 }
