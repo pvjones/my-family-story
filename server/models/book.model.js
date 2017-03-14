@@ -5,7 +5,7 @@ let book = new mongoose.Schema({
 
   title: { type: String },
   title_img: {type: String},
-  date_started: { type: Date },
+  date_started: { type: Date, default: new Date() },
   user: { type: obj_id, ref: "users"},
 
 });
