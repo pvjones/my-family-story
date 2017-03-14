@@ -19,11 +19,11 @@
         controller: 'aboutController',
         templateUrl: './app/components/about/about.html'
       })
-      // .state('start', {
-      //   url: '/start',
-      //   controller: 'startController',
-      //   templateUrl: './components/start/start.html'
-      // })
+      .state('start', {
+        url: '/start',
+        // controller: 'startController',
+        templateUrl: './app/components/start/start.html'
+      })
       // .state('project-builder', {
       //   url: '/project-builder',
       //   controller: 'projectBuilderController',
