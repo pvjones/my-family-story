@@ -21,8 +21,8 @@
       })
       .state('start', {
         url: '/start',
-        controller: 'startController',
-        templateUrl: './app/components/start/start.html'
+        templateUrl: './app/components/start/start.html',
+        controller: 'startController'
       })
       .state('book-builder', {
         url: '/book-builder',
@@ -37,7 +37,7 @@
       // .state('cart', {
       //   url: '/cart',
       //   controller: 'cartController',
-      //   templateUrl: './components/cart/cart.html'
+      //   templateUrl: './app/components/cart/cart.html'
       // })
       // .state('place-order', {
       //   url: '/place-order',
@@ -48,6 +48,11 @@
       //   url: '/confirmation',
       //   controller: 'confirmationController',
       //   templateUrl: './components/confirmation/confirmation.html'
+      // })
+      // .state('project-builder', {
+      //   url: '/project-builder',
+      //   controller: 'projectBuilderController',
+      //   templateUrl: './components/project-builder/project-builder.html'
       // })
 
     $urlRouterProvider

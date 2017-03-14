@@ -1,0 +1,44 @@
+#startMainContainer{
+  margin-top: 80px;
+  p{
+    margin: 0;
+    font-size: 13px;
+  }
+  #startdiv1{
+    text-align: right;
+    margin-bottom: 40px;
+    img{
+      height: 190px;
+      width: 190px;
+    }
+
+    @media (max-width: 991px){
+      text-align: center;
+      margin: 0;
+      img{
+        margin: 0 auto;
+      }
+    }
+  }
+  .startBtnDiv{
+    text-align: center;
+    #startBtn{
+      margin-top: 20px;
+      width: 150px;
+      color: white;
+      p{
+        padding-top: 7px;
+      }
+      @media (max-width: 991px){
+        width: 190px;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px){
+  #startdiv2{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
