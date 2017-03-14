@@ -9,7 +9,7 @@
     $scope.howItWorks = [
       {
         imgUrl: '../../../assets/images/HIW1.png',
-        desc: 'Select the number & type of pages - <a class="blue-link" ui-sref="start">learn more about pages</a>'
+        desc: 'Select the number & type of pages - <a class="blue-link" href="/#!/start">learn more about pages</a>'
       },
       {
         imgUrl: '../../../assets/images/HIW2.png',
@@ -19,7 +19,7 @@
         imgUrl: '../../../assets/images/HIW3.png',
         desc: 'Make sure everything looks just right & place your order'
       }
-    ]
+    ];
 
   };
 })();
