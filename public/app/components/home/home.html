@@ -35,16 +35,14 @@
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 centered text-center">
-      placeholder
-    </div>
-    <div class="col-md-4 centered text-center">
-      placeholder
-    </div>
-    <div class="col-md-4 centered text-center">
-      placeholder
-    </div>
+  <div class="row text-center text-block">
+    <span class="title">
+      How it works
+    </span>
+  </div>
+  <div class="row how-it-works">
+    <how-it-works class="col-md-4 centered text-center" ng-repeat="elem in howItWorks" img-url="elem.imgUrl" desc="elem.desc">
+    </how-it-works>
   </div>
 </div>
 </div>

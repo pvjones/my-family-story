@@ -12,7 +12,7 @@
 
           $(window).scroll(() => {
             let winScroll = $(window).scrollTop();
-            $('.bg')
+            $(elem)
               .css('transform', `translateY(-${winScroll / 15}%)`);
 
           })
