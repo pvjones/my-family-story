@@ -69,7 +69,7 @@ gulp.task('build-html', () => {
 
 gulp.task('copy-images', () => {
   gulp.src(paths.images)
-    .pipe(imagemin())
+    // .pipe(imagemin())
     .pipe(gulp.dest('./dist/assets/images'));
 })
 

@@ -19,11 +19,11 @@
         controller: 'aboutController',
         templateUrl: './app/components/about/about.html'
       })
-      // .state('start', {
-      //   url: '/start',
-      //   controller: 'startController',
-      //   templateUrl: './app/components/start/start.html'
-      // })
+      .state('start', {
+        url: '/start',
+        templateUrl: './app/components/start/start.html',
+        controller: 'startController'
+      })
       .state('book-builder', {
         url: '/book-builder',
         controller: 'bookBuilderController',
@@ -31,14 +31,14 @@
       })
       .state('prints', {
         url: '/prints',
-        // controller: 'printsController',
+        controller: 'printsController',
         templateUrl: './app/components/prints/prints.html'
       })
-      // .state('cart', {
-      //   url: '/cart',
-      //   controller: 'cartController',
-      //   templateUrl: './components/cart/cart.html'
-      // })
+      .state('cart', {
+        url: '/cart',
+        controller: 'cartController',
+        templateUrl: './app/components/cart/cart.html'
+      })
       // .state('place-order', {
       //   url: '/place-order',
       //   controller: 'placeOrderController',
@@ -48,6 +48,11 @@
       //   url: '/confirmation',
       //   controller: 'confirmationController',
       //   templateUrl: './components/confirmation/confirmation.html'
+      // })
+      // .state('project-builder', {
+      //   url: '/project-builder',
+      //   controller: 'projectBuilderController',
+      //   templateUrl: './components/project-builder/project-builder.html'
       // })
 
     $urlRouterProvider
