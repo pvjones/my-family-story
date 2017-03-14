@@ -4,7 +4,10 @@ const obj_id = mongoose.Schema.Types.objectId;
 let order = new mongoose.Schema({
 
   books: [{ type: obj_id, ref: "books"}],
-  user: { type: obj_id, ref: "users"}
+  user: { type: obj_id, ref: "users"},
+  subtotal: {type: Number},
+  tax: {type: Number},
+  shipping: {type: Number}
 
 });
 
