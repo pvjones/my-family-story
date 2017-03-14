@@ -3,7 +3,7 @@
   angular
     .module('app')
     .config(config)
-  
+
   config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function config($stateProvider, $urlRouterProvider) {
@@ -29,11 +29,11 @@
       //   controller: 'projectBuilderController',
       //   templateUrl: './components/project-builder/project-builder.html'
       // })
-      // .state('prints', {
-      //   url: '/prints',
-      //   controller: 'printsController',
-      //   templateUrl: './components/prints/prints.html'
-      // })
+      .state('prints', {
+        url: '/prints',
+        // controller: 'printsController',
+        templateUrl: './app/components/prints/prints.html'
+      })
       // .state('cart', {
       //   url: '/cart',
       //   controller: 'cartController',
