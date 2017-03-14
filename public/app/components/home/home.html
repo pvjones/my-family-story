@@ -1,42 +1,68 @@
-<div class="bg">
+<div class="bg parallax">
 </div>
 <div class="jumbotron">
   <div class="container">
-    <h2>
-      Custom coloring books that tell your family's story
-    </h2>
-    <p>
-      <a class="btn btn-lg btn-default">Order Now</a>
-    </p>
-  </div>
-</div>
+    <div class="row">
+      <div class="col-md-5">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 centered">
-      <div class="divider">
-      </div>
-      <p class="text-center">
-        Let us tell the story of your family. Help children engage in the rich stories of where they come from with My Family Story
-        custom coloring books. They tell the story of your family, one sweet, personalized page at a time.
-      </p>
-      <div class="divider">
+        <h2>
+          Custom coloring books that tell your family's story
+        </h2>
+
+        <p>
+          <a class="btn btn-lg btn-white">Order Now</a>
+        </p>
+
       </div>
     </div>
   </div>
 </div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 centered text-center">
-      placeholder
-    </div>
-    <div class="col-md-4 centered text-center">
-      placeholder
-    </div>
-    <div class="col-md-4 centered text-center">
-      placeholder
+<div class="info-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 centered">
+        <div class="divider">
+        </div>
+        <p class="text-block text-center">
+          Let us tell the story of your family. Help children engage in the rich stories of where they come from with My Family Story
+          custom coloring books. They tell the story of your family, one sweet, personalized page at a time.
+        </p>
+        <div class="divider">
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row text-center text-block">
+      <span class="title">
+      How it works
+    </span>
+    </div>
+    <div class="row how-it-works">
+      <how-it-works class="col-md-4 centered text-center" ng-repeat="elem in howItWorks track by $index" img-url="elem.imgUrl"
+        desc="elem.desc">
+      </how-it-works>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 centered">
+        <div class="divider">
+        </div>
+        <p class="text-block text-center">
+          "The more children know about thier family's history, the stronger their sense of control over thier lives, the higher their
+          self esteem and the more successfully they believe their family's function"
+        </p>
+        <p class="text-block subtitle-block text-center">
+          Bruce Feiler, "The Family Stories That Bind Us" <br />
+          New York Times, March 15, 2013
+        </p>
+        <div class="divider">
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -1,28 +1,99 @@
+
+.btn-white {
+  color: white;
+  font-family: 'Grand Hotel', cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+}
+
+.btn-white:hover {
+  color: white;
+  background-color: rgba(255,255,255,0.15);
+}
+
 .bg {
   background: url('../assets/images/jumbotron.jpg');
+  background-size: cover;
   position: fixed;
   width: 100%;
-  height: auto;
+  height: 500px;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
 .jumbotron {
-  height: 500px;
   color: white;
+  height: 500px;
   background: transparent;
+  margin: 0px;
+  .container {
+    height: 100%;
+    display: table;
+    .row {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    h2 {
+      margin-bottom: 50px;
+      line-height: 40px;
+      font-size: 34px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .col-md-5 {
+      max-width: 50%;
+    }
+  }
+}
+
+.info-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: white;
+  height: 100%;
+  width: 100%;
 }
 
 .divider {
   margin: auto;
-  height: 3px;
-  width: 30%;
+  height: 2px;
+  width: 33%;
   background-color: black;
   border-radius: 2px;
 }
 
-.row.text-center > div {
-    display: inline-block;
-    float: none;
+.text-block {
+  font-size: 18px;
+  line-height: 30px !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 28px;
+}
+
+.subtitle-block {
+  font-size: 12px;
+  margin-top: 0px;
+  padding: 0px 200px;
+}
+
+.how-it-works {
+  padding-bottom: 50px;
+  height: 100%;
+  img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  div {
+    width: 50%;
+    margin: auto;
+  }
 }
