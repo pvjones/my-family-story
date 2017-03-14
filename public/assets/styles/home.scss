@@ -36,7 +36,7 @@
     display: table;
     .row {
       display: table-cell;
-      vertical-align: bottom;
+      vertical-align: middle;
     }
     h2 {
       margin-bottom: 50px;
@@ -53,6 +53,7 @@
 
 .info-wrapper {
   padding-top: 50px;
+  padding-bottom: 50px;
   background-color: white;
   height: 100%;
   width: 100%;
@@ -69,12 +70,22 @@
 .text-block {
   margin-top: 50px;
   margin-bottom: 50px;
+  line-height: 28px;
+}
+
+.subtitle-block {
+  font-size: 12px;
+  margin-top: 0px;
+  padding: 0px 200px;
 }
 
 .how-it-works {
+  padding-bottom: 50px;
+  height: 100%;
   img {
-    width: 50%;
+    width: 100%;
     height: auto;
+    margin: auto;
     border: 1px solid black;
     border-radius: 3px;
     margin-bottom: 10px;

@@ -9,7 +9,7 @@
     $scope.howItWorks = [
       {
         imgUrl: '../../../assets/images/HIW1.png',
-        desc: 'Select the number & type of pages <a href="start">Learn more about pages</a>'
+        desc: 'Select the number & type of pages <a ui-sref="start">Learn more about pages</a>'
       },
       {
         imgUrl: '../../../assets/images/HIW2.png',
