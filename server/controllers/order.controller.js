@@ -18,14 +18,14 @@ module.exports = {
   },
 
   updateOrder: function(req, res, next) {
-    Order.findByIdAndUpdate(req.params._id, req.body, {new: true}, function(err, order) {
+    Order.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, order) {
       if (err) return res.status(500).send(err);
       res.status(200).send(order);
     });
   },
 
   deleteOrder: function(req, res, next) {
-    Order.findByIdAndRemove(req.params._id, function(err, order) {
+    Order.findByIdAndRemove(req.params.id, function(err, order) {
       if (err) return res.status(500).send(err);
       res.status(200).send(order);
     });

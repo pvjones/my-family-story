@@ -17,14 +17,14 @@ module.exports = {
   },
 
   updateBook: function(req, res, next) {
-    Book.findByIdAndUpdate(req.params._id, req.body, {new: true}, function(err, book) {
+    Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, book) {
       if (err) return res.status(500).send(err);
       res.status(200).send(book);
     });
   },
 
   deleteBook: function(req, res, next) {
-    User.findByIdAndRemove(req.params._id, function(err, book) {
+    User.findByIdAndRemove(req.params.id, function(err, book) {
       if (err) return res.status(500).send(err);
       res.status(200).send(book);
     });

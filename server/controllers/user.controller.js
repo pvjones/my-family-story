@@ -22,7 +22,7 @@ module.exports = {
   },
 
   updateUser: function(req, res, next) {
-    User.findByIdAndUpdate(req.params._id, req.body, {new: true}, function(err, user) {
+    User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, user) {
       if (err) return res.status(500).send(err);
       res.status(200).send(user);
     });
