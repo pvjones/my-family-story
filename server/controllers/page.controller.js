@@ -18,6 +18,7 @@ module.exports = {
 
   updatePage: function(req, res, next) {
     Page.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, page) {
+      console.log(err)
       if (err) return res.status(500).send(err);
       res.status(200).send(page);
     });

@@ -24,7 +24,7 @@ module.exports = {
   },
 
   deleteBook: function(req, res, next) {
-    User.findByIdAndRemove(req.params.id, function(err, book) {
+    Book.findByIdAndRemove(req.params.id, function(err, book) {
       if (err) return res.status(500).send(err);
       res.status(200).send(book);
     });
