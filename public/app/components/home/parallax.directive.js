@@ -13,7 +13,7 @@
           $(window).scroll(() => {
             let winScroll = $(window).scrollTop();
             $(elem)
-              .css('transform', `translateY(-${winScroll / 10}%)`);
+              .css('transform', `translateY(-${winScroll / 6}%)`);
 
           })
         }
