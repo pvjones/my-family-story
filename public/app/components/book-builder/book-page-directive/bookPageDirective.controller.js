@@ -7,6 +7,8 @@
 
          $scope.selectedType = "Basic";
          $scope.selectAct = "Crossword";
+         $scope.customActivityDesc = "";
+         $scope.allowEdit = false;
 
          $scope.pageTypes = [
             {name: "Basic", value: "Basic"}, 
@@ -20,6 +22,24 @@
             {name: "Maze", value: "Maze"},
             {name: "Custom", value: "Custom"}
          ];
+
+         $scope.allowTypes = [
+            {name: "No", value: false},
+            {name: "Yes", value: true}
+         ]
+
+         $scope.createPageInfo = () => {
+           var pageInfo = {
+              //number: num,
+              text: $scope.pageText,
+              activityType: $scope.selectAct,
+              customActivity: $scope.customActivityDesc,
+              portraitUrl: "portraitUrlGoesHere",
+              editAllowed: $scope.allowEdit
+           }
+
+           console.log(pageInfo);
+         }
 
          $scope.removePage = () => {
            console.log("Page Removed")
