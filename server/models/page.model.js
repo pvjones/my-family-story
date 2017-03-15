@@ -5,9 +5,11 @@ let page = new mongoose.Schema({
 
   text: { type: String },
   activity_type: { type: String },
+  custom_activity: { type: String },
   portrait: {type: String},
   edit_allowed: { type: Boolean },
-  book: { type: obj_id, ref: "books"}
+  book: { type: obj_id, ref: "books"},
+  number: { type: Number }
 
 });
 

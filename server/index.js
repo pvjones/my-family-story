@@ -118,7 +118,7 @@ app.delete('/api/product/:id', productController.deleteProduct);
 //* USER ENDPOINTS *//
 app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
-app.get('/api/user', userController.getCurrentUser);
+app.get('/api/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
 
