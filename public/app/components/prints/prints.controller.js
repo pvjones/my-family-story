@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('printsController', printsController);
+    .controller('printsController', ['$scope', printsController]);
 
   function printsController($scope) {
 

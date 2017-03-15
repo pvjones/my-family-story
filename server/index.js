@@ -85,35 +85,41 @@ var pageController = require('./controllers/page.controller.js');
 var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
-//* OUR ENDPOINTS *//
-app.post('/api/address', addressController.createAddress);          //x
-app.get('/api/address', addressController.readAddress);             //x
-app.put('/api/address/:id', addressController.updateAddress);       //x
-app.delete('/api/address/:id', addressController.deleteAddress);    //x
+//* ADDRESS ENDPOINTS *//
+app.post('/api/address', addressController.createAddress);   
+app.get('/api/address', addressController.readAddress);  
+app.put('/api/address/:id', addressController.updateAddress);
+app.delete('/api/address/:id', addressController.deleteAddress);
 
-app.post('/api/book', bookController.createBook);       //x
-app.get('/api/book', bookController.readBook);           //x
-app.put('/api/book/:id', bookController.updateBook);    //x
-app.delete('/api/book/:id', bookController.deleteBook);   //x
+//* BOOK ENDPOINTS *//
+app.post('/api/book', bookController.createBook);
+app.get('/api/book', bookController.readBook);
+app.put('/api/book/:id', bookController.updateBook);
+app.delete('/api/book/:id', bookController.deleteBook);
 
-app.post('/api/order', orderController.createOrder);      //x
-app.get('/api/order', orderController.readOrder);            //x
-app.put('/api/order/:id', orderController.updateOrder);       //x
-app.delete('/api/order/:id', orderController.deleteOrder);    //x
+//* ORDER ENDPOINTS *//
+app.post('/api/order', orderController.createOrder);
+app.get('/api/order', orderController.readOrder);
+app.put('/api/order/:id', orderController.updateOrder);
+app.delete('/api/order/:id', orderController.deleteOrder);
 
-app.post('/api/page', pageController.createPage);         //x
-app.get('/api/page', pageController.readPage);            //x
-app.put('/api/page/:id', pageController.updatePage);      //x
-app.delete('/api/page/:id', pageController.deletePage);   //x
+//* PAGE ENDPOINTS *//
+app.post('/api/page', pageController.createPage);
+app.get('/api/page', pageController.readPage);
+app.put('/api/page/:id', pageController.updatePage);
+app.delete('/api/page/:id', pageController.deletePage);
 
-app.get('/api/product', productController.readProduct);     //x
+//* PRODUCT ENDPOINTS *//
+app.post('/api/product', productController.createProduct);
+app.get('/api/product', productController.readProduct);
+app.put('/api/product/:id', productController.updateProduct);
+app.delete('/api/product/:id', productController.deleteProduct);
 
-app.post('/api/user', userController.createUser);        //x
-app.get('/api/user', userController.readUser);           //x
-app.get('/api/user', userController.getCurrentUser);    
-app.put('/api/user/:id', userController.updateUser);     //x
-
-
+//* USER ENDPOINTS *//
+app.post('/api/user', userController.createUser);
+app.get('/api/user', userController.readUser);
+app.get('/api/user', userController.getCurrentUser);
+app.put('/api/user/:id', userController.updateUser);
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

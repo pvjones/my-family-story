@@ -2,10 +2,9 @@
 
   angular
     .module('app')
-    .filter('renderHTML', renderHTML);
+    .filter('renderHTML', ['$sce', renderHTML]);
 
   function renderHTML($sce) {
-    console.log('fired')
       return function(string) {
         return $sce.trustAsHtml(string)
       }

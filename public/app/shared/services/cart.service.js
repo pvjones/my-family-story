@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .service('CartService', CartService);
+    .service('CartService', ['$http', CartService]);
 
   function CartService($http) {
 
