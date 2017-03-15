@@ -110,7 +110,7 @@ app.get('/api/product', productController.readProduct);     //x
 
 app.post('/api/user', userController.createUser);        //x
 app.get('/api/user', userController.readUser);           //x
-app.get('/api/user', userController.getCurrentUser);    
+app.get('/api/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);     //x
 
 

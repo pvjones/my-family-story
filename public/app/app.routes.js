@@ -39,6 +39,11 @@
         controller: 'cartController',
         templateUrl: './app/components/cart/cart.html'
       })
+      .state('account', {
+        url: '/account',
+        controller: 'accountController',
+        templateUrl: './app/components/account/account.html'
+      })
       // .state('place-order', {
       //   url: '/place-order',
       //   controller: 'placeOrderController',
