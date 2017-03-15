@@ -1,4 +1,4 @@
-var Page = require('../models/page.model.js');
+const Page = require('../models/page.model.js');
 
 module.exports = {
 
