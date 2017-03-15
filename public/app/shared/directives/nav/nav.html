@@ -1,5 +1,5 @@
 <div class="container" id="nav-main-container">
-  <div class="nav-container" >
+  <div class="nav-container">
     <div class="navDiv1">
       <span class="navDiv1Item">
         <a class="underline-link" ui-sref="home">HOME</a>
@@ -22,6 +22,15 @@
       <a ui-sref="home"><img src="./assets/images/logo_nav.png" /></a>
     </div>
     <div class="navDiv3">
-      <img src="/assets/images/shopping-cart.svg" type="image/svg+xml" />
+      <a class="underline-link" ng-hide="ctrl.user" href="/api/auth">
+            Log In
+      </a>
+      <a ui-sref="cart" class="cart-icon" ng-show="ctrl.user">
+        <img src="/assets/images/shopping-cart.svg" type="image/svg+xml" />
+      </a>
+      <a class="underline-link" ng-show="ctrl.user" ng-click="ctrl.logout()">
+            Log Out
+      </a>
     </div>
   </div>
+</div>

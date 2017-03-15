@@ -1,10 +1,27 @@
-(function() {
+(function () {
 
   angular
     .module('app')
-    .controller('navController', ['$scope', navController]);
+    .controller('navController', ['AuthService', '$rootScope', '$state', navController]);
 
-  function navController($scope) {
+  function navController(AuthService, $rootScope, $state) {
+
+    let ctrl = this;
+
+    this.logout = () => {
+      AuthService.logout()
+        .then((res) => {
+          $state.go('home')
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    $rootScope.$on('user', (event, user) => {
+      console.log(user);
+      ctrl.user = user;
+    })
 
   };
 })();
