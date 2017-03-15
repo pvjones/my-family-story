@@ -6,7 +6,11 @@
   function navDirective() {
     return {
       restrict: 'E',
+      scope: true,
       templateUrl: './app/shared/directives/nav/nav.html',
+      controller: 'navController',
+      bindToController: true,
+      controllerAs: 'ctrl',
       link: (scope, elem, attr) => {
 
         $(window).scroll(() => {
@@ -21,5 +25,5 @@
         })
       }
     }
-  }
+  };
 })();

@@ -1,4 +1,4 @@
-var Address = require('../models/address.model.js');
+const Address = require('../models/address.model.js');
 
 module.exports = {
 

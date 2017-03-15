@@ -1,6 +1,6 @@
 <div id="startMainContainer" class="container-fluid container">
 
-  <div class="row" ng-repeat="page in pageTypes track by $index">
+  <div class="row" ng-repeat="page in pageTypes | orderBy:'price' track by $index">
     <div id="startdiv1" class="col-md-6">
       <img ng-src="{{page.image1}}" />
     </div>
@@ -12,6 +12,6 @@
   </div>
 
   <div class="startBtnDiv">
-    <a class="btn btn-lg btn-blue" ui-sref="book-builder">CREATE BOOK</a>
+    <a class="btn btn-lg btn-blue" ui-sref="book-builder">Start your project</a>
   </div>
 </div>
