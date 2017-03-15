@@ -4,28 +4,40 @@ module.exports = {
 
   createBook: (req, res, next) => {
     Book.create(req.body, (err, book) => {
-      if (err) console.error(err), res.status(500).send(err);
+      if (err) {
+        console.error(err);
+        return res.status(500).send(err);
+      };
       res.status(200).send(book);
     });
   },
 
   readBook: (req, res, next) => {
     Book.find(req.query, (err, book) => {
-      if (err) console.error(err), res.status(500).send(err);
+      if (err) {
+        console.error(err);
+        return res.status(500).send(err);
+      };
       res.status(200).send(book);
     });
   },
 
   updateBook: (req, res, next) => {
     Book.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, book) => {
-      if (err) console.error(err), res.status(500).send(err);
+      if (err) {
+        console.error(err);
+        return res.status(500).send(err);
+      };
       res.status(200).send(book);
     });
   },
 
   deleteBook: (req, res, next) => {
     Book.findByIdAndRemove(req.params.id, (err, book) => {
-      if (err) console.error(err), res.status(500).send(err);
+      if (err) {
+        console.error(err);
+        return res.status(500).send(err);
+      };
       res.status(200).send(book);
     });
   }
