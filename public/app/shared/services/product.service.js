@@ -11,12 +11,12 @@
         method: 'GET',
         url: `/api/product?category=${category}`
       })
-        .then((response) => { 
-          return response.data; 
+        .then((response) => {
+          return response.data;
         })
-        .catch((error) => { 
-          console.log(error); 
-          return error 
+        .catch((error) => {
+          console.log(error);
+          return error
         })
     }
 

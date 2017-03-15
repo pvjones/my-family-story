@@ -77,7 +77,7 @@ mongoose.connection.once('open', () => {
 //   done(null, userB);
 // });
 
-//* CONTROLLERS AND SERVICES *//
+//* CONTROLLERS *//
 var addressController = require('./controllers/address.controller.js');
 var bookController = require('./controllers/book.controller.js');
 var orderController = require('./controllers/order.controller.js');
@@ -86,8 +86,8 @@ var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
 //* ADDRESS ENDPOINTS *//
-app.post('/api/address', addressController.createAddress);   
-app.get('/api/address', addressController.readAddress);  
+app.post('/api/address', addressController.createAddress);
+app.get('/api/address', addressController.readAddress);
 app.put('/api/address/:id', addressController.updateAddress);
 app.delete('/api/address/:id', addressController.deleteAddress);
 
@@ -120,6 +120,7 @@ app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
 app.get('/api/user', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
+
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

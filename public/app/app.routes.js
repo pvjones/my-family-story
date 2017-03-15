@@ -38,21 +38,21 @@
         controller: 'cartController',
         templateUrl: './app/components/cart/cart.html'
       })
-    // .state('place-order', {
-    //   url: '/place-order',
-    //   controller: 'placeOrderController',
-    //   templateUrl: './components/place-order/place-order.html'
-    // })
-    // .state('confirmation', {
-    //   url: '/confirmation',
-    //   controller: 'confirmationController',
-    //   templateUrl: './components/confirmation/confirmation.html'
-    // })
-    // .state('project-builder', {
-    //   url: '/project-builder',
-    //   controller: 'projectBuilderController',
-    //   templateUrl: './components/project-builder/project-builder.html'
-    // })
+      .state('account', {
+        url: '/account',
+        controller: 'accountController',
+        templateUrl: './app/components/account/account.html'
+      })
+      // .state('place-order', {
+      //   url: '/place-order',
+      //   controller: 'placeOrderController',
+      //   templateUrl: './components/place-order/place-order.html'
+      // })
+      // .state('confirmation', {
+      //   url: '/confirmation',
+      //   controller: 'confirmationController',
+      //   templateUrl: './components/confirmation/confirmation.html'
+      // })
 
     $urlRouterProvider
       .otherwise('/home');
