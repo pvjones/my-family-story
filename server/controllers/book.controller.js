@@ -1,4 +1,4 @@
-var Book = require('../models/book.model.js');
+const Book = require('../models/book.model.js');
 
 module.exports = {
 
