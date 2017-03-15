@@ -6,7 +6,7 @@
 
   function printsController($scope, $uibModal, $log, $document) {
 
-
+    
     $scope.test = 'test';
   };
 })();
