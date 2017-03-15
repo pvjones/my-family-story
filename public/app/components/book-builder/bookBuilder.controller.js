@@ -14,7 +14,6 @@
 
          $scope.addPage = ()=>{
             $scope.pages.push($scope.pages.length + 1);
-            console.log($scope.pages);
          }
 
       };
