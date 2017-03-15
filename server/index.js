@@ -106,11 +106,14 @@ app.get('/api/page', pageController.readPage);            //x
 app.put('/api/page/:id', pageController.updatePage);      //x
 app.delete('/api/page/:id', pageController.deletePage);   //x
 
-app.get('/api/product', productController.readProduct);     //x
+app.post('/api/product', productController.createProduct);    //x
+app.get('/api/product', productController.readProduct);       //x
+app.put('/api/product/:id', productController.updateProduct);    //x
+app.delete('/api/product/:id', productController.deleteProduct); //x
 
 app.post('/api/user', userController.createUser);        //x
 app.get('/api/user', userController.readUser);           //x
-app.get('/api/user', userController.getCurrentUser);    
+app.get('/api/user', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);     //x
 
 

@@ -14,7 +14,7 @@ module.exports = {
       if (err) return res.status(500).send(err);
       res.status(200).send(product);
     });
-  }
+  },
 
   updateProduct: function(req, res, next) {
     Product.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, product) {
