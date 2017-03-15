@@ -8,14 +8,11 @@
     return {
       restrict: 'E',
       scope: {
-
+        page: '='
       },
       templateUrl: './app/components/book-builder/book-page-directive/bookPageTemplate.html',
-      bindToController: true,
       controller: 'bookPageDirectiveController',
-      controllerAs: 'pageDirCtrl',
       link: (scope, elem, attrs) => {
-
       }
     }
   };
