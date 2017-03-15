@@ -2,10 +2,9 @@
 
   angular
     .module('app')
-    .service('userService', userService);
+    .service('UserService', ['$http', UserService]);
 
-  function userService($http) {
-
+  function UserService($http) {
     this.getUser = function() {
       return $http({
         method: 'GET',

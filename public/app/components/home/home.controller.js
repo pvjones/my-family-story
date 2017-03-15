@@ -2,10 +2,10 @@
 
   angular
     .module('app')
-    .controller('homeController', homeController);
+    .controller('homeController', ['$scope', homeController]);
 
   function homeController($scope) {
-    console.log('homecontroller')
+
     $scope.howItWorks = [
       {
         imgUrl: '../../../assets/images/HIW1.png',

@@ -49,17 +49,13 @@ body {
   background-color: #6fb3db;
 }
 
-a.btn:before, a.btn:hover:before {
-  visibility: hidden;
-}
-
 a, a:hover, a:active, a:focus {
   position: relative;
   color: black;
   text-decoration: none;
 }
 
-a:before {
+a.underline-link:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -74,7 +70,7 @@ a:before {
   transition: all 0.15s ease-in-out 0s;
 }
 
-a:hover:before {
+a.underline-link:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
