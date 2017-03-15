@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('aboutController', aboutController);
+    .controller('aboutController', ['$scope', aboutController]);
 
   function aboutController($scope) {
 
