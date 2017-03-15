@@ -1,7 +1,15 @@
 <div class="main-gray-bg">
    <div class="container">
       <br>
-      <h6 class="text-center" ng-click="toggleTopUI()">Review Page Descriptions</h6>
+      <div class="row">
+         <div class="col-md-12">
+            <form>
+               <label for="bookTitleBox">Enter a Book Title</label>
+               <input class="form-control" type="text" id="bookTitleBox" ng-model="book.title">
+            </form>
+         </div>
+      </div>
+      <h6 class="text-center" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
       <div class="row" ng-if="topVis">
          <div class="flex-box">
             <div class="flexy">

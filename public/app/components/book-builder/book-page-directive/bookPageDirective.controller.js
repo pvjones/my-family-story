@@ -27,11 +27,6 @@
             {name: "No", value: false},
             {name: "Yes", value: true}
          ];
-
-         $scope.removePage = () => {
-           console.log("Page Removed")
-         }
-
       };
 
 })();
