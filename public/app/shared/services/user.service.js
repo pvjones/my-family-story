@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .service('UserService', UserService);
+    .service('UserService', ['$http', UserService]);
 
   function UserService($http) {
 

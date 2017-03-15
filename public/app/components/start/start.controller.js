@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('startController', startController);
+    .controller('startController', ['$scope', startController]);
 
   function startController($scope) {
 

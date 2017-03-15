@@ -2,34 +2,32 @@ var Page = require('../models/page.model.js');
 
 module.exports = {
 
-  createPage: function(req, res, next) {
-    Page.create(req.body, function(err, page) {
-      if(err) return res.status(500).send(err);
+  createPage: (req, res, next) => {
+    Page.create(req.body, (err, page) => {
+      if (err) console.error(err), res.status(500).send(err);
       res.status(200).send(page);
     });
   },
 
-  readPage: function(req, res, next) {
-    Page.find(req.query, function(err, page) {
-      if (err) return res.status(500).send(err);
+  readPage: (req, res, next) => {
+    Page.find(req.query, (err, page) => {
+      if (err) console.error(err), res.status(500).send(err);
       res.status(200).send(page);
     });
   },
 
-  updatePage: function(req, res, next) {
-    Page.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, page) {
-      console.log(err)
-      if (err) return res.status(500).send(err);
+  updatePage: (req, res, next) => {
+    Page.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, page) => {
+      if (err) console.error(err), res.status(500).send(err);
       res.status(200).send(page);
     });
   },
 
-  deletePage: function(req, res, next) {
-    Page.findByIdAndRemove(req.params.id, req.body, function(err, page) {
-      if (err) return res.status(500).send(err);
+  deletePage: (req, res, next) => {
+    Page.findByIdAndRemove(req.params.id, req.body, (err, page) => {
+      if (err) console.error(err), res.status(500).send(err);
       res.status(200).send(page);
     });
   }
-
 
 };

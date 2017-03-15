@@ -1,10 +1,9 @@
-(function() {
+(function () {
 
   angular
     .module('app')
-    .config(config)
-
-  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    .config(['$stateProvider', '$urlRouterProvider', config])
+    .run(['$rootScope', '$window', scrollFix]);
 
   function config($stateProvider, $urlRouterProvider) {
 
@@ -39,23 +38,30 @@
         controller: 'cartController',
         templateUrl: './app/components/cart/cart.html'
       })
-      // .state('place-order', {
-      //   url: '/place-order',
-      //   controller: 'placeOrderController',
-      //   templateUrl: './components/place-order/place-order.html'
-      // })
-      // .state('confirmation', {
-      //   url: '/confirmation',
-      //   controller: 'confirmationController',
-      //   templateUrl: './components/confirmation/confirmation.html'
-      // })
-      // .state('project-builder', {
-      //   url: '/project-builder',
-      //   controller: 'projectBuilderController',
-      //   templateUrl: './components/project-builder/project-builder.html'
-      // })
+    // .state('place-order', {
+    //   url: '/place-order',
+    //   controller: 'placeOrderController',
+    //   templateUrl: './components/place-order/place-order.html'
+    // })
+    // .state('confirmation', {
+    //   url: '/confirmation',
+    //   controller: 'confirmationController',
+    //   templateUrl: './components/confirmation/confirmation.html'
+    // })
+    // .state('project-builder', {
+    //   url: '/project-builder',
+    //   controller: 'projectBuilderController',
+    //   templateUrl: './components/project-builder/project-builder.html'
+    // })
 
     $urlRouterProvider
       .otherwise('/home');
   };
+
+  function scrollFix($rootScope, $window) {
+    $rootScope.$on('$stateChangeSuccess', function () {
+      $window.scrollTo(0, 0);
+    })
+  };
+
 })();
