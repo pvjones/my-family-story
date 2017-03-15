@@ -86,8 +86,8 @@ var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
 //* ADDRESS ENDPOINTS *//
-app.post('/api/address', addressController.createAddress);
-app.get('/api/address', addressController.readAddress); 
+app.post('/api/address', addressController.createAddress);   
+app.get('/api/address', addressController.readAddress);  
 app.put('/api/address/:id', addressController.updateAddress);
 app.delete('/api/address/:id', addressController.deleteAddress);
 
@@ -110,7 +110,10 @@ app.put('/api/page/:id', pageController.updatePage);
 app.delete('/api/page/:id', pageController.deletePage);
 
 //* PRODUCT ENDPOINTS *//
+app.post('/api/product', productController.createProduct);
 app.get('/api/product', productController.readProduct);
+app.put('/api/product/:id', productController.updateProduct);
+app.delete('/api/product/:id', productController.deleteProduct);
 
 //* USER ENDPOINTS *//
 app.post('/api/user', userController.createUser);
