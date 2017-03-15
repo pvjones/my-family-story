@@ -39,11 +39,11 @@
 .flex-box{
    display: flex;
    flex-flow: row nowrap;
-   justify-content: center;
+   justify-content: space-between;
 }
 
 .flexy{
-   flex: 0 1 25%;
+   flex: 0 1 calc(100%/3);
    padding: 20px;
    img {
       width: 100%;

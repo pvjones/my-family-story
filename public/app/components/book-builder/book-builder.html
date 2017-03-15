@@ -1,43 +1,49 @@
 <div class="main-gray-bg">
    <div class="container">
-      <h6 ng-click="toggleTopUI()">Toggle Options</h6>
-      <div class="row" ng-if="topVis">
-         <div class="row text-left">
-            <div class="col-md-12">
-               <h2>Build Your Book</h2>
-               <h4>One page at a time.</h4>
-            </div>
+      <br>
+      <div class="row">
+         <div class="col-md-12">
+            <form>
+               <label for="bookTitleBox">Coloring Book Title</label>
+               <input class="form-control" type="text" id="bookTitleBox" ng-model="book.title">
+            </form>
          </div>
-         <div class="row">
-            <div class="flex-box">
-               <div class="flexy">
-                  <img src="./../assets/images/basic-page.jpg" />
-                  <h4>BASIC PAGE</h4>
-                  <h5>One page of text and a corresponding custom drawing.</h5>
-                  <h4>$10.00</h4>
-               </div>
-               <div class="flexy">
-                  <img src="./../assets/images/activity-page.jpg" />
-                  <h4>ACTIVITY PAGE</h4>
-                  <h5>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</h5>
-                  <h4>$15.00</h4>
-               </div>
-               <div class="flexy">
-                  <img src="./../assets/images/portrait-page.jpg" />
-                  <h4>PORTRAIT PAGE</h4>
-                  <h5>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</h5>
-                  <h4>$20.00</h4>
-               </div>
+      </div>
+      <h6 class="text-center" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
+      <div class="row" ng-if="topVis">
+         <div class="flex-box">
+            <div class="flexy">
+               <img src="./../assets/images/basic-page.jpg" />
+               <h4>BASIC PAGE</h4>
+               <h5>One page of text and a corresponding custom drawing.</h5>
+               <h4>$10.00</h4>
+            </div>
+            <div class="flexy">
+               <img src="./../assets/images/activity-page.jpg" />
+               <h4>ACTIVITY PAGE</h4>
+               <h5>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</h5>
+               <h4>$15.00</h4>
+            </div>
+            <div class="flexy">
+               <img src="./../assets/images/portrait-page.jpg" />
+               <h4>PORTRAIT PAGE</h4>
+               <h5>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</h5>
+               <h4>$20.00</h4>
             </div>
          </div>
       </div>
    </div>
    <div ng-repeat="page in pages">
-      <book-page></book-page>
+      <book-page page="page"></book-page>
    </div>
    
    <div class="container">
-      <div class="row">
+      <div class="row" ng-if="pages.length === 0">
+         <div class="col-md-12 text-center">
+            <button class="btn btn-danger" ng-click="addPage()">ADD YOUR FIRST  PAGE</button>
+         </div>
+      </div>
+      <div class="row" ng-if="pages.length > 0">
          <div class="col-md-12 text-right">
             <button class="btn btn-danger" ng-click="addPage()">ADD PAGE</button>
          </div>
@@ -45,7 +51,7 @@
    </div>
    <div class="container">
       <div class="row">
-         <button class="btn btn-warning">SAVE</button><button class="btn btn-success">SUBMIT</button>
+         <button class="btn btn-warning" ng-click="createPageInfo()">SAVE</button><button class="btn btn-success">SUBMIT</button>
       </div>
    </div>
 </div>
