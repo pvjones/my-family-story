@@ -37,7 +37,6 @@
          }
 
          $scope.removePage = (num) => {
-            console.log("PageRemoved");
             $scope.pages.splice(num-1, 1);
             updatePageNums($scope.pages);
          }

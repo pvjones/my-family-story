@@ -14,19 +14,20 @@
             {name: "Basic", value: "Basic"}, 
             {name: "Activity", value: "Activity"},
             {name: "Portrait", value: "Portrait"}
-         ];
+         ]
 
          $scope.activity_types = [
             {name: "Crossword", value: "Crossword"}, 
             {name: "Connect the Dots", value: "Connect the Dots"},
             {name: "Maze", value: "Maze"},
             {name: "Custom", value: "Custom"}
-         ];
+         ]
 
          $scope.allowTypes = [
             {name: "No", value: false},
             {name: "Yes", value: true}
-         ];
-      };
-
+         ]
+      
+      
+      }
 })();
