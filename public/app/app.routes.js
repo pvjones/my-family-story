@@ -7,41 +7,80 @@
 
   function config($stateProvider, $urlRouterProvider) {
 
+    let limitUser = ($state, AuthService) => {
+      return AuthService.checkUser()
+        .then((res) => {
+          if (!res) $state.go('home');
+          return res;
+        })
+        .catch((err) => {
+          $state.go('home');
+        });
+    };
+
+    let getUser = ($state, AuthService) => {
+      return AuthService.checkUser()
+        .then((res) => {
+          return res;
+        });
+    };
+ 
     $stateProvider
       .state('home', {
         url: '/home',
         controller: 'homeController',
         templateUrl: './app/components/home/home.html',
+        resolve: {
+          user: getUser
+        }
       })
       .state('about', {
         url: '/about',
         controller: 'aboutController',
-        templateUrl: './app/components/about/about.html'
+        templateUrl: './app/components/about/about.html',
+        resolve: {
+          user: getUser
+        }
       })
       .state('start', {
         url: '/start',
         templateUrl: './app/components/start/start.html',
-        controller: 'startController'
+        controller: 'startController',
+        resolve: {
+          user: getUser
+        }
       })
       .state('book-builder', {
         url: '/book-builder',
         controller: 'bookBuilderController',
-        templateUrl: './app/components/book-builder/book-builder.html'
+        templateUrl: './app/components/book-builder/book-builder.html',
+        resolve: {
+          user: limitUser
+        }
       })
       .state('prints', {
         url: '/prints',
         controller: 'printsController',
-        templateUrl: './app/components/prints/prints.html'
+        templateUrl: './app/components/prints/prints.html',
+        resolve: {
+          user: limitUser
+        }
       })
       .state('cart', {
         url: '/cart',
         controller: 'cartController',
-        templateUrl: './app/components/cart/cart.html'
+        templateUrl: './app/components/cart/cart.html',
+        resolve: {
+          user: limitUser
+        }
       })
       .state('account', {
         url: '/account',
         controller: 'accountController',
-        templateUrl: './app/components/account/account.html'
+        templateUrl: './app/components/account/account.html',
+        resolve: {
+          user: limitUser
+        }
       })
       // .state('place-order', {
       //   url: '/place-order',

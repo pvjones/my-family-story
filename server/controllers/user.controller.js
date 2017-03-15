@@ -3,7 +3,7 @@ const User = require('../models/user.model.js');
 module.exports = {
 
   getCurrentUser: (req, res, next) => {
-    if (!req.user) res.status(401).send('current user not defined');
+    if (!req.user) { return res.status(200).send(null) };
     res.status(200).send(req.user);
   },
 
@@ -20,7 +20,6 @@ module.exports = {
       res.status(200).send(user);
     });
   },
-
 
   updateUser: (req, res, next) => {
     User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
