@@ -1,20 +1,18 @@
 <div class="container custom-page">
    <div class="row">
-      <h5>PAGE {{position}}</h5>
-      <img class="delete-box" src="./assets/images/remove.png" ng-click="removePage()">
+      <h5>PAGE {{page.number}}</h5>
+      <img class="delete-box" src="./assets/images/remove.png" id="deleter" ng-click="$parent.removePage(page.number)">
    </div>
    <div class="row main-body">
       <div class="col-md-9">
          <form>
             <div class="form-group">
                <label for="textForPage">Text for this Page</label>
-               <textarea rows="4" class="form-control" id="textForPage"></textarea>
+               <textarea rows="4" class="form-control" id="textForPage" ng-model="page.text"></textarea>
             </div>
             <div class="form-group">
                <label for="textSimple" class="tiny-text">Would you like this text edited to be simpler or more kid friendly?</label>
-               <select class="select-box" id="textSimple">
-                  <option>Yes</option>
-                  <option>No</option>
+               <select class="select-box" id="textSimple" ng-options="allow.value as allow.name for allow in allowTypes" ng-model="page.edit_allowed">
                </select>
             </div>
          </form>
@@ -27,12 +25,12 @@
             </div>
             <div class="form-group" ng-if="selectedType=='Activity'">
                <label for="typeOfActivity">Type of Activity</label>
-               <select class="select-box" id="typeOfActivity" ng-options="activity.value as activity.name for activity in activityTypes" ng-model="$parent.selectAct">
+               <select class="select-box" id="typeOfActivity" ng-options="activity.value as activity.name for activity in activity_types" ng-model="page.activity_type">
                </select>
             </div>
-            <div class="form-group" ng-if="selectedType==='Activity' && selectAct=='Custom'">
+            <div class="form-group" ng-if="selectedType==='Activity' && page.activity_type=='Custom'">
                <label for="customActivity">Custom Description</label>
-               <input type="text" class="form-control" id="customActivity">
+               <input type="text" class="form-control" id="customActivity" ng-model="page.custom_activity">
             </div>
             <div class="form-group" ng-if="selectedType==='Portrait'">
                <label for="">Upload a Photo</label>

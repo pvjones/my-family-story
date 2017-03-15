@@ -53,7 +53,7 @@ app.get('/api/auth/callback', (req, res, next) => {
 
 app.get('/api/logout', function(req, res, next) {
   req.logout();
-  return res.redirect('/')
+  res.status(200).send('logged out');
 });
 
 //* DATABASE CONTROLLERS *//
@@ -97,7 +97,7 @@ app.delete('/api/product/:id', productController.deleteProduct);
 //* USER ENDPOINTS *//
 app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
-app.get('/api/me', userController.getCurrentUser);
+app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
 //* LISTEN *//

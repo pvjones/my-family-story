@@ -3,10 +3,13 @@ const obj_id = mongoose.Schema.Types.ObjectId;
 
 let page = new mongoose.Schema({
 
+  number: {type: Number},
   text: { type: String },
   activity_type: { type: String },
+  custom_activity: { type: String },
   portrait: {type: String},
   edit_allowed: { type: Boolean },
+  number: {type: Number},
   book: { type: obj_id, ref: "books"}
 
 });
