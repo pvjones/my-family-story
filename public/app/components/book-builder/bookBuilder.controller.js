@@ -2,7 +2,7 @@
 
   angular
     .module('app')
-    .controller('bookBuilderController', bookBuilderController);
+    .controller('bookBuilderController', ['$scope', bookBuilderController]);
 
   function bookBuilderController($scope) {
 

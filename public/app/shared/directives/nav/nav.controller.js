@@ -2,11 +2,9 @@
 
   angular
     .module('app')
-    .controller('navController', navController);
+    .controller('navController', ['$scope', navController]);
 
   function navController($scope) {
-
-
 
   };
 })();
