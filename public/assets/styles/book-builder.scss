@@ -1,0 +1,52 @@
+.main-gray-bg {
+   background-color: #ddd;
+   min-height: 100vh;
+}
+
+.custom-page {
+   margin-top: 15px;
+   h5{
+      font-weight: 800;
+      padding-left: 15px;
+      margin-bottom: 0;
+   }
+   .main-body{
+      background-color: #fff;
+      padding: 20px 10px 10px 10px;
+   }
+   .tiny-text{
+      font-size: 12px;
+      width: 100%;
+   }
+   .select-box{
+      font-size: 14px;
+      font-weight: 800;
+      padding: 1px 0 0 4px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+   }
+   .delete-box{
+      position: relative;
+      float: right;
+      top: 33px;
+      right: 25px;
+      width: 10px;
+      z-index: 1;
+   }
+}
+
+.flex-box{
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+}
+
+.flexy{
+   flex: 0 1 25%;
+   padding: 20px;
+   img {
+      width: 100%;
+   }
+
+}

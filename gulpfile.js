@@ -11,12 +11,12 @@ const gulp = require('gulp')
 const cachebust = new CacheBuster();
 
 const paths = {
-  app_JS: ['./public/app/**/*.js'],
-  app_CSS: ['./public/assets/styles**/*.*css'],
-  lib_JS: ['./public/assets/lib/**/*.js'],
-  lib_CSS: ['./public/assets/lib/**/*.*css'],
-  app_HTML: ['./public/**/*.html'],
-  images: ['./public/assets/images/**/*.*']
+  app_JS: ['public/app/**/*.js'],
+  app_CSS: ['public/assets/styles**/*.*css'],
+  lib_JS: ['public/assets/lib/**/*.js'],
+  lib_CSS: ['public/assets/lib/**/*.*css'],
+  app_HTML: ['public/**/*.html'],
+  images: ['public/assets/images/**/*.*']
 };
 
 gulp.task('build-appCSS', () => {
