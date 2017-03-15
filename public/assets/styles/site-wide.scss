@@ -19,6 +19,7 @@ body {
     float: none;
 }
 
+// WHITE BUTTON
 .btn-white {
   color: white;
   font-family: 'Grand Hotel', cursive;
@@ -27,7 +28,7 @@ body {
   border: 1px solid white;
   border-radius: 5px;
   background-color: transparent;
-  transition: background-color 0.15s linear;
+  transition: background-color 0.15s linear, color 0.15s linear;
 }
 
 .btn-white:hover {
@@ -35,8 +36,10 @@ body {
   background-color: rgba(255,255,255,0.15);
 }
 
+// BlUE BUTTON
 .btn-blue, .btn-blue:focus {
   color: #6fb3db;
+  text-transform: uppercase;
   font-weight: 800;
   border: 2px solid #6fb3db;
   border-radius: 5px;
@@ -48,6 +51,39 @@ body {
   color: white;
   background-color: #6fb3db;
 }
+
+// GREEN BUTTON
+.btn-green, .btn-green:focus {
+  color: #4eb14d;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: 2px solid #4eb14d;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear, color 0.15s linear;
+}
+
+.btn-green:hover {
+  color: white;
+  background-color: #4eb14d;
+}
+
+// YELLOW BUTTON
+.btn-yellow, .btn-yellow:focus {
+  color: #F0A43B;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: 2px solid #F0A43B;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.15s linear, color 0.15s linear;
+}
+
+.btn-yellow:hover {
+  color: white;
+  background-color: #F0A43B;
+}
+
 
 a, a:hover, a:active, a:focus {
   position: relative;
