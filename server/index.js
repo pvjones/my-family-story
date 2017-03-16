@@ -85,10 +85,10 @@ app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
 
 //* PAGE ENDPOINTS *//
-app.post('/api/page', pageController.createPage);
-app.get('/api/page', pageController.readPage);
-app.put('/api/page/:id', pageController.updatePage);
-app.delete('/api/page/:id', pageController.deletePage);
+// app.post('/api/page', pageController.createPage);
+// app.get('/api/page', pageController.readPage);
+// app.put('/api/page/:id', pageController.updatePage);
+// app.delete('/api/page/:id', pageController.deletePage);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);
