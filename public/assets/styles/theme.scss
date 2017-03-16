@@ -84,8 +84,8 @@ body {
   background-color: #F0A43B;
 }
 
-
 a, a:hover, a:active, a:focus {
+  cursor: pointer;
   position: relative;
   color: black;
   text-decoration: none;
@@ -121,4 +121,3 @@ a.blue-link:hover {
 }
 a.blue-link:before, a.blue-link:hover:before {
   visibility: hidden;
-}
