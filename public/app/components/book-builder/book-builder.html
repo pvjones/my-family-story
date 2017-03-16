@@ -9,8 +9,8 @@
             </form>
          </div>
       </div>
-      <h6 class="text-center" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
-      <div class="row" ng-if="topVis">
+      <h6 bookbuilder-Dir class="text-center descrowtrigger" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
+      <div class="row descrow" ng-if="topVis" >
          <div class="flex-box">
             <div class="flexy">
                <img src="./../assets/images/basic-page.jpg" />
@@ -45,7 +45,7 @@
       </div>
       <div class="row" ng-if="pages.length > 0">
          <div class="col-md-12 text-right">
-            <button class="btn btn-danger" ng-click="addPage()">ADD PAGE</button>
+            <button class="btn btn-danger" id="addPage" ng-click="addPage()">ADD PAGE</button>
          </div>
       </div>
    </div>

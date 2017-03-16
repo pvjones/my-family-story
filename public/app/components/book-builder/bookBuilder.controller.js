@@ -15,7 +15,11 @@
          };
 
          $scope.toggleTopUI = () => {
-            $scope.topVis ? $scope.topVis = false : $scope.topVis = true;
+            $scope.topVis ? $timeout(() =>{
+              $scope.topVis = false
+            }, 200): $timeout(() => {
+              $scope.topVis = true;
+            }, 200);
          }
 
          $scope.addPage = () => {
@@ -40,7 +44,7 @@
                  $timeout(() => {
                    $scope.pages.splice(i, 1);
                    updatePageNums($scope.pages);
-                 }, 1000)
+                 }, 250)
 
 
          }
