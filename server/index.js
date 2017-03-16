@@ -65,6 +65,7 @@ var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
 var orderService = require('./services/order.service.js');
+var bookService = require('./services/book.service.js');
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -77,18 +78,20 @@ app.post('/api/book', bookController.createBook);
 app.get('/api/book', bookController.readBook);
 app.put('/api/book/:id', bookController.updateBook);
 app.delete('/api/book/:id', bookController.deleteBook);
+app.get('/api/book/user/:id', bookService.getBooksByUser);
 
 //* ORDER ENDPOINTS *//
 app.post('/api/order', orderController.createOrder);
 app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
+app.get('/api/order/:id', orderService.getOrderDetails)
 
 //* PAGE ENDPOINTS *//
-app.post('/api/page', pageController.createPage);
-app.get('/api/page', pageController.readPage);
-app.put('/api/page/:id', pageController.updatePage);
-app.delete('/api/page/:id', pageController.deletePage);
+// app.post('/api/page', pageController.createPage);
+// app.get('/api/page', pageController.readPage);
+// app.put('/api/page/:id', pageController.updatePage);
+// app.delete('/api/page/:id', pageController.deletePage);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);
@@ -102,8 +105,6 @@ app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
-//* TESTING MIDDLEWARE *//
-app.get('/api/test/:id', orderService.findOrder)
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));
