@@ -64,6 +64,8 @@ var pageController = require('./controllers/page.controller.js');
 var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
+var orderService = require('./services/order.service.js');
+
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
 app.get('/api/address', addressController.readAddress);
@@ -99,6 +101,9 @@ app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
+
+//* TESTING MIDDLEWARE *//
+app.get('/api/test/:id', orderService.findOrder)
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

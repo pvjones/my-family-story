@@ -9,7 +9,6 @@ let page = new mongoose.Schema({
   portrait: {type: String},
   edit_allowed: { type: Boolean },
   number: {type: Number},
-  book: { type: obj_id, ref: "books"}
 
 });
 
