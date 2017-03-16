@@ -56,15 +56,20 @@ app.get('/api/logout', function(req, res, next) {
   res.status(200).send('logged out');
 });
 
-//* DATABASE CONTROLLERS *//
-var addressController = require('./controllers/address.controller.js');
-var bookController = require('./controllers/book.controller.js');
-var orderController = require('./controllers/order.controller.js');
-var pageController = require('./controllers/page.controller.js');
-var productController = require('./controllers/product.controller.js');
-var userController = require('./controllers/user.controller.js');
+//* ENDPOINT CONTROLLERS *//
+const addressController = require('./controllers/address.controller');
+const bookController = require('./controllers/book.controller');
+const orderController = require('./controllers/order.controller');
+const pageController = require('./controllers/page.controller');
+const productController = require('./controllers/product.controller');
+const userController = require('./controllers/user.controller');
 
-var orderService = require('./services/order.service.js');
+//* AMAZONS3 ENDPOINT CONTROLLER *//
+const amazonS3 = require('./controllers/amazonS3.controller');
+
+//* ENDPOINT SERVICES *//
+const orderService = require('./services/order.service');
+
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -101,6 +106,9 @@ app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
+
+//* AMAZON ENDPOINTS *//
+app.post('/api/upload-photos', amazonS3.upload);
 
 //* TESTING MIDDLEWARE *//
 app.get('/api/test/:id', orderService.findOrder)
