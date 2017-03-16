@@ -2,9 +2,6 @@
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
-// APP //
-const app = require('./../index');
-
 // CONFIG //
 const config = require('./../config');
 
@@ -16,7 +13,6 @@ passport.use(new Auth0Strategy(config.AUTH_CONFIG, (accessToken, refreshToken, e
 
   User.find({ email: profile.emails[0].value }, (err, result) => {
     let user = result[0];
-
     // If DB error
     if (err) { return done(err); }
     // If user doesn't exist in DB
