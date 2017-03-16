@@ -2,13 +2,19 @@
 
   angular
     .module('app')
-    .controller('startController', ['$scope', 'ProductService', 'user', startController]);
+    .controller('startController', ['$scope', '$state', 'ProductService', 'AuthService', 'user', startController]);
 
-  function startController($scope, ProductService, user) {
-    
-    $scope.user = user;
+  function startController($scope, $state, ProductService, AuthService, user) {
 
     getProductByCategory('page');
+
+    $scope.user = user;
+    $scope.login = (stateOption) => {
+      AuthService.login(stateOption);
+    };
+    $scope.goToState = (state) => {
+      $state.go(state)
+    };
 
     function getProductByCategory(category) {
       ProductService.getProductByCategory(category)

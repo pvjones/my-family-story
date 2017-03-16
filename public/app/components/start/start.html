@@ -12,6 +12,6 @@
   </div>
  
   <div class="startBtnDiv">
-    <a class="btn btn-lg btn-blue" ng-href="{{user ? '/#!/book-builder' : '/api/auth?state=book-builder'}}">Start your project</a>
+    <a class="btn btn-lg btn-blue" ng-click="user ? goToState('book-builder') : login('book-builder')">Start your project</a>
   </div>
 </div>
