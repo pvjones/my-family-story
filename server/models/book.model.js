@@ -10,6 +10,7 @@ let book = new mongoose.Schema({
   print_qty: {type: Number},
   pages: [{
     text: { type: String },
+    page_type: { type: String, default: "Basic" },
     activity_type: { type: String },
     custom_activity: { type: String },
     image_url: {type: String},
