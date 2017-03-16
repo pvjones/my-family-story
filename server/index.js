@@ -60,7 +60,7 @@ app.get('/api/logout', function(req, res, next) {
 var addressController = require('./controllers/address.controller.js');
 var bookController = require('./controllers/book.controller.js');
 var orderController = require('./controllers/order.controller.js');
-var pageController = require('./controllers/page.controller.js');
+//var pageController = require('./controllers/page.controller.js');
 var productController = require('./controllers/product.controller.js');
 var userController = require('./controllers/user.controller.js');
 
