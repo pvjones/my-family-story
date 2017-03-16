@@ -12,7 +12,7 @@ let book = new mongoose.Schema({
     text: { type: String },
     activity_type: { type: String },
     custom_activity: { type: String },
-    portrait: {type: String},
+    image_url: {type: String},
     edit_allowed: { type: Boolean },
     page_number: {type: Number}
   }]
