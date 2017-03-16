@@ -8,9 +8,7 @@ let book = new mongoose.Schema({
   date_started: { type: Date, default: new Date() },
   user: { type: obj_id, ref: "users"},
   print_qty: {type: Number},
-  pages: [{ type: obj}]
-
-
+  //pages: something
 });
 
 module.exports = mongoose.model('Book', book);

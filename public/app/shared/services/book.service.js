@@ -6,12 +6,23 @@
 
   function bookService($http) {
 
+    this.getUserBooks = (user) => {
+      return $http.get('/api/book', user)
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+    }
+
     this.sendBookInfo = (book) => {
       return $http.post('/api/book', book)
-      .then(function(response){
-        console.log("Service response: ", response);
-        return response;
-      });
+      .then((res) => {
+        console.log("Service response: ", res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
 
   };

@@ -5,7 +5,32 @@
 
       function bookBuilderController($scope, user, bookService){
 
+        $scope.user = user;
+
+      //== Page Description Toggle ===========================================
          $scope.topVis = true;
+         $scope.toggleTopUI = () => {
+            $scope.topVis ? $scope.topVis = false : $scope.topVis = true;
+         }
+
+      //== Page Data =========================================================
+
+        // $scope.getUserBooks = () => {
+        //   bookService.getUserBooks(user._id)
+        //   .then((res) => {
+        //     console.log("getBooks response: ", res);
+        //     return res;
+        //   })
+        // }
+
+        // $scope.getUserBooks();
+
+        $scope.userBooks = [
+          {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0lVIsYHeUCG2tpADGa-DglpiNrWdNPUgC5hzr3WHoXMUbbSTsEQ", title: "A great day with grandpa"},
+          {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0lVIsYHeUCG2tpADGa-DglpiNrWdNPUgC5hzr3WHoXMUbbSTsEQ", title: "How you kids grew up in the south when we were all wondering where you went"},
+          {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0lVIsYHeUCG2tpADGa-DglpiNrWdNPUgC5hzr3WHoXMUbbSTsEQ", title: "This Is Us"}
+        ]
+
          $scope.pages = [];
          $scope.book = {
            title: "",
@@ -14,14 +39,10 @@
            pages: $scope.pages
          };
 
-         $scope.toggleTopUI = () => {
-            $scope.topVis ? $scope.topVis = false : $scope.topVis = true;
-         }
-
          $scope.addPage = () => {
             $scope.pages.push(
               {
-                number: $scope.pages.length + 1,
+                page_number: $scope.pages.length + 1,
                 text: "",
                 activity_type: "",
                 custom_activity: "",
@@ -31,9 +52,9 @@
               console.log($scope.pages);
          }
 
-         var updatePageNums = (arr) => {
+         let updatePageNums = (arr) => {
            for(var i=0; i<arr.length; i++){
-             arr[i].number = i+1;
+             arr[i].page_number = i+1;
            }
          }
 
@@ -45,10 +66,14 @@
          $scope.sendProjectInfo = () => {
            console.log($scope.book);
             bookService.sendBookInfo($scope.book)
-            .then(function(response){
-              console.log("Controller response: ", response);
-              return response;
+            .then((res) => {
+              console.log("Controller response: ", res);
+              return res;
             })
+         }
+
+         $scope.createNewBook = () => {
+           console.log("Let's make a new book");
          }
       };
 
