@@ -10,8 +10,8 @@
       <h3>{{page.price | currency}}</h3>
     </div>
   </div>
-
+ 
   <div class="startBtnDiv">
-    <a class="btn btn-lg btn-blue" ui-sref="book-builder">Start your project</a>
+    <a class="btn btn-lg btn-blue" ng-click="user ? goToState('book-builder') : login('book-builder')">Start your project</a>
   </div>
 </div>
