@@ -2,9 +2,11 @@
 
   angular
     .module('app')
-    .controller('startController', ['$scope', 'ProductService', startController]);
+    .controller('startController', ['$scope', 'ProductService', 'user', startController]);
 
-  function startController($scope, ProductService) {
+  function startController($scope, ProductService, user) {
+    
+    $scope.user = user;
 
     getProductByCategory('page');
 
