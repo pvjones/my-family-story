@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$timeout', bookBuilderController]);
 
-      function bookBuilderController($scope, bookService){
+      function bookBuilderController($scope, $timeout, bookService){
 
          $scope.topVis = true;
          $scope.pages = [];
@@ -36,9 +36,13 @@
            }
          }
 
-         $scope.removePage = (num) => {
-            $scope.pages.splice(num-1, 1);
-            updatePageNums($scope.pages);
+         $scope.removePage = (i) => {
+                 $timeout(() => {
+                   $scope.pages.splice(i, 1);
+                   updatePageNums($scope.pages);
+                 }, 1000)
+
+
          }
 
          $scope.sendProjectInfo = () => {

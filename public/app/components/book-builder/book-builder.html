@@ -33,10 +33,10 @@
          </div>
       </div>
    </div>
-   <div ng-repeat="page in pages">
-      <book-page page="page"></book-page>
+   <div ng-repeat="page in pages track by $index">
+      <book-page page="page" index="$index"></book-page>
    </div>
-   
+
    <div class="container">
       <div class="row" ng-if="pages.length === 0">
          <div class="col-md-12 text-center">

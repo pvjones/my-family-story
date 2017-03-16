@@ -29,10 +29,31 @@
       height: 100%;
       float: left;
       text-align: center;
-      img{
+      svg{
         height: 98%;
         width: auto;
+        path{
+          fill: none;
+          stroke: black;
+          stroke-width: 100px;
+          stroke-dasharray: 181000;
+          stroke-dashoffset: 181000;
+          animation: 8s logo 1 forwards 0.5s;
+        }
       }
+      @keyframes logo {
+  0%{
+    stroke-dashoffset: 181000;
+  }
+  40%{
+    stroke-dashoffset: 0;
+  }
+
+  100%{
+      fill: black;
+      stroke-width: 0;
+  }
+}
     }
     .navDiv3{
       width: calc(100%/3);
