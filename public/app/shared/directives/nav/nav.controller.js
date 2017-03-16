@@ -8,18 +8,10 @@
 
     let ctrl = this;
 
-    this.logout = () => {
-      AuthService.logout()
-        .then((res) => {
-          $state.go('home')
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+    this.login = AuthService.login;
+    this.logout = AuthService.logout;
 
     $rootScope.$on('user', (event, user) => {
-      console.log(user);
       ctrl.user = user;
     })
 
