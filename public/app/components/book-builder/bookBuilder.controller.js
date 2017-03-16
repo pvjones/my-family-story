@@ -28,6 +28,7 @@
                 portrait: "",
                 edit_allowed: false
               });
+              console.log($scope.pages);
          }
 
          var updatePageNums = (arr) => {
