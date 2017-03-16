@@ -1,7 +1,7 @@
-<div class="container custom-page">
+<div class="container custom-page {{'con' + index}} pageinitial">
    <div class="row">
       <h5>PAGE {{page.number}}</h5>
-      <img class="delete-box" src="./assets/images/remove.png" id="deleter" ng-click="$parent.removePage(page.number)">
+      <img class="delete-box {{'page' + index}}" src="./assets/images/remove.png" id="deleter"  ng-click="$parent.removePage(index)">
    </div>
    <div class="row main-body">
       <div class="col-md-9">

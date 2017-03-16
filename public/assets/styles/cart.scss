@@ -76,7 +76,6 @@
     width: 150px;
     height: 100%;
     font-size: 20px;
-    color: white;
   }
 }
 @media only(max-width: 991px){
@@ -136,6 +135,13 @@
           font-size: 15px;
         }
       }
+      @media only(max-width: 366px){
+        div{
+          p{
+            font-size: 12px;
+          }
+        }
+      }
     }
     div:nth-child(2){
       float: left;
@@ -149,6 +155,13 @@
           font-size: 15px;
         }
       }
+      @media only(max-width: 366px){
+        div{
+          p{
+            font-size: 12px;
+          }
+        }
+      }
     }
     div:last-child{
       text-align: right;
@@ -160,6 +173,13 @@
         text-align: right;
         p{
           font-size: 15px;
+        }
+      }
+      @media only(max-width: 366px){
+        div{
+          p{
+            font-size: 12px;
+          }
         }
       }
     }
