@@ -6,9 +6,10 @@
 
   function bookService($http) {
 
-    this.sendBookInfo = () => {
-      return $http.post('/api/book')
+    this.sendBookInfo = (book) => {
+      return $http.post('/api/book', book)
       .then(function(response){
+        console.log("Service response: ", response);
         return response;
       });
     }

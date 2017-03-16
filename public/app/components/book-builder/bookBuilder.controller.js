@@ -1,17 +1,17 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', 'user', 'bookService', bookBuilderController]);
 
-      function bookBuilderController($scope, bookService){
+      function bookBuilderController($scope, user, bookService){
 
          $scope.topVis = true;
          $scope.pages = [];
          $scope.book = {
            title: "",
            title_img: "",
-           date_started: "",
-           user: ""
+           user: user._id,
+           pages: $scope.pages
          };
 
          $scope.toggleTopUI = () => {
@@ -42,12 +42,10 @@
          }
 
          $scope.sendProjectInfo = () => {
+           console.log($scope.book);
             bookService.sendBookInfo($scope.book)
             .then(function(response){
-              return response;
-            })
-            pageService.sendPageInfo($scope.pages)
-            .then(function(response){
+              console.log("Controller response: ", response);
               return response;
             })
          }
