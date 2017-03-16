@@ -1,11 +1,12 @@
 const AWS = require('aws-sdk')
-  , awsConfig = require('./../../awsConfig')
-  , myBucket = awsConfig.bucket;
+  , config = require('./../config')
+  , AWS_CONFIG = config.AWS_CONFIG
+  , myBucket = AWS_CONFIG.bucket;
 
 AWS.config.update({
-    accessKeyId: awsConfig.accessKey,
-    secretAccessKey: awsConfig.secretKey,
-    region: awsConfig.region
+    accessKeyId: AWS_CONFIG.accessKey,
+    secretAccessKey: AWS_CONFIG.secretKey,
+    region: AWS_CONFIG.region
 });
 
 const s3 = new AWS.S3();
@@ -13,7 +14,9 @@ const s3 = new AWS.S3();
 let bucketParams = {
     Bucket: myBucket
 };
+
 s3.createBucket(bucketParams);
+
 const s3Bucket = new AWS.S3({
     params: {
         Bucket: myBucket
