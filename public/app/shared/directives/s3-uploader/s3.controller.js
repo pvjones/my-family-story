@@ -8,11 +8,19 @@
 
     let ctrl = this;
 
+    ctrl.buttonText = "Upload Photo"
+
     ctrl.submitPhoto = (photo) => {
       S3Service.uploadPhoto(photo)
         .then((res) => {
-          ctrl.link = res;
-          console.log(ctrl.link)
+          ctrl.inputText = ctrl.successText;
+          ctrl.s3Url = res;
+          // $('.photo-upload').addClass('upload-success')
+          // $('#photo-upload-label').stop().css('opacity', '0').html(function (_, oldText) {
+          //   return oldText == 'Goodbye' ? "hello" : "Goodbye"
+          // }).animate({
+          //   opacity: 1
+          // }, 2000);
         })
         .catch((err) => {
           console.log(err)
@@ -67,5 +75,7 @@
       }
       reader.readAsDataURL(photoToResize)
     }
+
   };
+
 })();
