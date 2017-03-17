@@ -9,25 +9,20 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3();
-
 s3.createBucket({ Bucket: AWS_CONFIG.bucket });
 
-const s3Bucket = new AWS.S3({
-  params: {
-    Bucket: AWS_CONFIG.bucket
-  }
-});
-
 function uploadImage(imageName, imageBody, imageType) {
+
   let params = {
     Key: imageName,
     Body: imageBody,
     ContentType: 'image/' + imageType,
     ACL: 'public-read'
   };
-  s3Bucket.putObject(params, function (err, data) {
+
+  s3.putObject(params, (err, result) => {
     if (err) {
-      console.log('Error uploading data: ', data);
+      console.error(err);
     } else {
       console.log('Succesfully uploaded the image!');
     }
@@ -48,15 +43,12 @@ module.exports = {
   upload: (req, res, next) => {
 
     let image = req.body;
-
     let buffer = new Buffer(image.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-
     let imageName = `${makeUniqueKey()}.${image.imageExtension}`;
 
     uploadImage(imageName, buffer, image.imageExtension);
 
     let link = `https://s3-us-west-1.amazonaws.com/${AWS_CONFIG.bucket}/${imageName}`;
-
     res.status(200).send(link);
   }
 
