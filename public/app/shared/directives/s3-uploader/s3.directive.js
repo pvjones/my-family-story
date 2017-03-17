@@ -2,33 +2,34 @@
 
   angular
     .module('app')
-    .directive('s3file', s3file);
+    .directive('s3Uploader', s3Uploader);
 
-  function s3file() {
+  function s3Uploader() {
 
     return {
-      restrict: 'A',
+      restrict: 'E',
       scope: true,
+      templateUrl: './app/shared/directives/s3-uploader/s3-uploader.html',
       controller: 's3Controller',
       bindToController: true,
       controllerAs: 'ctrl',
       link: (scope, elem, attrs, ctrl) => {
 
-        elem.on('change', (onChangeEvent) => {
+        let maxWidth = parseInt(attrs.maxWidth)
+          , maxHeight = parseInt(attrs.maxHeight);
+
+        let input = angular.element(elem[0].querySelector('[s3-input]'));
+        input.on('change', (onChangeEvent) => {
 
           let reader = new FileReader();
           reader.onload = (onLoadEvent) => {
-            
+
             let imageData = onLoadEvent.target.result;
             let imageExtension = imageData.split(';')[0].split('/')
+
             imageExtension = imageExtension[imageExtension.length - 1];
-            
-            let newImage = {
-              //other properties can be added and passed to the server
-              imageBody: imageData,
-              imageExtension: imageExtension
-            }
-            ctrl.submitPhoto(newImage)
+
+            ctrl.resizer(onChangeEvent.target.files[0], imageExtension, maxWidth, maxHeight);
           };
           reader.readAsDataURL(onChangeEvent.target.files[0]);
         }

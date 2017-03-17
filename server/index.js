@@ -63,7 +63,7 @@ app.get('/api/logout', function(req, res, next) {
 });
 
 //* AMAZONS3 ENDPOINT CONTROLLER *//
-const amazonS3 = require('./controllers/amazonS3.controller');
+const s3 = require('./controllers/s3.controller');
 
 //* ENDPOINT CONTROLLERS *//
 const addressController = require('./controllers/address.controller');
@@ -116,7 +116,7 @@ app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
 //* AMAZON ENDPOINTS *//
-app.post('/api/upload-photos', amazonS3.sendImageData);
+app.post('/api/upload-photos', s3.sendImageData);
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

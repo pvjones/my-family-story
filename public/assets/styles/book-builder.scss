@@ -126,6 +126,10 @@
    }
 }
 
+.descrowtrigger{
+  cursor: pointer;
+}
+
 .descrow{
   height: 490px;
   overflow: hidden;
@@ -133,7 +137,4 @@
 }
 .descrow.trigger{
   height: 0px;
-}
-.descrow.triggersetup{
-  height: 0;
 }
