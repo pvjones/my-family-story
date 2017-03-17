@@ -9,7 +9,7 @@ let address = new mongoose.Schema({
   state: {type: String},
   zip: { type: String },
   country: { type: String },
-  user: { type: obj_id, ref: "users" }
+  user: { type: obj_id, ref: "User" }
 
 });
 

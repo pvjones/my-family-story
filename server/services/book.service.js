@@ -3,6 +3,7 @@ const User = require('../models/user.model.js');
 
 
 module.exports = {
+
   getBooksByUser: (req, res, next) => {
     Book
       .find({user: req.params.id})
@@ -10,9 +11,8 @@ module.exports = {
         if (err) {
           return res.status(500).send(err);
         }
-        console.log(books);
-
         return res.status(200).send(books);
     })
   }
+
 };
