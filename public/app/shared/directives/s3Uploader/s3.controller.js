@@ -7,9 +7,8 @@
   function s3Controller(S3Service) {
 
     let ctrl = this;
-    
-      ctrl.submitPhoto = (photo) => {
 
+    ctrl.submitPhoto = (photo) => {
       S3Service.uploadPhoto(photo)
         .then((res) => {
           ctrl.link = res;

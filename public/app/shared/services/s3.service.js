@@ -12,16 +12,13 @@
 
       return $http.post('/api/upload-photos', photo)
         .then((res) => {
-          console.log(res.data)
           return res.data;
         })
         .catch((err) => {
           console.log(err);
           return err;
         });
-
-    }
+    };
 
   };
-
 })();
