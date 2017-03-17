@@ -116,7 +116,7 @@ app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
 //* AMAZON ENDPOINTS *//
-app.post('/api/upload-photos', amazonS3.upload);
+app.post('/api/upload-photos', amazonS3.sendImageData);
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

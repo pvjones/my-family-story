@@ -8,48 +8,56 @@ AWS.config.update({
   region: AWS_CONFIG.region
 });
 
-const s3 = new AWS.S3();
-s3.createBucket({ Bucket: AWS_CONFIG.bucket });
+// REDUNDANT?
+// const s3 = new AWS.S3();
+// s3.createBucket({ Bucket: AWS_CONFIG.bucket });
 
-function uploadImage(imageName, imageBody, imageType) {
-
-  let params = {
-    Key: imageName,
-    Body: imageBody,
-    ContentType: 'image/' + imageType,
-    ACL: 'public-read'
-  };
-
-  s3.putObject(params, (err, result) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('Succesfully uploaded the image!');
-    }
-  });
-};
-
-function makeUniqueKey() {
-  let key = '';
-  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let i = 0; i < 8; i++) {
-    key += possible.charAt(Math.floor(Math.random() * possible.length));
+const s3Bucket = new AWS.S3({
+  params: {
+    Bucket: AWS_CONFIG.bucket
   }
-  return key;
-};
+});
 
 module.exports = {
 
-  upload: (req, res, next) => {
+  sendImageData: (req, res, next) => {
 
-    let image = req.body;
-    let buffer = new Buffer(image.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-    let imageName = `${makeUniqueKey()}.${image.imageExtension}`;
+    if (!req.body.imageBody) {
+      return res.status(400).send("file not present");
+    };
 
-    uploadImage(imageName, buffer, image.imageExtension);
+    let imageBody = req.body.imageBody
+      , imageExtension = req.body.imageExtension
+      , imageName = `${makeUniqueKey(8)}.${imageExtension}`
+      , s3link = `https://s3-us-west-1.amazonaws.com/${AWS_CONFIG.bucket}/${imageName}`;
+    
+    let buffer = new Buffer(imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
-    let link = `https://s3-us-west-1.amazonaws.com/${AWS_CONFIG.bucket}/${imageName}`;
-    res.status(200).send(link);
+    let params = {
+      Key: imageName,
+      Body: buffer,
+      ContentType: 'image/' + imageExtension,
+      ACL: 'public-read'
+    };
+
+    s3Bucket.putObject(params, (err, result) => {
+      if (err) {
+        console.error(err);
+        return res.status(400).send(err);
+      } else {
+        console.log('Succesfully uploaded the image!');
+        res.status(200).send(s3link)
+      }
+    });
   }
 
+};
+
+function makeUniqueKey(digits) {
+  let key = '';
+  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < digits; i++) {
+    key += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return key;
 };
