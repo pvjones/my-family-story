@@ -1,7 +1,6 @@
 const AWS = require('aws-sdk')
-  , config = require('./../config')
-  , AWS_CONFIG = config.AWS_CONFIG
-  , myBucket = AWS_CONFIG.bucket;
+    , config = require('./../config')
+    , AWS_CONFIG = config.AWS_CONFIG;
 
 AWS.config.update({
     accessKeyId: AWS_CONFIG.accessKey,
@@ -11,15 +10,11 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-let bucketParams = {
-    Bucket: myBucket
-};
-
-s3.createBucket(bucketParams);
+s3.createBucket({ Bucket: AWS_CONFIG.bucket });
 
 const s3Bucket = new AWS.S3({
     params: {
-        Bucket: myBucket
+        Bucket: AWS_CONFIG.bucket
     }
 });
 
@@ -30,40 +25,39 @@ function uploadImage(imageName, imageBody, imageType) {
         ContentType: 'image/' + imageType,
         ACL: 'public-read'
     };
-    s3Bucket.putObject(params, function(err, data) {
+    s3Bucket.putObject(params, function (err, data) {
         if (err) {
             console.log('Error uploading data: ', data);
         } else {
             console.log('Succesfully uploaded the image!');
         }
     });
-}
+};
 
-function makeUniqueString() {
-    let text = '';
+function makeUniqueKey() {
+    let key = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < 8; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+        key += possible.charAt(Math.floor(Math.random() * possible.length));
     }
-    return text;
-}
+    return key;
+};
 
 module.exports = {
-    upload(req, res) {
-        let linkArray = [];
-        let linkPrefix = 'https://s3-us-west-2.amazonaws.com/fox-briar-properties/';
-        let photoArray = req.body;
 
-        for (let i = 0; i < photoArray.length; i++) {
-            let buffer = new Buffer(photoArray[i].imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-            let imageName = photoArray[i].imageName + makeUniqueString() + '.' + photoArray[i].imageExtension;
+    upload: (req, res, next) => {
 
-            uploadImage(imageName, buffer, photoArray[i].imageExtension);
+        let photo = req.body;
 
-            let linkName = linkPrefix + imageName;
-            linkArray.push(linkName);
-        }
+        let buffer = new Buffer(photo.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
-        res.status(200).json(linkArray);
+        let imageName = `${makeUniqueKey()}.${photo.imageExtension}`;
+
+        uploadImage(imageName, buffer, photo.imageExtension);
+
+        let link = `https://s3-us-west-1.amazonaws.com/${AWS_CONFIG.bucket}/${imageName}`;
+
+        res.status(200).send(link);
     }
-}
+
+};

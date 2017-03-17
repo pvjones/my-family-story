@@ -13,9 +13,8 @@ module.exports = {
           return res.status(500).send(err);
         }
         console.log(order);
-
         return res.status(200).send(order);
-      )
+    
     })
   }
 };

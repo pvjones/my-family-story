@@ -9,37 +9,63 @@
     return {
       restrict: 'A',
       scope: {
-        files: '='
+        photo: '='
       },
-      link: (scope, el, attrs) => {
+      link: (scope, elem, attrs) => {
 
-        el.bind('change', (event) => {
-          var photoArray = [];
-          var files = event.target.files;
+        elem.on('change', (onChangeEvent) => {
 
-          for (var i = 0; i < files.length; i++) {
-            var reader = new FileReader();
+          let reader = new FileReader();
 
-            reader.onload = (loadEvent) => {
-              var imageData = loadEvent.target.result;
-              var imageExtension = imageData.split(';')[0].split('/')
-              imageExtension = imageExtension[imageExtension.length - 1];
-              // var fileName = files[i].name;
-              var newImage = {
-                imageName: 'fileName',
-                imageBody: imageData,
-                imageExtension: imageExtension
-              }
+          reader.onload = (onLoadEvent) => {
+            let imageData = onLoadEvent.target.result;
+            let imageExtension = imageData.split(';')[0].split('/')
+            imageExtension = imageExtension[imageExtension.length - 1];
+            // var fileName = files[i].name;
+            let newImage = {
+              imageName: 'fileName',
+              imageBody: imageData,
+              imageExtension: imageExtension
+            }
 
-              photoArray.push(newImage);
-              scope.files = photoArray;
-              scope.$parent.files = photoArray;
-              scope.$apply();
-            };
+            scope.$parent.photo = newImage;
+            scope.$apply();
+          };
 
-            reader.readAsDataURL(files[i]);
-          }
-        });
+          reader.readAsDataURL(onChangeEvent.target.files[0]);
+        }
+
+        );
+
+
+        // el.bind('change', (event) => {
+        //   var photoArray = [];
+        //   var photo = event.target.files;
+        //   console.log(photo)
+
+        //   for (var i = 0; i < photo.length; i++) {
+        //     var reader = new FileReader();
+
+        //     reader.onload = (loadEvent) => {
+        //       var imageData = loadEvent.target.result;
+        //       var imageExtension = imageData.split(';')[0].split('/')
+        //       imageExtension = imageExtension[imageExtension.length - 1];
+        //       // var fileName = files[i].name;
+        //       var newImage = {
+        //         imageName: 'fileName',
+        //         imageBody: imageData,
+        //         imageExtension: imageExtension
+        //       }
+
+        //       photoArray.push(newImage);
+        //       scope.photo = photoArray;
+        //       scope.$parent.photo = photoArray;
+        //       scope.$apply();
+        //     };
+
+        //     reader.readAsDataURL(photo[i]);
+        //   }
+        // });
       }
     };
 

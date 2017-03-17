@@ -6,26 +6,20 @@
 
   function S3Service($http, $q) {
 
-    this.uploadPhotos = function (propertyName, photos) {
-      photos = preparePhotos(propertyName, photos);
-      photos = angular.toJson(photos);
-      return $http.post('/api/upload-photos', photos)
-        .then(function (res) {
+    this.uploadPhoto = function (photo) {
+    
+      photo = angular.toJson(photo);
+
+      return $http.post('/api/upload-photos', photo)
+        .then((res) => {
+          console.log(res.data)
           return res.data;
-        }, function (err) {
+        })
+        .catch((err) => {
           console.log(err);
           return err;
         });
 
-      /******************** PREPARE PHOTOS ********************/
-      function preparePhotos(name, photos) {
-        var propertyName = name.replace(/ /g, '');
-        for (var i = 0; i < photos.length; i++) {
-          photos[i].imageName = propertyName + i;
-        }
-        return photos;
-      }
-      
     }
 
   };

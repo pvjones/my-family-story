@@ -14,7 +14,13 @@ const app = module.exports = express();
 app.use(express.static(__dirname + './../dist'));
 
 //* BODYPARSER *//
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit: '50mb'
+}));
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true
+}));
 
 //* DATABASE CONNECTION *//
 const mongoURI = config.MONGO_URI;
