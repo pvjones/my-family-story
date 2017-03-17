@@ -9,6 +9,7 @@
         $scope.pages = [];
         $scope.currentBook = {};
 
+
         $scope.getUserBooks = () => {
           bookService.getUserBooks(user._id)
           .then((res) => {
@@ -17,6 +18,7 @@
           })
         }
         $scope.getUserBooks();
+
 
         $scope.getBookPages = (book) => {
           if($scope.currentBook != book){
@@ -53,7 +55,7 @@
         $scope.addNewPage = () => {
           $scope.pages.push(
             {
-              text: "", 
+              text: "",
               page_type: "Basic",
               activity_type: "",
               custom_activity: "",

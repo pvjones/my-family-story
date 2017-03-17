@@ -35,6 +35,10 @@
           $('.hamDropdownContainer').removeClass('hamDropdownAnime');
           $('.navBurger').removeClass('ham-anime');
         })
+        $(window).resize(function(){
+          $('.hamDropdownContainer').removeClass('hamDropdownAnime');
+          $('.navBurger').removeClass('ham-anime');
+        })
       }
     }
   };
