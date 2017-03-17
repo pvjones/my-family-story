@@ -17,7 +17,6 @@ let book = new mongoose.Schema({
     edit_allowed: { type: Boolean },
     page_number: {type: Number}
   }]
-
 });
 
 module.exports = mongoose.model('Book', book);
