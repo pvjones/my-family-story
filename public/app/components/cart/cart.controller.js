@@ -5,7 +5,7 @@
   .controller('cartController', ['$scope', 'cartService', cartController]);
 
 
-  function cartController($scope) {
+  function cartController($scope, cartService) {
 
     cartService.getOrderDetails('58cb1b92134e39dd0e8c27bc')
     .then((response) => {
