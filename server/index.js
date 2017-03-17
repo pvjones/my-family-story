@@ -14,7 +14,13 @@ const app = module.exports = express();
 app.use(express.static(__dirname + './../dist'));
 
 //* BODYPARSER *//
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit: '50mb'
+}));
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true
+}));
 
 //* DATABASE CONNECTION *//
 const mongoURI = config.MONGO_URI;
@@ -56,16 +62,20 @@ app.get('/api/logout', function(req, res, next) {
   res.status(200).send('logged out');
 });
 
-//* DATABASE CONTROLLERS *//
-var addressController = require('./controllers/address.controller.js');
-var bookController = require('./controllers/book.controller.js');
-var orderController = require('./controllers/order.controller.js');
-var pageController = require('./controllers/page.controller.js');
-var productController = require('./controllers/product.controller.js');
-var userController = require('./controllers/user.controller.js');
+//* AMAZONS3 ENDPOINT CONTROLLER *//
+const amazonS3 = require('./controllers/amazonS3.controller');
 
-var orderService = require('./services/order.service.js');
-var bookService = require('./services/book.service.js');
+//* ENDPOINT CONTROLLERS *//
+const addressController = require('./controllers/address.controller');
+const bookController = require('./controllers/book.controller');
+const orderController = require('./controllers/order.controller');
+//const pageController = require('./controllers/page.controller');
+const productController = require('./controllers/product.controller');
+const userController = require('./controllers/user.controller');
+
+//* ENDPOINT SERVICES *//
+const bookService = require('./services/book.service');
+const orderService = require('./services/order.service');
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -105,6 +115,8 @@ app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
 
+//* AMAZON ENDPOINTS *//
+app.post('/api/upload-photos', amazonS3.sendImageData);
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));

@@ -11,23 +11,15 @@
                </div>
                <div class="separator"></div>
                <div ng-repeat="book in userBooks">
-                  <div class="project previous" bg-img="{{book.image}}">
+                  <div class="project previous" bg-img="{{book.title_image}}">
                      <h5 class="centered">{{book.title}}</h5>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <div class="row">
-         <div class="col-md-12">
-            <form>
-               <label for="bookTitleBox">Coloring Book Title</label>
-               <input class="form-control" type="text" id="bookTitleBox" ng-model="book.title">
-            </form>
-         </div>
-      </div>
-      <h6 class="text-center" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
-      <div class="row" ng-if="topVis">
+      <h6 bookbuilder-Dir class="text-center descrowtrigger" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
+      <div class="row descrow" ng-if="topVis" >
          <div class="flex-box">
             <div class="flexy">
                <img src="./../assets/images/basic-page.jpg" />
@@ -50,10 +42,10 @@
          </div>
       </div>
    </div>
-   <div ng-repeat="page in pages">
-      <book-page page="page"></book-page>
+   <div ng-repeat="page in pages track by $index">
+      <book-page page="page" index="$index"></book-page>
    </div>
-   
+
    <div class="container">
       <div class="row" ng-if="pages.length === 0">
          <div class="col-md-12 text-center">
@@ -62,7 +54,7 @@
       </div>
       <div class="row" ng-if="pages.length > 0">
          <div class="col-md-12 text-right">
-            <button class="btn btn-danger" ng-click="addPage()">ADD PAGE</button>
+            <button class="btn btn-danger" id="addPage" ng-click="addPage()">ADD PAGE</button>
          </div>
       </div>
    </div>

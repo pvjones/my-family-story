@@ -2,9 +2,9 @@
 
   angular
     .module('app')
-    .controller('cartController', ['$scope', cartController]);
+    .controller('cartController', ['$scope', 'cartService', cartController]);
 
-  function cartController($scope) {
+  function cartController($scope, cartService) {
 
     $scope.test = [
   		{"title": "Pauls Coloring Book", "basic": 2, "activity": 1, "protrait": 0, "price": 250},

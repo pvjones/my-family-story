@@ -9,8 +9,8 @@
     this.getUserBooks = (user) => {
       return $http.get('/api/book', user)
       .then((res) => {
-        console.log(res);
-        return res;
+        var parsed = res.data;
+        return parsed;
       })
     }
 

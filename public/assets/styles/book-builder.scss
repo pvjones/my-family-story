@@ -39,8 +39,31 @@
    }
 }
 
+.page-anime{
+  animation: 0.2s pageanime 1 forwards;
+}
+
+@keyframes pageanime{
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  50%{
+    transform: scale(1.03333);
+
+
+  }
+  100%{
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
 .custom-page {
    margin-top: 15px;
+  //  transform: scale(0.2);
+  //  transition: all ease-in-out 0.4s;
+
    h5{
       font-weight: 800;
       padding-left: 15px;
@@ -71,6 +94,23 @@
       z-index: 1;
    }
 }
+.pageinitial{
+  animation: 0.2s pageinitial 1 forwards;
+}
+@keyframes pageinitial{
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(1.03333);
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 .flex-box{
    display: flex;
@@ -84,5 +124,16 @@
    img {
       width: 100%;
    }
+}
 
+.descrow{
+  height: 490px;
+  overflow: hidden;
+  transition: height 800ms ease-in-out;
+}
+.descrow.trigger{
+  height: 0px;
+}
+.descrow.triggersetup{
+  height: 0;
 }
