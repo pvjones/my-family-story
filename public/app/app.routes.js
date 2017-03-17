@@ -82,6 +82,11 @@
           user: limitUser
         }
       })
+      .state('sandbox', {
+        url: '/sandbox',
+        controller: 'sandboxController',
+        templateUrl: './app/components/sandbox/sandbox.html'
+      })
       // .state('place-order', {
       //   url: '/place-order',
       //   controller: 'placeOrderController',
