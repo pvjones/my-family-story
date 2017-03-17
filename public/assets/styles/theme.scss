@@ -148,7 +148,7 @@ a.blue-link:before, a.blue-link:hover:before {
   cursor: pointer;
   border: 2px solid #6fb3db;
   border-radius: 5px;
-  transition: .15s ease-in-out; 
+  transition: all .15s linear;
 }
 
 .s3-input + label:hover,
@@ -158,3 +158,10 @@ a.blue-link:before, a.blue-link:hover:before {
   border: 2px solid #6fb3db;
   outline: 0; 
 }
+
+.photo-upload.upload-success {
+  color: white !important;
+  background-color: #6fb3db !important;
+  transition: all 0.15s linear;
+}
+

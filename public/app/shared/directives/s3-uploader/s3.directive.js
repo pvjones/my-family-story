@@ -8,19 +8,25 @@
 
     return {
       restrict: 'E',
-      scope: true,
+      scope: {
+        s3Url: "="
+      },
       templateUrl: './app/shared/directives/s3-uploader/s3-uploader.html',
       controller: 's3Controller',
       bindToController: true,
       controllerAs: 'ctrl',
       link: (scope, elem, attrs, ctrl) => {
 
-        let maxWidth = parseInt(attrs.maxWidth)
-          , maxHeight = parseInt(attrs.maxHeight);
+        let maxWidth = +(attrs.maxWidth)
+          , maxHeight = +(attrs.maxHeight);
+        
+        ctrl.inputText = attrs.defaultText;
+        ctrl.successText = attrs.successText;
 
         let input = angular.element(elem[0].querySelector('[s3-input]'));
-        input.on('change', (onChangeEvent) => {
 
+        input.on('change', (onChangeEvent) => {
+          
           let reader = new FileReader();
           reader.onload = (onLoadEvent) => {
 

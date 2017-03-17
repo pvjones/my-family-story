@@ -1,42 +1,43 @@
 <div class="container custom-page {{'con' + index}} pageinitial">
-   <div class="row">
-      <h5>PAGE {{page.number}}</h5>
-      <img class="delete-box {{'page' + index}}" src="./assets/images/remove.png" id="deleter"  ng-click="$parent.removePage(index)">
-   </div>
-   <div class="row main-body">
-      <div class="col-md-9">
-         <form>
-            <div class="form-group">
-               <label for="textForPage">Text for this Page</label>
-               <textarea rows="4" class="form-control" id="textForPage" ng-model="page.text"></textarea>
-            </div>
-            <div class="form-group">
-               <label for="textSimple" class="tiny-text">Would you like this text edited to be simpler or more kid friendly?</label>
-               <select class="select-box" id="textSimple" ng-options="allow.value as allow.name for allow in allowTypes" ng-model="page.edit_allowed">
+  <div class="row">
+    <h5>PAGE {{page.number}}</h5>
+    <img class="delete-box {{'page' + index}}" src="./assets/images/remove.png" id="deleter" ng-click="$parent.removePage(index)">
+  </div>
+  <div class="row main-body">
+    <div class="col-md-9">
+      <form>
+        <div class="form-group">
+          <label for="textForPage">Text for this Page</label>
+          <textarea rows="4" class="form-control" id="textForPage" ng-model="page.text"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="textSimple" class="tiny-text">Would you like this text edited to be simpler or more kid friendly?</label>
+          <select class="select-box" id="textSimple" ng-options="allow.value as allow.name for allow in allowTypes" ng-model="page.edit_allowed">
                </select>
-            </div>
-         </form>
-      </div>
-      <div class="col-md-3">
-         <form>
-            <div class="form-group">
-               <label for="typeOfPage">Type of Page</label><br>
-               <select class="select-box" id="typeOfPage" ng-options="type.value as type.name for type in pageTypes" ng-model="selectedType"></select>
-            </div>
-            <div class="form-group" ng-if="selectedType=='Activity'">
-               <label for="typeOfActivity">Type of Activity</label>
-               <select class="select-box" id="typeOfActivity" ng-options="activity.value as activity.name for activity in activity_types" ng-model="page.activity_type">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <form>
+        <div class="form-group">
+          <label for="typeOfPage">Type of Page</label><br>
+          <select class="select-box" id="typeOfPage" ng-options="type.value as type.name for type in pageTypes" ng-model="selectedType"></select>
+        </div>
+        <div class="form-group" ng-if="selectedType=='Activity'">
+          <label for="typeOfActivity">Type of Activity</label>
+          <select class="select-box" id="typeOfActivity" ng-options="activity.value as activity.name for activity in activity_types"
+            ng-model="page.activity_type">
                </select>
-            </div>
-            <div class="form-group" ng-if="selectedType==='Activity' && page.activity_type=='Custom'">
-               <label for="customActivity">Custom Description</label>
-               <input type="text" class="form-control" id="customActivity" ng-model="page.custom_activity">
-            </div>
-            <div class="form-group" ng-if="selectedType==='Portrait'">
-               <label for="">Upload a Photo</label>
-               <button class="btn btn-success">UPLOAD</button>
-            </div>
-         </form>
-      </div>
-   </div>
+        </div>
+        <div class="form-group" ng-if="selectedType==='Activity' && page.activity_type=='Custom'">
+          <label for="customActivity">Custom Description</label>
+          <input type="text" class="form-control" id="customActivity" ng-model="page.custom_activity">
+        </div>
+        <div class="form-group" ng-if="selectedType==='Portrait'">
+          <s3-uploader max-width="1200" max-height="1200">
+          </s3-uploader>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
