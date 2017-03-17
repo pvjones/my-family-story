@@ -2,15 +2,17 @@
 
   angular
     .module('app')
-    .service('orderService', orderService);
+    .service('cartService', cartService);
 
-  function orderService($http) {
+  function cartService($http) {
+
     this.getOrderDetails = function(id) {
       return $http({
         method: 'GET',
         url: '/api/order/' + id
       })
     }
-
   };
+
+  
 })();

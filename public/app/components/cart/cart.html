@@ -5,14 +5,25 @@
     <div class="col-sm-4 cartQtyRow" >QUANTITY</div>
     <div class="col-sm-4 cartPriceRow" >PRICE</div>
   </div>
-  <div class="row cartProductData" ng-repeat="p in test">
+
+  <ul>
+    <li>Order Id: {{orderDetails._id}}</li>
+    <li>Books: {{orderDetails.books.pages}}
+      <ul>
+        <li>{{orderDetails.books.pages.page_type}}</li>
+      </ul>
+    </li>
+    <li>Shipping: {{orderDetails.shipping}}</li>
+  </ul>
+
+  <div class="row cartProductData" ng-repeat="t in test">
     <div class="col-sm-4 cartItemRow">
       <div class="cartItemImg">
         <img src="./assets/images/PrintedBooks.png" />
       </div>
 
       <div class="cartItemDesc">
-        <p >Coloring Book</p>
+        <p >{{t.title}}</p>
         <p class="cartIndentDesc">Basic Page</p>
         <p class="cartIndentDesc">Activity Page</p>
         <p class="cartIndentDesc">Portrait Page</p>
@@ -22,9 +33,9 @@
 
     <div class="col-sm-4 cartQtyDiv" >
       <p style="opacity: 0">I'm not here!!</p>
-      <p>10</p>
-      <p>3</p>
-      <p>1</p>
+      <p>{{t.basic}}</p>
+      <p>{{t.activity}}</p>
+      <p>{{t.portrait}}</p>
       <p id="cartPrintedCopies">50</p>
     </div>
     <div class="col-sm-4 cartPriceDiv">
@@ -38,7 +49,7 @@
     <div  class="cartSubDiv">
         <p class="test">$290</p>
         <p class="test">Subtotal</p>
-    </div>
+    </div> 
     <div class="cartCheckoutBtnDiv">
       <button class="btn btn-green">CHECKOUT</button>
     </div>
@@ -61,7 +72,7 @@
             <div class="cartItemDesc">
               <p >Coloring Book</p>
               <p class="cartIndentDesc">Basic Page</p>
-              <p class="cartIndentDesc">Acitvity Page</p>
+              <p class="cartIndentDesc">Activity Page</p>
               <p class="cartIndentDesc">Portrait Page</p>
               <p id="cartPrintedCopies">Printed Copies</p>
             </div>
@@ -86,7 +97,7 @@
             </div>
           </div>
         </div>
-        <div  class="cartSubDivMobile">
+        <div class="cartSubDivMobile">
             <button class="btn btn-green">CHECKOUT</button>
             <p class="test">$290</p>
             <p class="test">Subtotal</p>
