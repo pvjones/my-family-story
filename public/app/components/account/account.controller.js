@@ -2,13 +2,13 @@
 
   angular
     .module('app')
-    .controller('accountController', accountController);
+    .controller('accountController', ['$scope', 'UserService', accountController]);
 
   function accountController($scope, userService) {
 
     userService.getUser().then(function(response) {
-      console.log(response);
-      $scope.users = response.data;
+      $scope.userData = response;
+      console.log($scope.userData, 'ctrl data');
     })
 
   };

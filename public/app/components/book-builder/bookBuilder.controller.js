@@ -14,13 +14,13 @@
            user: ""
          };
 
-         $scope.toggleTopUI = () => {
-            $scope.topVis ? $timeout(() =>{
-              $scope.topVis = false
-            }, 200): $timeout(() => {
-              $scope.topVis = true;
-            }, 200);
-         }
+        //  $scope.toggleTopUI = () => {
+        //     $scope.topVis ? $timeout(() =>{
+        //       $scope.topVis = false
+        //     }, 200): $timeout(() => {
+        //       $scope.topVis = true;
+        //     }, 200);
+        //  }
 
          $scope.addPage = () => {
             $scope.pages.push(
