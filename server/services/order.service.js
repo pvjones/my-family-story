@@ -1,10 +1,9 @@
 const Book = require('../models/book.model.js');
-const Page = require('../models/page.model.js');
 const Order = require('../models/order.model.js');
 
 
 module.exports = {
-  findOrder: (req, res, next) => {
+  getOrderDetails: (req, res, next) => {
     Order
       .findById(req.params.id)
       .populate('books')
@@ -14,7 +13,6 @@ module.exports = {
         }
         console.log(order);
         return res.status(200).send(order);
-    
     })
   }
 };

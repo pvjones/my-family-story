@@ -62,20 +62,20 @@ app.get('/api/logout', function(req, res, next) {
   res.status(200).send('logged out');
 });
 
+//* AMAZONS3 ENDPOINT CONTROLLER *//
+const amazonS3 = require('./controllers/amazonS3.controller');
+
 //* ENDPOINT CONTROLLERS *//
 const addressController = require('./controllers/address.controller');
 const bookController = require('./controllers/book.controller');
 const orderController = require('./controllers/order.controller');
-const pageController = require('./controllers/page.controller');
+//const pageController = require('./controllers/page.controller');
 const productController = require('./controllers/product.controller');
 const userController = require('./controllers/user.controller');
 
-//* AMAZONS3 ENDPOINT CONTROLLER *//
-const amazonS3 = require('./controllers/amazonS3.controller');
-
 //* ENDPOINT SERVICES *//
+const bookService = require('./services/book.service');
 const orderService = require('./services/order.service');
-
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -88,12 +88,14 @@ app.post('/api/book', bookController.createBook);
 app.get('/api/book', bookController.readBook);
 app.put('/api/book/:id', bookController.updateBook);
 app.delete('/api/book/:id', bookController.deleteBook);
+app.get('/api/book/user/:id', bookService.getBooksByUser);
 
 //* ORDER ENDPOINTS *//
 app.post('/api/order', orderController.createOrder);
 app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
+app.get('/api/order/:id', orderService.getOrderDetails)
 
 //* PAGE ENDPOINTS *//
 // app.post('/api/page', pageController.createPage);
@@ -115,9 +117,6 @@ app.put('/api/user/:id', userController.updateUser);
 
 //* AMAZON ENDPOINTS *//
 app.post('/api/upload-photos', amazonS3.upload);
-
-//* TESTING MIDDLEWARE *//
-app.get('/api/test/:id', orderService.findOrder)
 
 //* LISTEN *//
 app.listen(config.PORT, () => console.log(`Express is running on port ${config.PORT}`));
