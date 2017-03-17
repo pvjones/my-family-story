@@ -8,11 +8,14 @@
 
     let ctrl = this;
 
+    ctrl.buttonText = "Upload Photo"
+
     ctrl.submitPhoto = (photo) => {
       S3Service.uploadPhoto(photo)
         .then((res) => {
-          ctrl.link = res;
-          console.log(ctrl.link)
+          ctrl.inputText = ctrl.successText;
+          ctrl.s3Url = res;
+          document.getElementById('photo-upload').blur();
         })
         .catch((err) => {
           console.log(err)
@@ -67,5 +70,7 @@
       }
       reader.readAsDataURL(photoToResize)
     }
+
   };
+
 })();

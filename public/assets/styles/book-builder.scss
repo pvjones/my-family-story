@@ -1,11 +1,48 @@
 .main-gray-bg {
    background-color: #ddd;
    min-height: 100vh;
-   padding-bottom: 100px;
+   padding-bottom: 50px;
 }
+
+.book-project-holder {
+   background-color: white;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 3px;
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: flex-start;
+   .project {
+      width: 80px;
+      height: 80px;
+      .centered {
+         margin: 50% auto;
+         padding: 0;
+         text-align: center;
+         transform: translate(0, -50%);
+      }
+   }
+   .add-new {
+      background-color: #eee;
+      border: 2px dashed #aaa;
+   }
+   .previous {
+      border: 2px solid #888;
+      margin-left: 10px;
+      color: #fff;
+      text-shadow: 0px 1px 3px #000;
+   }
+   .separator {
+      margin: 20px 0 20px 10px;
+      width: 2px;
+      background-color: #ccc;
+   }
+}
+
 .page-anime{
   animation: 0.2s pageanime 1 forwards;
 }
+
 @keyframes pageanime{
   0%{
     transform: scale(1);
@@ -88,9 +125,11 @@
       width: 100%;
    }
 }
+
 .descrowtrigger{
   cursor: pointer;
 }
+
 .descrow{
   height: 490px;
   overflow: hidden;

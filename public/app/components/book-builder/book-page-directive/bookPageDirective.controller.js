@@ -5,7 +5,7 @@
 
       function bookPageDirectiveController($scope){
 
-         $scope.selectedType = "Basic";
+         $scope.page_type = "Basic";
          $scope.activity_type = "Crossword";
          $scope.custom_activity = "";
          $scope.edit_allowed = false;
