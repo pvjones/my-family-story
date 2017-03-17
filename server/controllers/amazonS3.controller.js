@@ -47,13 +47,13 @@ module.exports = {
 
     upload: (req, res, next) => {
 
-        let photo = req.body;
+        let image = req.body;
 
-        let buffer = new Buffer(photo.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+        let buffer = new Buffer(image.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
-        let imageName = `${makeUniqueKey()}.${photo.imageExtension}`;
+        let imageName = `${makeUniqueKey()}.${image.imageExtension}`;
 
-        uploadImage(imageName, buffer, photo.imageExtension);
+        uploadImage(imageName, buffer, image.imageExtension);
 
         let link = `https://s3-us-west-1.amazonaws.com/${AWS_CONFIG.bucket}/${imageName}`;
 

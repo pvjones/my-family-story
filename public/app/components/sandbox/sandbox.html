@@ -1,9 +1,6 @@
 <div>
-  <form ng-submit="submitPhoto()">
     <div class="field required">
       <label for="main-photo">Main Property Photo</label>
-      <input type="file" name="main-photo" id="main-photo" accept="image/*" s3file photo="photo" required>
+      <input type="file" name="main-photo" id="main-photo" accept="image/*" s3file="submitPhoto(photo)" required>
     </div>
-    <button type="submit">Submit</button>
-  </form>
 </div>

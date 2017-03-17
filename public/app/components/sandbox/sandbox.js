@@ -6,9 +6,9 @@
 
   function sandboxController($scope, S3Service) {
 
-    $scope.submitPhoto = () => {
+    $scope.submitPhoto = (photo) => {
 
-      S3Service.uploadPhoto($scope.photo)
+      S3Service.uploadPhoto(photo)
         .then((res) => {
           $scope.photo = res[0];
         })

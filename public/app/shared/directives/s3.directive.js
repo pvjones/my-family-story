@@ -4,14 +4,17 @@
     .module('app')
     .directive('s3file', s3file);
 
-  function s3file() {
+  function s3file($parse) {
 
     return {
       restrict: 'A',
       scope: {
         photo: '='
       },
+
       link: (scope, elem, attrs) => {
+
+        var fn = $parse(attrs.s3file)
 
         elem.on('change', (onChangeEvent) => {
 
@@ -23,13 +26,15 @@
             imageExtension = imageExtension[imageExtension.length - 1];
             // var fileName = files[i].name;
             let newImage = {
-              imageName: 'fileName',
               imageBody: imageData,
               imageExtension: imageExtension
             }
 
-            scope.$parent.photo = newImage;
-            scope.$apply();
+            scope.$apply(() => {
+              fn(scope.$parent, {
+                photo: newImage
+              });
+            });
           };
 
           reader.readAsDataURL(onChangeEvent.target.files[0]);
