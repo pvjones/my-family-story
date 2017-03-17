@@ -11,8 +11,22 @@ module.exports = {
         if (err) {
           return res.status(500).send(err);
         }
-        console.log(order);
         return res.status(200).send(order);
     })
   }
 };
+
+// module.exports = {
+//   getOrderDetails: (req, res, next) => {
+//     Order
+//       .findById(req.params.id)
+//       .populate('Order.books')
+//       .exec((err, order) => {
+//         if (err) {
+//           return res.status(500).send(err);
+//         }
+//         console.log(order);
+//         return res.status(200).send(order);
+//     })
+//   }
+// };
