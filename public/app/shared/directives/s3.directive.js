@@ -11,10 +11,15 @@
       scope: {
         photo: '='
       },
+      controller: 's3Controller',
+      bindToController: true,
+      controllerAs: 'ctrl',
+      link: (scope, elem, attrs, ctrl) => {
 
-      link: (scope, elem, attrs) => {
-
-        var fn = $parse(attrs.s3file)
+        let func = $parse(attrs.s3file)
+        console.log(attrs.s3file)
+        console.log(func)
+        console.log(ctrl.submitPhoto)
 
         elem.on('change', (onChangeEvent) => {
 
@@ -26,15 +31,19 @@
             imageExtension = imageExtension[imageExtension.length - 1];
             // var fileName = files[i].name;
             let newImage = {
+              //other properties can be added and passed to the server
               imageBody: imageData,
               imageExtension: imageExtension
             }
 
             scope.$apply(() => {
-              fn(scope.$parent, {
+              func(scope.$parent, {
                 photo: newImage
               });
             });
+
+           ctrl.submitPhoto(newImage)
+
           };
 
           reader.readAsDataURL(onChangeEvent.target.files[0]);
