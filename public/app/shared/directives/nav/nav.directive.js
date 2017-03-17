@@ -18,10 +18,22 @@
           if (winScroll > 110) {
             $(elem)
               .addClass('sticky-nav');
+              // $('#hamDropDownUl').css("padding-top", "60px");
+              $('#hamDropDownUl').addClass("hamDropDownUlWinScroll");
           } else {
             $(elem)
               .removeClass('sticky-nav');
+              // $('#hamDropDownUl').css("padding-top", "100px");
+              $('#hamDropDownUl').removeClass("hamDropDownUlWinScroll");
           }
+        })
+        $('.navBurger').on('click', function(){
+          $(this).toggleClass('ham-anime');
+          $('.hamDropdownContainer').toggleClass('hamDropdownAnime');
+        })
+        $(window).scroll(function(){
+          $('.hamDropdownContainer').removeClass('hamDropdownAnime');
+          $('.navBurger').removeClass('ham-anime');
         })
       }
     }
