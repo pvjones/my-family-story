@@ -8,21 +8,14 @@
 
     this.getUserBooks = (user) => {
       return $http.get('/api/book', user)
-      .then((res) => {
-        var parsed = res.data;
-        return parsed;
-      })
+      .then((res) => {return res.data})
+      .catch((err) => {console.error(err)})
     }
 
-    this.sendBookInfo = (book) => {
-      return $http.post('/api/book', book)
-      .then((res) => {
-        console.log("Service response: ", res);
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    this.saveCurrentBook = (id, book) => {
+      return $http.put(`/api/book/${id}`, book)
+      .then((res) => {return res})
+      .catch((err) => {console.error(err)})
     }
 
   };

@@ -4,14 +4,14 @@
       <h2>Project Creation</h2>
       <div class="row">
          <div class="col-md-12">
-            <h5>Your Book Projects</h5>
+            <h5>Select a project to edit it, or add a new book project.</h5>
             <div class="book-project-holder">
-               <div class="project add-new" ng-click="createNewBook()">
+               <div class="project add-new" ng-click="openBookModal()">
                   <h5 class="centered">Add New Book</h5>
                </div>
                <div class="separator"></div>
                <div ng-repeat="book in userBooks">
-                  <div class="project previous" bg-img="{{book.title_image}}">
+                  <div class="project previous" bg-img="{{book.title_image}}" ng-click="getBookPages(book)">
                      <h5 class="centered">{{book.title}}</h5>
                   </div>
                </div>
@@ -49,20 +49,15 @@
    </div>
 
    <div class="container">
-      <div class="row" ng-if="pages.length === 0">
-         <div class="col-md-12 text-center">
-            <button class="btn btn-danger" ng-click="addPage()">ADD YOUR FIRST  PAGE</button>
-         </div>
-      </div>
       <div class="row" ng-if="pages.length > 0">
          <div class="col-md-12 text-right">
-            <button class="btn btn-danger" id="addPage" ng-click="addPage()">ADD PAGE</button>
+            <button class="btn btn-danger" id="addPage" ng-click="addNewPage()">ADD PAGE</button>
          </div>
       </div>
    </div>
    <div class="container">
       <div class="row">
-         <button class="btn btn-warning" ng-click="sendProjectInfo()">SAVE</button><button class="btn btn-success" ng-click="sendProjectInfo()">SUBMIT</button>
+         <button class="btn btn-warning" ng-click="saveCurrentBook()">SAVE</button><button class="btn btn-success" ng-click="sendProjectInfo()">SUBMIT</button>
       </div>
    </div>
 </div>
