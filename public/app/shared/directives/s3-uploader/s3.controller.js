@@ -29,10 +29,6 @@
 
         img.src = onLoadEvent.target.result
 
-        let canvas = document.createElement('canvas');
-        canvas.style.visibility = 'hidden';
-        document.body.appendChild(canvas);
-
         let MAX_WIDTH = maxWidth
           , MAX_HEIGHT = maxHeight
           , width = img.width
@@ -49,15 +45,20 @@
             height = MAX_HEIGHT;
           }
         }
+
+        let canvas = document.createElement('canvas');
+        canvas.style.visibility = 'hidden';
+        document.body.appendChild(canvas);
+
         canvas.width = width;
         canvas.height = height;
 
         var ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, width, height);
 
-        let resizedPhotoBody = 
+        let resizedPhotoBody =
           canvas.toDataURL(`image/${extension}`);
-        
+
         let newImage = {
           imageBody: resizedPhotoBody,
           imageExtension: extension
