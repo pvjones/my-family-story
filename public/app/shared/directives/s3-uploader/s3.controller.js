@@ -15,12 +15,7 @@
         .then((res) => {
           ctrl.inputText = ctrl.successText;
           ctrl.s3Url = res;
-          // $('.photo-upload').addClass('upload-success')
-          // $('#photo-upload-label').stop().css('opacity', '0').html(function (_, oldText) {
-          //   return oldText == 'Goodbye' ? "hello" : "Goodbye"
-          // }).animate({
-          //   opacity: 1
-          // }, 2000);
+          document.getElementById('photo-upload').blur();
         })
         .catch((err) => {
           console.log(err)
