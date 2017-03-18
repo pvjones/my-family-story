@@ -9,15 +9,15 @@
     $scope.howItWorks = [
       {
         imgUrl: '../../../assets/images/HIW1.png',
-        desc: 'Select the number & type of pages - <a class="blue-link" href="/#!/start">learn more about pages</a>'
+        desc: 'Customize your coloring book and tell your family\'s story. Select the number and type of pages and submit your text.<br /><a class="underline-link" href="/#!/start"><em>Learn more</em></a>'
       },
       {
         imgUrl: '../../../assets/images/HIW2.png',
-        desc: 'Submit your text & give your preferences for each page'
+        desc: 'We\'ll draw the perfect pictures to correspond with your text and preferences for each page.<br /><a class="underline-link" href="/#!/start"><em>Learn more</em></a>'
       },
       {
         imgUrl: '../../../assets/images/HIW3.png',
-        desc: 'Make sure everything looks just right & place your order'
+        desc: 'You\'ll recieve your custom coloring book as a digital file, or choose to have it printed and delivered to your door.<br /><a class="underline-link" href="/#!/start"><em>Learn more</em></a>'
       }
     ];
 

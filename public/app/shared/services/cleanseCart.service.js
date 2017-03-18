@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   angular
     .module('app')
@@ -29,13 +29,9 @@
             pages.portrait += 1;
           }
         }
-          $scope.pageCounts.push(pages);
-          $scope.orderDetails.books[i].pageCount = pages;
-        }
-      })
+        $scope.pageCounts.push(pages);
+        $scope.orderDetails.books[i].pageCount = pages;
+      }
     }
-
-
-
   };
 })();

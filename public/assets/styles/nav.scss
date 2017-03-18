@@ -8,7 +8,7 @@
 
 #nav-main-container{
   background: transparent;
-  height: 100px;
+  height: 110px;
   transition: height 0.15s ease;
   .nav-container{
     width: 100%;
@@ -18,7 +18,7 @@
       height: 100%;
       float: left;
       text-align: left;
-      padding-top: 40px;
+      padding-top: 50px;
       transition: padding-top 0.15s ease;
       span:nth-child(2), span:first-child{
         margin-right: 15px;
@@ -31,36 +31,37 @@
       float: left;
       text-align: center;
       svg{
-        height: 98%;
+        padding-top: 2%;
+        height: 93%;
         width: auto;
-        path{
-          fill: none;
-          stroke: black;
-          stroke-width: 100px;
-          stroke-dasharray: 181000;
-          stroke-dashoffset: 181000;
-          animation: 8s logo 1 forwards 0.5s;
-        }
+        // path{
+        //   fill: none;
+        //   stroke: black;
+        //   stroke-width: 100px;
+        //   stroke-dasharray: 181000;
+        //   stroke-dashoffset: 181000;
+        //   animation: 8s logo 1 forwards 0.5s;
+        // }
       }
-      @keyframes logo {
-  0%{
-    stroke-dashoffset: 181000;
-  }
-  40%{
-    stroke-dashoffset: 0;
-  }
+//  @keyframes logo {
+//   0%{
+//     stroke-dashoffset: 181000;
+//   }
+//   40%{
+//     stroke-dashoffset: 0;
+//   }
 
-  100%{
-      fill: black;
-      stroke-width: 0;
-  }
-}
+//   100%{
+//       fill: black;
+//       stroke-width: 0;
+//   }
+// }
     }
     .navDiv3{
       width: calc(100%/3);
       height: 100%;
       float: left;
-      padding-top: 40px;
+      padding-top: 50px;
       transition: padding-top 0.15s ease;
       text-align: right;
       .cart-icon {
