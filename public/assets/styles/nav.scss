@@ -10,6 +10,7 @@
   background: transparent;
   height: 110px;
   transition: height 0.15s ease;
+  font-size: 18px;
   .nav-container{
     width: 100%;
     height: 100%;
@@ -18,7 +19,7 @@
       height: 100%;
       float: left;
       text-align: left;
-      padding-top: 50px;
+      padding-top: 45px;
       transition: padding-top 0.15s ease;
       span:nth-child(2), span:first-child{
         margin-right: 15px;
@@ -61,7 +62,7 @@
       width: calc(100%/3);
       height: 100%;
       float: left;
-      padding-top: 50px;
+      padding-top: 45px;
       transition: padding-top 0.15s ease;
       text-align: right;
       .cart-icon {
