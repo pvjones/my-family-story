@@ -7,7 +7,7 @@
   function bookService($http) {
 
     this.getUserBooks = (user) => {
-      return $http.get('/api/book', user)
+      return $http.get('/api/book?user=' + user)
       .then((res) => {return res.data})
       .catch((err) => {console.error(err)})
     }
