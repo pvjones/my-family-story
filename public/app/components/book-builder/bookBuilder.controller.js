@@ -85,7 +85,8 @@
 
           bookService.saveCurrentBook($scope.currentBook._id, $scope.currentBook)
           .then((res) => {
-            console.log("Save current book response: ", res);
+            console.log("Save current book response: ", res, $scope.currentBook._id);
+
           })
         }
 
