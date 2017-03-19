@@ -2,10 +2,9 @@
   angular
 
   .module('app')
-  .controller('cartController', ['$scope', 'cartService', cartController]);
+  .controller('cartController', ['$scope', 'CartService', cartController]);
 
-
-  function cartController($scope, cartService) {
+  function cartController($scope, CartService) {
     
 
   }

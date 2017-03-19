@@ -2,14 +2,14 @@
 
   angular
     .module('app')
-    .service('cartService', ['$http', 'CleanseCartService', cartService]);
+    .service('CartService', ['$http', 'CleanseCartService', CartService]);
 
-  function cartService($http, CleanseCartService) {
+  function CartService($http, CleanseCartService) {
 
     this.getOrderDetails = function(id) {
       return $http({
         method: 'GET',
-        url: '/api/order/' + id
+        url: `/api/order/${id}`
       })
       .then((res) => {
         return CleanseCartService.cleanseOrder(res.data);
@@ -21,10 +21,5 @@
 
     }
 
-
-
-
   };
-
-
 })();
