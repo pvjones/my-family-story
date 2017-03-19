@@ -12,7 +12,7 @@
         imgUrl: "=",
         desc: "="
       },
-      template: '<div><img ng-src="{{imgUrl}}"></div><br /><div ng-bind-html="desc | renderHTML"></div>',
+      template: '<div><img ng-src="{{imgUrl}}"></div><br /><div class="divider"></div><br /><div ng-bind-html="desc | renderHTML"></div>',
       link: (scope, elem, attrs) => {
 
       }

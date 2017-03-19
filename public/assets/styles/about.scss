@@ -1,13 +1,15 @@
-hr {
-   margin: 22px auto;
-   width: 50%;
-   background-color: black;
-   height: 1px;
-   border: 0;
-   box-shadow: 1px 0 1px 0 #999;
-}
 
-p{
+p {
    font-size: 18px;
    font-weight: 800;
+}
+
+.divider.text-block {
+  margin-bottom: 0px;
+}
+
+.about-images {
+  img {
+    border-radius: 3px;
+  }
 }
