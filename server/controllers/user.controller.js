@@ -3,7 +3,7 @@ const User = require('../models/user.model.js');
 module.exports = {
 
   getCurrentUser: (req, res, next) => {
-    if (!req.user) { 
+    if (!req.user) {
       return res.status(200).send(null);
     };
     res.status(200).send(req.user);
@@ -35,6 +35,7 @@ module.exports = {
         console.error(err);
         return res.status(500).send(err);
       };
+      req.session.passport.user = user;
       res.status(200).send(user);
     });
   }
