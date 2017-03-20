@@ -6,32 +6,43 @@
 
   function CleanseCartService() {
     this.cleanseOrder = (resData) => {
+
       console.log(resData);
-      $scope.orderDetails = response.data;
-      $scope.pageCounts = [];
+      let data = resData;
+      let cartOrder = [];
 
-      for (let i = 0; i < $scope.orderDetails.books.length; i++) {
-        let pages = {
-          basic: 0,
-          activity: 0,
-          portrait: 0
-        };
+      data.books.forEach((elem, index, array) => {
+        let bookItem = {}
+        let pageCounts = [
+          {
+            type: 'basic',
+            quantity: 0
+          },
+          {
+            type: 'activity',
+            quantity: 0
+          },
+          {
+            type: 'portrait',
+            quantity: 0
+          }
+        ];
 
-        for (let j = 0; j < $scope.orderDetails.books[i].pages.length; j++) {
-          let type = $scope.orderDetails.books[i].pages[j].page_type;
-          if (type === "Basic") {
-            pages.basic += 1;
-          }
-          else if (type === "Activity") {
-            pages.activity += 1;
-          }
-          else if (type === "Portrait") {
-            pages.portrait += 1;
-          }
-        }
-        $scope.pageCounts.push(pages);
-        $scope.orderDetails.books[i].pageCount = pages;
-      }
+        elem.pages.forEach((elem, index, array) => {
+          if (elem.type === "Basic") pageCounts[0].quantity++;
+          else if (elem.type === "Activity") pageCounts[1].quantity++;
+          else if (elem.type === "Portrait") pageCounts[2].quantity++;
+        })
+
+        bookItem.pageCounts = pageCounts.map((elem, index, array) => {
+          if (elem.quantity !== 0) return elem
+        });
+
+        bookItem.printBundle = elem.print_qty
+        cartOrder.push(bookItem);
+      })
+      
+      return cartOrder;
     }
 
   };

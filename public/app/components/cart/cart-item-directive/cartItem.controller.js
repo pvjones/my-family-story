@@ -2,11 +2,11 @@
 
   angular
     .module('app')
-    .controller('cartItemController', ['$scope', 'cartService', 'CleanseCartService', cartItemController]);
+    .controller('cartItemController', ['$scope', 'CartService', 'CleanseCartService', cartItemController]);
 
-  function cartItemController($scope) {
+  function cartItemController($scope, CartService, CleanseCartService) {
 
-    cartService.getOrderDetails("58cb1b92134e39dd0e8c27bc").then(function(results){
+    CartService.getOrderDetails("58cb1b92134e39dd0e8c27bc").then(function(results){
       $scope.details = results;
     })
 
