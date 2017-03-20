@@ -12,8 +12,8 @@
         url: `/api/order/${orderId}`
       })
       .then((res) => {
-        console.log("cartservice", res)
-        return CleanseCartService.cleanseOrder(res.data);
+        let order = CleanseCartService.cleanseOrder(res.data);
+        return order;
       })
       .catch((err) => {
         console.log(err);
