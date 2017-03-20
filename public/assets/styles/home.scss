@@ -24,7 +24,7 @@
     h2 {
       margin-bottom: 50px;
       line-height: 40px;
-      font-size: 34px;
+      font-size: 36px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -35,8 +35,6 @@
 }
 
 .info-wrapper {
-  padding-top: 50px;
-  padding-bottom: 50px;
   background-color: white;
   height: 100%;
   width: 100%;
@@ -44,38 +42,60 @@
 
 .divider {
   margin: auto;
-  height: 2px;
+  height: 3px;
   width: 33%;
   background-color: black;
-  border-radius: 2px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 26px !important;
 }
 
 .text-block {
-  font-size: 18px;
-  line-height: 30px !important;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 38px !important;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  line-height: 28px;
+}
+
+.title-block {
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 38px !important;
+  margin-top: 70px;
+  margin-bottom: 60px;
   line-height: 28px;
 }
 
 .subtitle-block {
-  font-size: 12px;
-  margin-top: 0px;
+  font-size: 16px;
+  margin-top: -30px;
 }
 
 .how-it-works {
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   height: 100%;
   img {
     width: 100%;
     height: auto;
     margin: auto;
-    border: 1px solid black;
     border-radius: 3px;
     margin-bottom: 10px;
   }
+  .divider {
+    width: 30%;
+  }
   div {
-    width: 50%;
+    font-size: 18px;
+    width: 65%;
     margin: auto;
+  }
+  .about-link {
+    display: inline-block;
+    margin-top: 20px;
   }
 }

@@ -7,7 +7,8 @@ let user = new mongoose.Schema({
   email: { type: String, unique: true, dropDups: true, trim: true },
   phone: {type: String},
   dateregistered: { type: Date, default: new Date() },
-  auth0id: { type: String }
+  auth0id: { type: String },
+  privilege: { type: String}
 
 });
 
