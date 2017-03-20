@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('newBookModalController', ['$scope', '$http', 'user', '$uibModalInstance', newBookModalController]);
+    .controller('bookModalController', ['$scope', '$http', 'user', '$uibModalInstance', bookModalController]);
 
-    function newBookModalController($scope, $http, user, $uibModalInstance){
+    function bookModalController($scope, $http, user, $uibModalInstance){
 
       $scope.createNewBook = () => {
         let book = {

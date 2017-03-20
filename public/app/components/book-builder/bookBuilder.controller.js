@@ -93,11 +93,32 @@
         $scope.openBookModal = () => {
           let modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: '/app/components/book-builder/new-book-modal/modal.html',
-            controller: 'newBookModalController',
+            templateUrl: '/app/components/book-builder/new-book-modal/bookModal.html',
+            controller: 'bookModalController',
             resolve: {
               user: function() {
                 return $scope.user;
+              }
+            }
+          })
+          modalInstance.result.then((param) => {
+            if(param == 'success'){
+              $scope.getUserBooks();
+            }
+          })
+        }
+
+        $scope.openProjectModal = () => {
+          let modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '/app/components/book-builder/project-view-modal/projectViewModal.html',
+            controller: 'projectModalController',
+            resolve: {
+              user: function() {
+                return $scope.user;
+              },
+              userBooks: function() {
+                return $scope.userBooks;
               }
             }
           })

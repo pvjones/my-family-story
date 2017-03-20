@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h3 class="modal-title text-center">Select a Project</h3>
+  <h5 class="text-center">Or Create Something New</h5>
+</div>
+<div class="modal-body">
+  <div class="book-project-holder">
+    <div ng-repeat="book in userBooks">
+      <div class="project previous" bg-img="{{book.title_image}}" ng-click="openProject(book)">
+          <h5 class="centered">{{book.title}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-blue" ng-click="showUserBooks()">+ New Book</button>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-yellow" type="button" ng-click="cancel()">CANCEL</button>
+</div>
+
+<!--<div uib-carousel interval="0" no-wrap="false">
+    <div uib-slide ng-repeat="book in userBooks" ng-click="openProject(book.title)">
+      <img ng-src="{{book.title_img}}" alt="{{book.title}}" class="ima-responsive pic"/>
+      <div class="carousel-caption">{{book.title}}</div>
+    </div>
+  </div>-->

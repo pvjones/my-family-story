@@ -1,63 +1,64 @@
 <div class="main-gray-bg">
-   <div class="container">
-      <br>
-      <h2>Project Creation</h2>
-      <div class="row">
-         <div class="col-md-12">
-            <h5>Select a project to edit it, or add a new book project.</h5>
-            <div class="book-project-holder">
-               <div class="project add-new" ng-click="openBookModal()">
-                  <h5 class="centered">Add New Book</h5>
-               </div>
-               <div class="separator"></div>
-               <div ng-repeat="book in userBooks">
-                  <div class="project previous" bg-img="{{book.title_image}}" ng-click="getBookPages(book)">
-                     <h5 class="centered">{{book.title}}</h5>
-                  </div>
-               </div>
-            </div>
-         </div>
+  <div class="container">
+    <br>
+    <h2>Project Creation</h2>
+    <div class="col-md-12 text-center" ng-if="userBooks.length !== 0">
+      <button class="btn btn-blue" ng-click="openProjectModal()">View All Projects</button>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center" ng-if="userBooks.length === 0">
+        <h5>You've not yet started a project. Create your first coloring book by clicking below.</h5>
+        <button class="btn btn-blue">Begin a New Project</button>
       </div>
-      <h6 bookbuilder-Dir class="text-center descrowtrigger" ><span id="bookbuilderHideSpan">Hide</span> Page Descriptions</h6>
-      <!-- <h6 bookbuilder-Dir class="text-center descrowtrigger" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6> -->
+      
+      <button class="btn blue-btn"></button>
+    </div>
+    <h6 bookbuilder-Dir class="text-center descrowtrigger" ><span id="bookbuilderHideSpan">Hide</span> Page Descriptions</h6>
+    <!-- <h6 bookbuilder-Dir class="text-center descrowtrigger" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6> -->
 
-      <div class="row descrow" ng-if="topVis" >
-         <div class="flex-box">
-            <div class="flexy">
-               <img src="./../assets/images/basic-page.jpg" />
-               <h4>BASIC PAGE</h4>
-               <h5>One page of text and a corresponding custom drawing.</h5>
-               <h4>$10.00</h4>
-            </div>
-            <div class="flexy">
-               <img src="./../assets/images/activity-page.jpg" />
-               <h4>ACTIVITY PAGE</h4>
-               <h5>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</h5>
-               <h4>$15.00</h4>
-            </div>
-            <div class="flexy">
-               <img src="./../assets/images/portrait-page.jpg" />
-               <h4>PORTRAIT PAGE</h4>
-               <h5>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</h5>
-               <h4>$20.00</h4>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div ng-repeat="page in pages track by $index">
+    <div class="row descrow" ng-if="topVis" >
+        <div class="flex-box">
+          <div class="flexy">
+              <img src="./../assets/images/basic-page.jpg" />
+              <h4>BASIC PAGE</h4>
+              <h5>One page of text and a corresponding custom drawing.</h5>
+              <h4>$10.00</h4>
+          </div>
+          <div class="flexy">
+              <img src="./../assets/images/activity-page.jpg" />
+              <h4>ACTIVITY PAGE</h4>
+              <h5>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</h5>
+              <h4>$15.00</h4>
+          </div>
+          <div class="flexy">
+              <img src="./../assets/images/portrait-page.jpg" />
+              <h4>PORTRAIT PAGE</h4>
+              <h5>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</h5>
+              <h4>$20.00</h4>
+          </div>
+        </div>
+    </div>
+    <div ng-repeat="page in pages track by $index">
       <book-page page="page" index="$index"></book-page>
-   </div>
+    </div>
+  </div>
+   
 
-   <div class="container">
-      <div class="row" ng-if="pages.length > 0">
-         <div class="col-md-12 text-right">
-            <button class="btn btn-danger" id="addPage" ng-click="addNewPage()">ADD PAGE</button>
-         </div>
-      </div>
-   </div>
-   <div class="container">
-      <div class="row">
-         <button class="btn btn-warning" ng-click="saveCurrentBook()">SAVE</button><button class="btn btn-success" ng-click="sendProjectInfo()">SUBMIT</button>
-      </div>
-   </div>
+  <div class="container">
+    <div class="row" ng-if="pages.length > 0">
+        <div class="col-md-12 text-right">
+          <button class="btn btn-danger" id="addPage" ng-click="addNewPage()">ADD PAGE</button>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+        <button class="btn btn-warning" ng-click="saveCurrentBook()">SAVE</button><button class="btn btn-success" ng-click="sendProjectInfo()">SUBMIT</button>
+    </div>
+  </div>
 </div>
