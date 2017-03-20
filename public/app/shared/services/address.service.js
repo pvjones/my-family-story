@@ -19,13 +19,7 @@
         data: address
       })
     }
-    this.putAddress = function(address){
-      return $http({
-        method: "PUT",
-        url: "/api/address",
-        data: address
-      })
-    }
+
 
 
 

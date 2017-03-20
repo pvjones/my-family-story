@@ -1,64 +1,65 @@
-<div>
+<div class=" container">
+  <div class="accountHeader">
+    <h1>User Account</h1>
+  </div>
+  <div class="row userInfoDiv">
+    <form>
+      <div class="col-md-6">
+        <h6>Firstname</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input  type="text" ng-model="update.firstname" placeholder="{{user.firstname}}" />
+      </div>
+      <div class="col-md-6">
+        <h6>Lastname</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input  type="text" ng-model="update.lastname" placeholder="{{user.lastname}}" />
+      </div>
 
-  <h1>User</h1>
-  <h2>Personal Info</h2>
-  <p>{{user.firstname}} {{user.lastname}}</p>
-  <p>{{user.email}}</p>
-  <p>{{user.phone}}</p>
-  <p>{{user.streetaddress}}</p>
-  <p>{{user.city}}</p>
-  <p>{{user.state}}</p>
-  <p>{{user.zipcode}}</p>
-  <p>{{user.apt}}</p>
+      <div class="col-md-6">
+        <h6>Phone</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input  type="text" ng-model="update.phone" placeholder="{{user.phone}}" />
 
-  <h2>Books</h2>
-  <div ng-repeat="books in userBooks">
-    <div ng-repeat="pages in books.pages">
-      <p>
-        {{pages.text}}
-      </p>
-    </div>
-    <h1>{{books.title}}</h1>
+      </div>
+      <div class="col-md-6">
+        <h6>Email</h6>
+        <input class="account-dir" id="accountInfoEmail"type="text" placeholder="{{user.email}}" disabled />
+      </div>
+
+        <button class="btn btn-green  accountInfoBtn" account-dir ng-click="updateUser(update)">Save</button> <h4 id="accountSavedAlert">Saved!!</h4>
+
+  </form>
   </div>
 
-  <h2>Order History</h2>
-  <br />
-  <hr />
-
-
-  <h1>hello</h1>
+  <div>
+    <h1 class="accountHeaderShipping">Shipping Address</h1>
+  </div>
   <form>
-    <h3>firstname</h3> <input type='text' value="{{user.firstname}}" ng-model="user.firstname" />
-    <h3>lastname</h3> <input type='text' value="{{user.lastname}}" ng-model="user.lastname" />
-    <h3>phone</h3> <input type='text' value="{{user.phone}}" ng-model="user.phone" />
-    <h3>email</h3> <input type='text' value="{{user.email}}" ng-model="user.email" />
-    <button ng-click="updateUser(user)"></button>
+    <div class="row userInfoDiv">
+      <div class="col-md-6">
+        <h6>Address 1</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input  id="accountInput" type="text" ng-model="address.address1" placeholder="{{userAddress.address1}}" />
+      </div>
+      <div class="col-md-6">
+        <h6>Address 2</h6>
+         <i class="fa fa-pencil" aria-hidden="true"></i><input id="accountInput" type="text" ng-model="address.address2" placeholder="{{userAddress.address2}}" />
+      </div>
+
+      <div class="col-md-6">
+        <h6>City</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input id="accountInput" type="text" ng-model="address.city" placeholder="{{userAddress.city}}" />
+      </div>
+      <div class="col-md-6">
+        <h6>State</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input id="accountInput" type="text" ng-model="address.state" placeholder="{{userAddress.state}}" />
+      </div>
+
+      <div class="col-md-6">
+        <h6>Zip</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input id="accountInput" type="text" ng-model="address.zip" placeholder="{{userAddress.zip}}" />
+      </div>
+      <div class="col-md-6">
+        <h6>Country</h6>
+        <i class="fa fa-pencil" aria-hidden="true"></i> <input id="accountInput" type="text" ng-model="address.country" placeholder="{{userAddress.country}}" />
+      </div>
+    </div>
+    <button class="btn btn-green accountInfoBtn2" ng-click="CreateAddress(address)">Save Address</button> <h4 id="accountSavedAlert2">Saved!!</h4>
   </form>
-
-
-
-
-  <form>
-    <p>
-      address 1 <input type="text" ng-model="address.address1" placeholder="username here" required/>
-    </p>
-    <p>
-      address 2 <input type="text" ng-model="address.address2" placeholder="password here" required/>
-    </p>
-    <p>
-      City <input type="text" ng-model="address.city" placeholder="username here" required/>
-    </p>
-    <p>
-      State <input type="text" ng-model="address.state" placeholder="password here" required/>
-    </p>
-    <p>
-      Zipcode <input type="text" ng-model="address.zip" placeholder="username here" required/>
-    </p>
-    <p>
-      Country <input type="text" ng-model="address.country" placeholder="password here" required/>
-    </p>
-
-    <button ng-click="CreateAddress(address)">Submit Address</button>
-  </form>
-
 </div>
