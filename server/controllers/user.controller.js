@@ -3,7 +3,7 @@ const User = require('../models/user.model.js');
 module.exports = {
 
   getCurrentUser: (req, res, next) => {
-    if (!req.user) { 
+    if (!req.user) {
       return res.status(200).send(null);
     };
     res.status(200).send(req.user);

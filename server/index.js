@@ -62,6 +62,10 @@ app.get('/api/logout', function(req, res, next) {
   res.status(200).send('logged out');
 });
 
+//* STRIPE *//
+const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);
+
+
 //* AMAZONS3 ENDPOINT CONTROLLER *//
 const s3 = require('./controllers/s3.controller');
 
@@ -76,6 +80,7 @@ const userController = require('./controllers/user.controller');
 //* ENDPOINT SERVICES *//
 const bookService = require('./services/book.service');
 const orderService = require('./services/order.service');
+const paymentService = require('./services/payment.service')
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -116,6 +121,9 @@ app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
+
+//* PAYMENT ENDPOINTS *//
+app.post('/api/payment', paymentService.postPayment);
 
 //* AMAZON ENDPOINTS *//
 app.post('/api/upload-photos', s3.sendImageData);
