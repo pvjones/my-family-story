@@ -1,13 +1,55 @@
-<div ng-repeat="user in users">
+<div>
 
   <h1>User</h1>
   <h2>Personal Info</h2>
   <p>{{user.firstname}} {{user.lastname}}</p>
   <p>{{user.email}}</p>
+  <p>{{user.email}}</p>
+  <p>{{user.phone}}</p>
+  <p>{{user.streetaddress}}</p>
+  <p>{{user.city}}</p>
+  <p>{{user.state}}</p>
+  <p>{{user.zipcode}}</p>
+  <p>{{user.apt}}</p>
 
   <h2>Books</h2>
+  <div ng-repeat="books in userBooks">
+    <div ng-repeat="pages in books.pages">
+      <p>
+        {{pages.text}}
+      </p>
+    </div>
+    <h1>{{books.title}}</h1>
+  </div>
 
   <h2>Order History</h2>
   <br />
   <hr />
+
+
+  <h1>hello</h1>
+
+  <form>
+    <p>
+      address 1 <input type="text" ng-model="address.address1" placeholder="username here" required/>
+    </p>
+    <p>
+      address 2 <input type="text" ng-model="address.address2" placeholder="password here" required/>
+    </p>
+    <p>
+      City <input type="text" ng-model="address.city" placeholder="username here" required/>
+    </p>
+    <p>
+      State <input type="text" ng-model="address.state" placeholder="password here" required/>
+    </p>
+    <p>
+      Zipcode <input type="text" ng-model="address.zip" placeholder="username here" required/>
+    </p>
+    <p>
+      Country <input type="text" ng-model="address.country" placeholder="password here" required/>
+    </p>
+
+    <button ng-click="CreateAddress(address)">Submit Address</button>
+  </form>
+
 </div>

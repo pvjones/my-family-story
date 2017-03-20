@@ -2,14 +2,26 @@
 
   angular
     .module('app')
-    .controller('accountController', accountController);
+    .controller('accountController', ['$scope', 'bookService', 'addressService', 'user', accountController]);
 
-  function accountController($scope, userService) {
+  function accountController($scope, BookService, addressService, user) {
+    $scope.user = user;
+    console.log(user);
 
-    userService.getUser().then(function(response) {
-      console.log(response);
-      $scope.users = response.data;
+    BookService.getUserBooks(user._id).then(function(res){
+      $scope.userBooks = res;
+      console.log($scope.userBooks);
     })
+
+    addressService.getAddress(user._id).then(function(res){
+      console.log(res, 'addressCtrl');
+    })
+
+  
+    $scope.CreateAddress = function(address){
+      addressService.postAddress(address)
+      console.log(address);
+    }
 
   };
 

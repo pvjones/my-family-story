@@ -24,7 +24,7 @@
           return res;
         });
     };
- 
+
     $stateProvider
       .state('home', {
         url: '/home',

@@ -6,11 +6,10 @@
 
   function UserService($http) {
     this.getUser = function() {
-      return $http({
-        method: 'GET',
-        url: '/api/user'
-      });
+      return $http.get('/api/auth/me').then(function(res){
+        console.log(res.data);
+        return res.data;
+      })
     };
-
   };
 })();

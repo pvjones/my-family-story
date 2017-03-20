@@ -183,16 +183,27 @@
 </a>
     </div>
     <div class="navDiv3">
-      <a class="underline-link" ng-hide="ctrl.user" ng-click="ctrl.login()">
+      <a id="navLog" class="underline-link" ng-hide="ctrl.user" ng-click="ctrl.login()">
             Log In
       </a>
       <a ui-sref="cart" class="cart-icon" ng-show="ctrl.user">
         <img src="/assets/images/shopping-cart.svg" type="image/svg+xml" />
 
       </a>
-      <a class="underline-link" ng-show="ctrl.user" ng-click="ctrl.logout()">
+      <a id="navLog" class="underline-link" ng-show="ctrl.user" ng-click="ctrl.logout()">
             Log Out
       </a>
     </div>
+  </div>
+</div>
+<div class="hamDropdownContainer">
+  <div class="hamDropDown">
+    <ul id="hamDropDownUl">
+      <li><a class="underline-link" ui-sref="home">HOME</a></li>
+      <li><a class="underline-link" ui-sref="start">ORDER</a></li>
+      <li><a class="underline-link" ui-sref="about">ABOUT</a></li>
+      <li><a ng-hide="ctrl.user" ng-click="ctrl.login()" class="underline-link">Log In</a></li>
+      <li><a ng-show="ctrl.user" ng-click="ctrl.logout()" class="underline-link" >Log Out</a></li>
+    </ul>
   </div>
 </div>
