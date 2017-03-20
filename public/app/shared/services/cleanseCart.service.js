@@ -6,8 +6,8 @@
 
   function CleanseCartService() {
     this.cleanseOrder = (rawResponse) => {
-      console.log(response);
-      $scope.orderDetails = response.data;
+      console.log(rawResponse);
+      $scope.orderDetails = rawResponse.data;
       $scope.pageCounts = [];
 
       for (let i = 0; i < $scope.orderDetails.books.length; i++) {
