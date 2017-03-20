@@ -6,7 +6,6 @@ body {
 
 .view-wrapper {
   padding-top: 110px;
-  padding-bottom: 100px;
 }
 
 .title {
@@ -27,7 +26,7 @@ body {
   font-size: 28px;
   border: 1px solid white;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: white;
   transition: background-color 0.15s linear, color 0.15s linear;
 }
 
@@ -43,7 +42,7 @@ body {
   font-weight: 800;
   border: 2px solid #6fb3db;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: white;
   transition: background-color 0.15s linear, color 0.15s linear;
 }
 
@@ -59,7 +58,7 @@ body {
   font-weight: 800;
   border: 2px solid #4eb14d;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: white;
   transition: background-color 0.15s linear, color 0.15s linear;
 }
 
@@ -75,13 +74,29 @@ body {
   font-weight: 800;
   border: 2px solid #F0A43B;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: white;
   transition: background-color 0.15s linear, color 0.15s linear;
 }
 
 .btn-yellow:hover {
   color: white;
   background-color: #F0A43B;
+}
+
+// RED BUTTON
+.btn-red, .btn-red:focus {
+  color: #AF4D4D;
+  text-transform: uppercase;
+  font-weight: 800;
+  border: 2px solid #AF4D4D;
+  border-radius: 5px;
+  background-color: white;
+  transition: background-color 0.15s linear, color 0.15s linear;
+}
+
+.btn-red:hover {
+  color: white;
+  background-color: #AF4D4D;
 }
 
 a, a:hover, a:active, a:focus {

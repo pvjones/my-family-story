@@ -1,26 +1,52 @@
 <div class="modal-header">
-  <h3 class="modal-title text-center">Select a Project</h3>
-  <h5 class="text-center">Or Create Something New</h5>
+  <h2 class="modal-title text-center"><span ng-if="userBooks.length < 1">Create Your First Project</span><span ng-if="userBooks.length > 0">Select a Project</span></h2>
 </div>
 <div class="modal-body">
-  <div class="book-project-holder">
+  <div class="row" ng-if="userBooks.length < 1">
+    <form>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <label for="bookTitle"><h4>Book Title</h4></label>
+          <input class="form-control" id="bookTitle" placeholder="Enter Title Here" ng-model="bookTitle">
+        </div>
+      </div>
+      <div class="row text-center pad-top-sm">
+        <div class="col-md-6">
+          <s3-uploader max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Photo Uploaded!" s3-Url></s3-uploader>
+        </div>
+        <div class="col-md-6">
+          <button ng-click="checkScope()"></button>
+          <img src=""/>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="book-project-holder" ng-if="userBooks.length > 0">
     <div ng-repeat="book in userBooks">
-      <div class="project previous" bg-img="{{book.title_image}}" ng-click="openProject(book)">
+      <div class="project" ng-click="openProject(book)">
           <h5 class="centered">{{book.title}}</h5>
       </div>
     </div>
   </div>
   <div class="text-center">
-    <button class="btn btn-blue" ng-click="showUserBooks()">+ New Book</button>
+    <h5 ng-click="toggleVis()"> + Start New Project</h5>
   </div>
-</div>
+  <div class="row" ng-if="visible">
+    <form>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <input class="form-control" id="bookTitle" placeholder="Give Your Project a Title" ng-model="bookTitle">
+        </div>
+      </div>
+      <div class="row text-center pad-top-sm">
+        <!--<div class="col-md-6">
+          <s3-uploader max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Photo Uploaded!" s3-Url></s3-uploader>
+        </div>-->
+      </div>
+    </form>
+  </div>
+</div> <!--end modal body-->
 <div class="modal-footer">
+  <button class="btn btn-green" ng-click="createNewBook()" ng-if="visible">ADD NEW PROJECT</button>
   <button class="btn btn-yellow" type="button" ng-click="cancel()">CANCEL</button>
 </div>
-
-<!--<div uib-carousel interval="0" no-wrap="false">
-    <div uib-slide ng-repeat="book in userBooks" ng-click="openProject(book.title)">
-      <img ng-src="{{book.title_img}}" alt="{{book.title}}" class="ima-responsive pic"/>
-      <div class="carousel-caption">{{book.title}}</div>
-    </div>
-  </div>-->

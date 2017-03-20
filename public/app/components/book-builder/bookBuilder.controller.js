@@ -13,23 +13,35 @@
         $scope.getUserBooks = () => {
           bookService.getUserBooks(user._id)
           .then((res) => {
-            console.log(res);
             $scope.userBooks = res;
           })
         }
         $scope.getUserBooks();
 
+        $scope.createNewBook = () => {
+          $scope.addNewPage;
+          let book = {
+            title: $scope.bookTitle,
+            title_img: "this will be title image", //$scope.titleImg,
+            user: user._id,
+            pages: $scope.pages
+          }
+          return $http.post('/api/book', book)
+          .then((res) => { 
+            console.log(res);
+          })
+          .catch((err) => { console.error("Book creation failed!", err) })
+        }
 
         $scope.getBookPages = (book) => {
-          if($scope.currentBook != book){
+          if($scope.currentBook != book || !$scope.currentBook){
             $scope.pages = [];
             $scope.currentBook = book;
             let pageArr = book.pages;
             if(pageArr.length < 1){
-              $scope.addNewPage($scope.pages.length + 1, "", "", "", "", false);
+              $scope.addNewPage("", "Basic", "", "", "", false, $scope.pages.length + 1);
             } else {
               for(var i of pageArr){
-                console.log(i);
                 $scope.fillPage(i);
               }
             }
@@ -62,8 +74,8 @@
               image_url: "",
               edit_allowed: false,
               page_number: $scope.pages.length + 1
-            });
-            console.log($scope.pages);
+            }
+          )
         }
 
         let updatePageNums = (arr) => {
@@ -77,7 +89,6 @@
             $scope.pages.splice(i, 1);
             updatePageNums($scope.pages);
           }, 250)
-          console.log($scope.pages);
         }
 
         $scope.saveCurrentBook = () => {
@@ -104,6 +115,7 @@
           modalInstance.result.then((param) => {
             if(param == 'success'){
               $scope.getUserBooks();
+              //$scope.addNewPage();
             }
           })
         }
@@ -122,13 +134,12 @@
               }
             }
           })
-          modalInstance.result.then((param) => {
-            if(param == 'cancel'){
+          modalInstance.result.then((data) => {
+            if(data == 'cancel'){
               console.log("cancelled");
             }
             else {
-              console.log(param);
-              $scope.getBookPages(param);
+              $scope.getBookPages(data);
             }
           })
         }
