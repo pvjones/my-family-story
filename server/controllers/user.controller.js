@@ -35,6 +35,7 @@ module.exports = {
         console.error(err);
         return res.status(500).send(err);
       };
+      req.session.passport.user = user;
       res.status(200).send(user);
     });
   }

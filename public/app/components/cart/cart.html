@@ -1,123 +1,22 @@
-<div class="container-fluid container cartContainer">
+<div class="container cart-table">
 
-  <table class="table">
-    <thead>
-      <tr class="row firstCartRow">
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <tr>
-        <td>Subtotal</td>
-        <td>$Amount</td>
-        <th></th>
-      </tr>
-    </tfoot>
-    <tbody>
-<!-- Directives will go here :D  -->
-      <tr cart-item ng-repeat="book in order track by $index">
-      </tr>
-    </tbody>
-  </table>
-
-<button type="button" name="button"><a ui-sref="payment">Checkout</a></button>
-
-</div>
-
-
-<!--
-  <div class="row firstCartRow">
-    <div class="col-sm-4">ITEM</div>
-    <div class="col-sm-4 cartQtyRow" >QUANTITY</div>
-    <div class="col-sm-4 cartPriceRow" >PRICE</div>
+  <div class="table-head">
+    <div class="table-row">
+      <div class="table-cell">
+        Item
+      </div>
+      <div class="table-cell">
+        Quantity
+      </div>
+      <div class="table-cell">
+        Price
+      </div>
+    </div>
   </div>
 
-  <div class="row cartProductData">
-    <div class="col-sm-4 cartItemRow">
-      <div class="cartItemImg">
-        <img src="./assets/images/PrintedBooks.png" />
-      </div>
-
-      <div class="cartItemDesc">
-        <p >{{orderDetails.books[0].title}}</p>
-        <p class="cartIndentDesc">Basic Page</p>
-        <p class="cartIndentDesc">Activity Page</p>
-        <p class="cartIndentDesc">Portrait Page</p>
-        <p id="cartPrintedCopies">Printed Copies</p>
-      </div>
-    </div>
-
-    <div class="col-sm-4 cartQtyDiv" >
-      <p style="opacity: 0">I'm not here!!</p>
-      <p>{{t.basic}}</p>
-      <p>{{t.activity}}</p>
-      <p>{{t.portrait}}</p>
-      <p id="cartPrintedCopies">50</p>
-    </div>
-    <div class="col-sm-4 cartPriceDiv">
-      <p id="cartGoAway" style="opacity: 0">I'm not here!!</p>
-      <p>$100</p>
-      <p>$45</p>
-      <p>$20</p>
-      <p id="cartPrintedCopies">$125</p>
+  <div class="table-body">
+    <div class="table-body" cart-item ng-repeat="book in order track by $index">
     </div>
   </div>
-    <div  class="cartSubDiv">
-        <p class="test">$290</p>
-        <p class="test">Subtotal</p>
-    </div>
-    <div class="cartCheckoutBtnDiv">
-      <button class="btn btn-green">CHECKOUT</button>
-    </div>
+
 </div>
-<div class="container-fluid container cartContainerMobile">
-      <div id="cartRowMobile" class="row">
-        <div class="col-sm-2 cartMobileHead" >
-          <div>
-            <p >ITEM</p>
-          </div>
-          <div>
-            <p id="test">QUANTITY</p>
-          </div>
-          <div>
-            <p >PRICE</p>
-          </div>
-      </div>
-        <div class="col-sm-2 cartMobileInfo" ng-repeat="p in test">
-          <div>
-            <div class="cartItemDesc">
-              <p >Coloring Book</p>
-              <p class="cartIndentDesc">Basic Page</p>
-              <p class="cartIndentDesc">Activity Page</p>
-              <p class="cartIndentDesc">Portrait Page</p>
-              <p id="cartPrintedCopies">Printed Copies</p>
-            </div>
-          </div>
-          <div>
-              <div class="cartMobileQty">
-                <p style="opacity: 0">I'm not here!!</p>
-                <p>10</p>
-                <p>3</p>
-                <p>1</p>
-                <p id="cartPrintedCopies">{{orderDetails.books[0].print_qty}}</p>
-                <span id="cartMobileSpan"></span>
-              </div>
-          </div>
-          <div>
-            <div class="cartMobilePrice">
-              <p style="opacity: 0">I'm not here!!</p>
-              <p>$200</p>
-              <p>$100</p>
-              <p>$15</p>
-              <p id="cartPrintedCopies">$5000000</p>
-            </div>
-          </div>
-        </div>
-        <div class="cartSubDivMobile">
-            <button class="btn btn-green">CHECKOUT</button>
-            <p class="test">$290</p>
-            <p class="test">Subtotal</p>
-        </div>
-      </div> -->
