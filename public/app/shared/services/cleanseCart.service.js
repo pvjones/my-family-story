@@ -5,8 +5,9 @@
     .service('CleanseCartService', CleanseCartService);
 
   function CleanseCartService() {
-    this.cleanseOrder = (rawResponse) => {
-      console.log(response);
+
+    this.cleanseOrder = (resData) => {
+      console.log(resData);
       $scope.orderDetails = response.data;
       $scope.pageCounts = [];
 
@@ -33,5 +34,6 @@
         $scope.orderDetails.books[i].pageCount = pages;
       }
     }
+    
   };
 })();

@@ -27,6 +27,7 @@
         url: '/api/auth/me'
       })
         .then((res) => {
+          console.log('authservice checkuser', res.data)
           $rootScope.$emit('user', res.data)
           return res.data;
         })
