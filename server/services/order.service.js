@@ -12,8 +12,5 @@ module.exports = {
         return res.status(200).send(order);
     })
   }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> master
+

@@ -2,49 +2,85 @@
 
   angular
     .module('app')
-    .service('CleanseCartService', CleanseCartService);
+    .service('CleanseCartService', ['ProductService', '$q', CleanseCartService]);
 
-  function CleanseCartService() {
+  function CleanseCartService(ProductService, $q) {
+
     this.cleanseOrder = (resData) => {
 
-      console.log(resData);
-      let data = resData;
-      let cartOrder = [];
+      let deferred = $q.defer();
 
-      data.books.forEach((elem, index, array) => {
-        let bookItem = {}
-        let pageCounts = [
+      let cart = [];
+
+      function asyncLoop(i) {
+        if (i >= resData.books.length) return asyncFin();
+
+        let book = resData.books[i];
+        let bookItem = {};
+        let pageProducts = [
           {
-            type: 'basic',
-            quantity: 0
+            page_type: 'Basic',
+            subtotal: 0
           },
           {
-            type: 'activity',
-            quantity: 0
+            page_type: 'Activity',
+            subtotal: 0
           },
           {
-            type: 'portrait',
-            quantity: 0
-          }
+            page_type: 'Portrait',
+            subtotal: 0
+          },
         ];
 
-        elem.pages.forEach((elem, index, array) => {
-          if (elem.page_type === "Basic") pageCounts[0].quantity++;
-          else if (elem.page_type === "Activity") pageCounts[1].quantity++;
-          else if (elem.page_type === "Portrait") pageCounts[2].quantity++;
-        })
-
-        bookItem.pageCounts = pageCounts.filter((elem, index, array) => {
-          return elem.quantity !== 0
+        bookItem.title = book.title;
+        bookItem.print_qty = book.print_qty;
+        bookItem.pageProducts = pageProducts.filter((product) => {
+          product.quantity = countPageType(book, product.page_type);
+          return product.quantity !== 0;
         });
 
-        bookItem.printBundle = elem.print_qty;
-        bookItem.title = elem.title;
-        cartOrder.push(bookItem);
-      })
+        getSubtotals()
+          .then((response) => {
+            response.forEach((elem) => {
+              if (elem.name == 'Basic') {
+                pageProducts[0].subtotal += elem.price * pageProducts[0].quantity;
+              } else if (elem.name == 'Activity') {
+                pageProducts[1].subtotal += elem.price * pageProducts[1].quantity;
+              } else if (elem.name == 'Portrait') {
+                pageProducts[2].subtotal += elem.price * pageProducts[2].quantity;
+              }
+            });
+            cart.push(bookItem);
+            asyncLoop(i + 1);
+          })
+      };
 
-      return cartOrder;
-    }
+      function asyncFin() {
+        deferred.resolve(cart);
+      };
+
+      asyncLoop(0);
+
+      return deferred.promise;
+    };
+
+    function countPageType(book, page_type) {
+      let count = 0;
+      book.pages.forEach((elem) => {
+        if (elem.page_type == page_type) count++;
+      })
+      return count;
+    };
+
+    function getSubtotals() {
+      return ProductService.getProductByCategory("page")
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        })
+    };
 
   };
 })();

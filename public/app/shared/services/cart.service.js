@@ -12,11 +12,9 @@
         url: `/api/order/${orderId}`
       })
       .then((res) => {
-        let order = CleanseCartService.cleanseOrder(res.data);
-        return order;
+        return CleanseCartService.cleanseOrder(res.data);
       })
       .catch((err) => {
-        console.log(err);
         throw err;
       });
 
