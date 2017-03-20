@@ -16,9 +16,23 @@
         })
         .catch((error) => {
           console.log(error);
-          return error
+          throw error;
         })
     }
 
+    this. getAllProducts = () => {
+      return $http({
+        method: 'GET',
+        url: `/api/product`
+      })
+      .then((response) => {
+        return response.data
+      })
+      .catch((error) => {
+        console.log(error);
+        throw error;
+      })
+    }
+ 
   };
 })();
