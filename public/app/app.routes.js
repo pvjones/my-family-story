@@ -7,6 +7,13 @@
 
   function config($stateProvider, $urlRouterProvider) {
 
+    let getUser = ($state, AuthService) => {
+      return AuthService.checkUser()
+        .then((res) => {
+          return res;
+        });
+    };
+
     let limitUser = ($state, AuthService) => {
       return AuthService.checkUser()
         .then((res) => {
@@ -18,10 +25,16 @@
         });
     };
 
-    let getUser = ($state, AuthService) => {
+    let limitAdmin = ($state, AuthService) => {
       return AuthService.checkUser()
         .then((res) => {
+          if (!res || res.privilege !== "admin") {
+            $state.go('home')
+          };
           return res;
+        })
+        .catch((err) => {
+          $state.go('home');
         });
     };
 
@@ -86,6 +99,14 @@
         url: '/sandbox',
         controller: 'sandboxController',
         templateUrl: './app/components/sandbox/sandbox.html'
+      })
+      .state('admin', {
+        url: '/admin',
+        controller: 'adminController',
+        templateUrl: './app/components/admin/admin.html',
+        resolve: {
+          user: limitAdmin
+        }
       })
       // .state('place-order', {
       //   url: '/place-order',

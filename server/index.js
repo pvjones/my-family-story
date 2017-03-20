@@ -86,16 +86,18 @@ app.delete('/api/address/:id', addressController.deleteAddress);
 //* BOOK ENDPOINTS *//
 app.post('/api/book', bookController.createBook);
 app.get('/api/book', bookController.readBook);
+app.get('/api/book/:id', bookController.readBookById);
 app.put('/api/book/:id', bookController.updateBook);
 app.delete('/api/book/:id', bookController.deleteBook);
 app.get('/api/book/user/:id', bookService.getBooksByUser);
+
 
 //* ORDER ENDPOINTS *//
 app.post('/api/order', orderController.createOrder);
 app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
-app.get('/api/order/:id', orderService.getOrderDetails)
+app.get('/api/order/:id', orderService.getOrderDetails);
 
 //* PAGE ENDPOINTS *//
 // app.post('/api/page', pageController.createPage);
