@@ -6,10 +6,7 @@ module.exports = {
   getOrderDetails: (req, res, next) => {
     Order
       .findById(req.params.id)
-      .populate({
-        path: 'books',
-        model: 'Order'
-      })
+      .populate("books")
       .exec((err, order) => {
         if (err) {
           return res.status(500).send(err);
