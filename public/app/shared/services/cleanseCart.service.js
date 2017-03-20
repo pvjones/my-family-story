@@ -29,19 +29,20 @@
         ];
 
         elem.pages.forEach((elem, index, array) => {
-          if (elem.type === "Basic") pageCounts[0].quantity++;
-          else if (elem.type === "Activity") pageCounts[1].quantity++;
-          else if (elem.type === "Portrait") pageCounts[2].quantity++;
+          if (elem.page_type === "Basic") pageCounts[0].quantity++;
+          else if (elem.page_type === "Activity") pageCounts[1].quantity++;
+          else if (elem.page_type === "Portrait") pageCounts[2].quantity++;
         })
 
-        bookItem.pageCounts = pageCounts.map((elem, index, array) => {
-          if (elem.quantity !== 0) return elem
+        bookItem.pageCounts = pageCounts.filter((elem, index, array) => {
+          return elem.quantity !== 0
         });
 
-        bookItem.printBundle = elem.print_qty
+        bookItem.printBundle = elem.print_qty;
+        bookItem.title = elem.title;
         cartOrder.push(bookItem);
       })
-      
+
       return cartOrder;
     }
 
