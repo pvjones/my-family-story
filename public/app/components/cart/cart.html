@@ -1,6 +1,6 @@
 <div class="container-fluid container cartContainer">
 
-  <table>
+  <table class="table">
     <thead>
       <tr class="row firstCartRow">
         <th>Item</th>
@@ -17,14 +17,13 @@
     </tfoot>
     <tbody>
 <!-- Directives will go here :D  -->
-      <cart-item></cart-item>
+      <tr cart-item ng-repeat="book in order track by $index">
+      </tr>
     </tbody>
   </table>
 
 
 </div>
-
-<!--
 
 
 <!--
