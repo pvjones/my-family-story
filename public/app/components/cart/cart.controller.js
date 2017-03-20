@@ -2,11 +2,23 @@
   angular
 
   .module('app')
-  .controller('cartController', ['$scope', 'cartService', cartController]);
+  .controller('cartController', ['$scope', 'CartService', cartController]);
 
+  function cartController($scope, CartService) {
 
-  function cartController($scope, cartService) {
-    
+    getCurrentOrderDetails("58cb1b92134e39dd0e8c27bc")
+
+    function getCurrentOrderDetails(orderId) {
+
+      CartService.getOrderDetails(orderId)
+        .then((res) => {
+          $scope.order = res;
+          console.log("cartController scope", $scope.order);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
 
   }
 })();

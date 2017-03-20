@@ -22,6 +22,16 @@ module.exports = {
     });
   },
 
+  readBookById: (req, res, next) => {
+    Book.find(req.params.id, (err, book) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send(err);
+      };
+      res.status(200).send(book);
+    });
+  },
+
   updateBook: (req, res, next) => {
     Book.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, book) => {
       if (err) {

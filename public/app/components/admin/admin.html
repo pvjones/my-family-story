@@ -1,0 +1,26 @@
+<div class="container admin-main">
+  <div class="row">
+    <div class="col-md-12">
+      <p>Current Product List</p>
+
+      <table class="table product-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr product-table ng-repeat="product in allProducts track by $index">
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="row">
+  </div>
+</div>
