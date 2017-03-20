@@ -13,7 +13,7 @@
       CartService.getOrderDetails(orderId)
         .then((res) => {
           $scope.order = res;
-          console.log($scope.order);
+          console.log("cartController scope", $scope.order);
         })
         .catch((err) => {
           console.log(err);
