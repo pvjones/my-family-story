@@ -123,8 +123,12 @@
             }
           })
           modalInstance.result.then((param) => {
-            if(param == 'success'){
-              $scope.getUserBooks();
+            if(param == 'cancel'){
+              console.log("cancelled");
+            }
+            else {
+              console.log(param);
+              $scope.getBookPages(param);
             }
           })
         }

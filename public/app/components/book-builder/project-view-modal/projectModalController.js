@@ -8,7 +8,7 @@
       $scope.userBooks = userBooks;
 
       $scope.openProject = (param) => {
-        console.log("Opening ", param);
+        $uibModalInstance.close(param);
       }
 
       $scope.createNewBook = () => {
