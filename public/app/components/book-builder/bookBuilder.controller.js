@@ -26,7 +26,7 @@
             $scope.currentBook = book;
             let pageArr = book.pages;
             if(pageArr.length < 1){
-              $scope.addNewPage($scope.pages.length + 1, "", "", "", "", false);
+              $scope.addNewPage('', 'Basic', '', '', '', false, $scope.pages.length + 1);
             } else {
               for(var i of pageArr){
                 console.log(i);
@@ -103,6 +103,7 @@
           })
           modalInstance.result.then((param) => {
             if(param == 'success'){
+              // $scope.addNewPage();
               $scope.getUserBooks();
             }
           })
