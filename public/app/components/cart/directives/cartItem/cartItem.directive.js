@@ -9,7 +9,7 @@
 
     return {
       restrict: 'E',
-      templateUrl: './cartItem/cartItem.html',
+      templateUrl: './app/components/cart/directives/cartItem/cartItem.html',
       controller: 'cartItemController'
     }
 

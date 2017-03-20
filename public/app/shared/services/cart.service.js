@@ -15,7 +15,7 @@
         //return CleanseCartService.cleanseOrder(res.data);
 
         console.log(res);
-        pageCounts = [];
+        let pageCounts = [];
 
         for (let i = 0; i < res.data.books.length; i++) {
           let pages = {
@@ -36,10 +36,11 @@
               pages.portrait += 1;
             }
           }
-          $scope.pageCounts.push(pages);
+          pageCounts.push(pages);
           res.data.books[i].pageCounts = pages;
         }
-        return (res.data)
+        console.log("Here's the cleansed data", res.data);
+        return (res.data);
       })
       .catch((err) => {
         console.log(err);
