@@ -1,4 +1,3 @@
-const Book = require('../models/book.model.js');
 const Order = require('../models/order.model.js');
 
 module.exports = {
@@ -13,4 +12,8 @@ module.exports = {
         return res.status(200).send(order);
     })
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> master
