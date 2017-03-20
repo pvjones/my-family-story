@@ -5,7 +5,7 @@ module.exports = {
     Order
       .findById(req.params.id)
       .populate('books')
-      .exec((err, order) => { {
+      .exec((err, order) => {
         if (err) {
           return res.status(500).send(err);
         }
