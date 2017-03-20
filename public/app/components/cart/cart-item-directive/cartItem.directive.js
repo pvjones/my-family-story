@@ -6,13 +6,11 @@
 
   function cartItem() {
 
-
     return {
       restrict: 'E',
       templateUrl: './app/components/cart/directives/cartItem/cartItem.html',
       controller: 'cartItemController'
     }
-
 
   };
 })();
