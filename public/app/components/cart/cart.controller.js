@@ -6,14 +6,13 @@
 
   function cartController($scope, CartService) {
 
-    getCurrentOrderDetails("58cb1b92134e39dd0e8c27bc")
+    getCurrentOrder("58cb1b92134e39dd0e8c27bc")
 
-    function getCurrentOrderDetails(orderId) {
+    function getCurrentOrder(orderId) {
 
       CartService.getOrderDetails(orderId)
         .then((res) => {
           $scope.order = res;
-          console.log("cartController scope", $scope.order);
         })
         .catch((err) => {
           console.log(err);

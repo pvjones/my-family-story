@@ -8,10 +8,12 @@
   function CleanseCartService(ProductService, $q) {
 
     this.cleanseOrder = (resData) => {
+      let order = {
+        _id: resData._id,
+        cart: []
+      };
 
       let deferred = $q.defer();
-
-      let cart = [];
 
       function asyncLoop(i) {
         if (i >= resData.books.length) return asyncFin();
@@ -52,13 +54,13 @@
                 pageProducts[2].subtotal += elem.price * pageProducts[2].quantity;
               }
             });
-            cart.push(bookItem);
+            order.cart.push(bookItem);
             asyncLoop(i + 1);
           })
       };
 
       function asyncFin() {
-        deferred.resolve(cart);
+        deferred.resolve(order);
       };
 
       asyncLoop(0);

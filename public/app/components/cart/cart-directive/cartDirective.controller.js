@@ -2,27 +2,35 @@
 
   angular
     .module('app')
-    .controller('cartDirectiveController', ['$scope', cartDirectiveController]);
+    .controller('cartDirectiveController', ['$scope', 'CartService', cartDirectiveController]);
   
-  function cartDirectiveController($scope) {
+  function cartDirectiveController($scope, CartService) {
 
     let ctrl = this;
 
     $scope.$watch('ctrl.order', (newVal) => {
-        if (newVal) ctrl.cartTotal = getCartTotal(newVal);
+        if (newVal) ctrl.cartTotal = getCartTotal(newVal["cart"]);
     })
 
     ctrl.deleteBook = (bookId) => {
-      ctrl.order = ctrl.order.filter((elem) => {
+      ctrl.order.cart = ctrl.order.cart.filter((elem) => {
         return elem._id !== bookId;
       });
-      ctrl.cartTotal = getCartTotal(ctrl.order);
+      ctrl.cartTotal = getCartTotal(ctrl.order.cart);
       $scope.$apply()
+
+      CartService.updateOrder(ctrl.order)
+        .then((res) => {
+          ctrl.order = res;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     }
 
-    function getCartTotal(order) {
+    function getCartTotal(cart) {
       let total = 0;
-      order.forEach((book) => {
+      cart.forEach((book) => {
         if (book.print_qty) total += book.print_qty;
         book.pageProducts.forEach((pageProduct) => {
           total += pageProduct.subtotal;

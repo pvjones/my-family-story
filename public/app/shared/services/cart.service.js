@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   angular
     .module('app')
@@ -11,14 +11,34 @@
         method: 'GET',
         url: `/api/order/${orderId}`
       })
-      .then((res) => {
-        return CleanseCartService.cleanseOrder(res.data);
-      })
-      .catch((err) => {
-        throw err;
-      });
+        .then((res) => {
+          return CleanseCartService.cleanseOrder(res.data);
+        })
+        .catch((err) => {
+          throw err;
+        });
+    };
 
-    }
+    this.updateOrder = (newOrder) => {
+      let orderId = newOrder._id;
+      let newOrderData = {
+        books: newOrder.cart.map((book) => {
+          return book._id
+        })
+      };
+
+      return $http({
+        method: 'PUT',
+        url: `/api/order/${orderId}`,
+        data: JSON.stringify(newOrderData)
+      })
+        .then((res) => {
+          return CleanseCartService.cleanseOrder(res.data);
+        })
+        .catch((err) => {
+          throw err;
+        })
+    };
 
   };
 })();
