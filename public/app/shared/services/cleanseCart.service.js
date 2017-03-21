@@ -33,6 +33,7 @@
           },
         ];
 
+        bookItem._id = book._id;
         bookItem.title = book.title;
         bookItem.print_qty = book.print_qty;
         bookItem.pageProducts = pageProducts.filter((product) => {

@@ -29,6 +29,7 @@
   .table-body {
     display: flex;
     flex-direction: column;
+    
     .book-title {
       display: flex;
       width: 100%;
@@ -83,5 +84,5 @@
     padding-right: 30px;
     padding-left: 30px;
   }
-
+  
 }

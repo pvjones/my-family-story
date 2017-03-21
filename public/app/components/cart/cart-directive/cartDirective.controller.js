@@ -12,9 +12,12 @@
         if (newVal) ctrl.cartTotal = getCartTotal(newVal);
     })
 
-    ctrl.deleteBook = (itemIndex) => {
-      ctrl.order.splice(itemIndex, 1);
-      ctrl.cartTotal = getCartTotal(ctrl.order)
+    ctrl.deleteBook = (bookId) => {
+      ctrl.order = ctrl.order.filter((elem) => {
+        return elem._id !== bookId;
+      });
+      ctrl.cartTotal = getCartTotal(ctrl.order);
+      $scope.$apply()
     }
 
     function getCartTotal(order) {

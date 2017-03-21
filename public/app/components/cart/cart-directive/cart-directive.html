@@ -12,13 +12,13 @@
   </div>
 </div>
 <div class="table-body">
-  <div class="table-body" ng-repeat="book in ctrl.order track by $index">
+  <div class="table-body {{'cart-item-' + book._id}}" ng-repeat="book in ctrl.order track by book._id">
     <div class="table-row book-title">
       <div>
         {{book.title}}
       </div>
       <div class="remove-item">
-        <a class="underline-link hazard-link" ng-click="ctrl.removeItem($index)">
+        <a class="underline-link hazard-link" ng-click="ctrl.removeItem(book._id)">
           Remove <i class="fa fa-times" aria-hidden="true"></i>
         </a>
       </div>
