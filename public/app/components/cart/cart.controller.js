@@ -26,15 +26,37 @@
         templateUrl: './payment-modal/payment-modal.html',
         controller: 'paymentModalController',
         resolve: {
-          //user: function()  //anything that I need to use from the modal controller {
-          //   return $scope.user //or whatever value I need to get at in the modal
-          // }
+          mockPrice: function() {
+            return 50;
+          }
+        }
+      })
+      modalInstance.result.then((param) => {
+        if(param == 'success'){
+          alert("Thank you! Your order was succesful.");
         }
       })
     };
 
-  };
 
+    // $scope.openBookModal = () => {
+    //   let modalInstance = $uibModal.open({
+    //     animation: true,
+    //     templateUrl: '/app/components/book-builder/new-book-modal/modal.html',
+    //     controller: 'newBookModalController',
+    //     resolve: {
+    //       user: function() {
+    //         return $scope.user;
+    //       }
+    //     }
+    //   })
+    //   modalInstance.result.then((param) => {
+    //     if(param == 'success'){
+    //       // $scope.addNewPage();
+    //       $scope.getUserBooks();
+    //     }
+    //   })
+    // }
 
   }
 })();

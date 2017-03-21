@@ -23,7 +23,8 @@ angular.module('app')
     })
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
-      $state.go('congrats');
+      $uibModalInstance.close('success');
+      //$state.go('congrats');
     })
     .catch(function (err) {
        if (err.type && /^Stripe/.test(err.type)) {
@@ -34,6 +35,7 @@ angular.module('app')
          console.log('Other error occurred, possibly with your API', err.message);
          alert(err.message)
        }
+       $uibModalInstance.close('cancel');
      });
  };
 
