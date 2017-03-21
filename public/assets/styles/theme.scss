@@ -6,7 +6,8 @@ body {
 
 .view-wrapper {
   padding-top: 110px;
-  padding-bottom: -50px;
+  min-height: calc(100vh - 50px);
+  // padding-bottom: -50px;
 }
 
 .title {
@@ -109,7 +110,7 @@ a.underline-link:before {
   bottom: 0;
   left: 0;
   background-color: #444;
-  
+
   opacity: 0;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
