@@ -188,7 +188,7 @@
         <img src="/assets/images/shopping-cart.svg" type="image/svg+xml" />
       </a>
       <a ui-sref="admin" class="underline-link" ng-if="ctrl.user.privilege === 'admin'">Admin</a>
-      <a id="navLog" class="underline-link" ng-show="ctrl.user" ng-click="ctrl.logout()">Log Out</a>
+      <a id="navLog" class="underline-link hazard-link" ng-show="ctrl.user" ng-click="ctrl.logout()">Log Out</a>
     </div>
   </div>
 </div>
