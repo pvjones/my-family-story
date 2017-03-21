@@ -1,8 +1,21 @@
-
-
-      <td>{{product.name}}</td>
-      <td>{{product.description}}</td>
-      <td><img ng-src="{{product.image1}}" /></td>
-      <td>{{product.price | currency}}</td>
-      <td class="delete-icon"><i class="fa fa-window-close-o" aria-hidden="true"></i></td>
-  
+<tr ng-repeat="product in allProducts track by $index">
+  <td class="product-title">
+    {{product.name}}
+  </td>
+  <td class="product-desc">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+    <textarea class="desc-input">{{product.description}}</textarea>
+  </td>
+  <td>
+    <img ng-src="{{product.image1}}" />
+  </td>
+  <td>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+    <input type="text" placeholder="{{product.price | currency}}" />
+  </td>
+</tr>
+<tr class="submit-button">
+  <a class="btn btn-yellow">
+    Submit Changes
+  </a>
+</tr>
