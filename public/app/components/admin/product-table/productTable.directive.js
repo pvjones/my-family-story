@@ -7,9 +7,19 @@
 
     return {
       restrict: 'A',
-      templateUrl: './app/components/admin/product-table/product-table.html'
-    }
+      scope: {
+        allProducts: '='
+      },
+      templateUrl: './app/components/admin/product-table/product-table.html',
+      controller: 'productTableController',
+      bindToController: true,
+      controllerAs: 'ctrl',
+      link: link
+    };
 
-  }
+    function link(scope, elem, attrs, ctrl) {
 
+    };
+
+  };
 })();
