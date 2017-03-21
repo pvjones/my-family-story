@@ -63,8 +63,7 @@ app.get('/api/logout', function(req, res, next) {
 });
 
 //* STRIPE *//
-const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);
-
+const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);  //JAK, is this necessary here? 
 
 //* AMAZONS3 ENDPOINT CONTROLLER *//
 const s3 = require('./controllers/s3.controller');
@@ -103,12 +102,6 @@ app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
 app.get('/api/order/:id', orderService.getOrderDetails);
-
-//* PAGE ENDPOINTS *//
-// app.post('/api/page', pageController.createPage);
-// app.get('/api/page', pageController.readPage);
-// app.put('/api/page/:id', pageController.updatePage);
-// app.delete('/api/page/:id', pageController.deletePage);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);

@@ -16,12 +16,12 @@
           console.log(res);
           $uibModalInstance.close('success');
         })
-        .catch((err) => { 
-          console.error("Book creation failed!", err) 
+        .catch((err) => {
+          console.error("Book creation failed!", err)
           $uibModalInstance.close('cancel');
         })
       }
-      
+
       $scope.cancel = function(){
         $uibModalInstance.close('cancel');
       };
