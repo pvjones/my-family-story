@@ -4,38 +4,48 @@
    padding-bottom: 50px;
 }
 
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
 .book-project-holder {
    background-color: white;
    padding: 10px;
-   border: 1px solid #ccc;
-   border-radius: 3px;
    display: flex;
    flex-flow: row nowrap;
-   justify-content: flex-start;
+   justify-content: center;
    .project {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 120px;
+      border: 2px solid #888;
+      margin: 0 5px;
+      background-color: #ddd;
+      color: #222;
       .centered {
          margin: 50% auto;
-         padding: 0;
+         padding: 0 10px;
          text-align: center;
          transform: translate(0, -50%);
       }
    }
-   .add-new {
-      background-color: #eee;
-      border: 2px dashed #aaa;
-   }
-   .previous {
-      border: 2px solid #888;
-      margin-left: 10px;
-      color: #fff;
-      text-shadow: 0px 1px 3px #000;
-   }
-   .separator {
-      margin: 20px 0 20px 10px;
-      width: 2px;
-      background-color: #ccc;
+   .project:hover{
+     background-color: #bbb;
+     color: white;
    }
 }
 
@@ -50,8 +60,6 @@
   }
   50%{
     transform: scale(1.03333);
-
-
   }
   100%{
     transform: scale(0.5);
@@ -85,15 +93,26 @@
       -moz-border-radius: 3px;
       border-radius: 3px;
    }
-   .delete-box{
-      position: relative;
-      float: right;
-      top: 33px;
-      right: 25px;
-      width: 10px;
-      z-index: 1;
-   }
 }
+
+.delete-box {
+  position: relative;
+  float: right;
+  top: 33px;
+  right: 25px;
+  width: 10px;
+  z-index: 1;
+}
+
+.delete-book-box {
+  position: relative;
+  float: right;
+  top: 5px;
+  right: 10px;
+  width: 10px;
+  z-index: 1;
+}
+
 .pageinitial{
   animation: 0.2s pageinitial 1 forwards;
 }
@@ -137,4 +156,12 @@
 }
 .descrow.trigger{
   height: 0px;
+}
+
+.pad-top-sm{
+  padding-top: 10px;
+}
+
+.project-header {
+  margin: 50px 0 30px 0;
 }
