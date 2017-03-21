@@ -8,15 +8,13 @@
 
     let ctrl = this;
 
-    $scope.$watch('ctrl.order', (newVal, oldVal) => {
-      if (newVal !== oldVal) {
-        console.log('fired')
-        ctrl.cartTotal = getCartTotal(newVal)
-      }
+    $scope.$watch('ctrl.order', (newVal) => {
+        if (newVal) ctrl.cartTotal = getCartTotal(newVal);
     })
 
-    ctrl.removeItem = (itemIndex) => {
-      ctrl.order.splice(itemIndex, 1)
+    ctrl.deleteBook = (itemIndex) => {
+      ctrl.order.splice(itemIndex, 1);
+      ctrl.cartTotal = getCartTotal(ctrl.order)
     }
 
     function getCartTotal(order) {

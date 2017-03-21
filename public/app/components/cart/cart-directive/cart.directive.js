@@ -14,8 +14,25 @@
       templateUrl: './app/components/cart/cart-directive/cart-directive.html',
       controller: 'cartDirectiveController',
       bindToController: true,
-      controllerAs: 'ctrl'
+      controllerAs: 'ctrl',
+      link: link
     }
+
+    function link(scope, elem, attrs, ctrl) {
+
+      ctrl.removeItem = (itemIndex) => {
+        
+        setTimeout(ctrl.deleteBook(itemIndex), 1000);
+
+
+
+      }
+
+
+
+    }
+
+
 
   };
 })();
