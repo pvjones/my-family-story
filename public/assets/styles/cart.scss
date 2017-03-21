@@ -20,6 +20,7 @@
   .table-cell {
     display: flex;
     align-items: center;
+    padding-left: 30px;
     height: 100%;
     width: 33%;
   }
@@ -32,6 +33,7 @@
       width: 100%;
       margin-top: 30px;
       justify-content: flex-start;
+      padding-left: 30px;
       font-size: 18px;
       border-bottom: 1px solid #CCC;
     }
@@ -47,5 +49,32 @@
     }
   }
 
+  .cart-total {
+    margin-top: 50px;
+    padding: 5px;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .item-column {
+    width: 80%;
+    min-width: 140px;
+  }
+
+  .price-column {
+    justify-content: flex-end;
+    width:20%;
+    min-width: 120px;
+    padding-right: 30px;
+  }
+
+  .checkout {
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-right: 30px;
+  }
 
 }
