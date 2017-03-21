@@ -34,9 +34,12 @@
         }
 
         $scope.getBookPages = (book) => {
-          if($scope.currentBook != book || !$scope.currentBook){
+          if($scope.currentBook != book){
             $scope.pages = [];
             $scope.currentBook = book;
+            if(!book.pages){
+              book.pages = [];
+            }
             let pageArr = book.pages;
             if(pageArr.length < 1){
               $scope.addNewPage('', 'Basic', '', '', '', false, $scope.pages.length + 1);
@@ -101,26 +104,6 @@
           })
         }
 
-        $scope.openBookModal = () => {
-          let modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: '/app/components/book-builder/new-book-modal/bookModal.html',
-            controller: 'bookModalController',
-            resolve: {
-              user: function() {
-                return $scope.user;
-              }
-            }
-          })
-          modalInstance.result.then((param) => {
-            if(param == 'success'){
-              // $scope.addNewPage();
-              $scope.getUserBooks();
-              //$scope.addNewPage();
-            }
-          })
-        }
-
         $scope.openProjectModal = () => {
           let modalInstance = $uibModal.open({
             animation: true,
@@ -140,6 +123,8 @@
               console.log("cancelled");
             }
             else {
+              console.log(data);
+              $scope.getUserBooks();
               $scope.getBookPages(data);
             }
           })

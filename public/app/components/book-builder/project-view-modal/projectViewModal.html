@@ -2,7 +2,7 @@
   <h2 class="modal-title text-center"><span ng-if="userBooks.length < 1">Create Your First Project</span><span ng-if="userBooks.length > 0">Select a Project</span></h2>
 </div>
 <div class="modal-body">
-  <div class="row" ng-if="userBooks.length < 1">
+  <!--<div class="row" ng-if="userBooks.length < 1">
     <form>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -20,22 +20,26 @@
         </div>
       </div>
     </form>
-  </div>
+  </div>-->
   <div class="book-project-holder" ng-if="userBooks.length > 0">
-    <div ng-repeat="book in userBooks">
-      <div class="project" ng-click="openProject(book)">
+    <div ng-repeat="book in userBooks track by $index">
+      <div ng-click="openDeleteBookModal($index)">
+        <img class="delete-book-box" src="./assets/images/remove.png"/>
+      </div>
+      <div class="project" ng-click="openBook(book)">
           <h5 class="centered">{{book.title}}</h5>
       </div>
     </div>
   </div>
   <div class="text-center">
-    <h5 ng-click="toggleVis()"> + Start New Project</h5>
+    <h5> Or Start a New Project</h5>
   </div>
-  <div class="row" ng-if="visible">
+  <div class="row">
     <form>
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <input class="form-control" id="bookTitle" placeholder="Give Your Project a Title" ng-model="bookTitle">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <input type="text" class="form-control" placeholder="Give Your Project a Title" ng-model="newBookTitle"/>
+          <button class="btn btn-blue" ng-click="createNewBook()">ADD NEW PROJECT</button>
         </div>
       </div>
       <div class="row text-center pad-top-sm">
@@ -47,6 +51,5 @@
   </div>
 </div> <!--end modal body-->
 <div class="modal-footer">
-  <button class="btn btn-green" ng-click="createNewBook()" ng-if="visible">ADD NEW PROJECT</button>
   <button class="btn btn-yellow" type="button" ng-click="cancel()">CANCEL</button>
 </div>

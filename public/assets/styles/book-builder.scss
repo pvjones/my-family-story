@@ -93,15 +93,26 @@
       -moz-border-radius: 3px;
       border-radius: 3px;
    }
-   .delete-box{
-      position: relative;
-      float: right;
-      top: 33px;
-      right: 25px;
-      width: 10px;
-      z-index: 1;
-   }
 }
+
+.delete-box {
+  position: relative;
+  float: right;
+  top: 33px;
+  right: 25px;
+  width: 10px;
+  z-index: 1;
+}
+
+.delete-book-box {
+  position: relative;
+  float: right;
+  top: 5px;
+  right: 10px;
+  width: 10px;
+  z-index: 1;
+}
+
 .pageinitial{
   animation: 0.2s pageinitial 1 forwards;
 }
@@ -149,4 +160,8 @@
 
 .pad-top-sm{
   padding-top: 10px;
+}
+
+.project-header {
+  margin: 50px 0 30px 0;
 }
