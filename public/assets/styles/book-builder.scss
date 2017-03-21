@@ -32,9 +32,9 @@
    .project {
       width: 100px;
       height: 120px;
-      border: 2px solid #888;
+      border: 2px solid #555;
+      border-radius: 3px;
       margin: 0 5px;
-      background-color: #ddd;
       color: #222;
       .centered {
          margin: 50% auto;
@@ -44,8 +44,9 @@
       }
    }
    .project:hover{
-     background-color: #bbb;
-     color: white;
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
+      -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
+      box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
    }
 }
 
