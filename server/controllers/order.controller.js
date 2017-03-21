@@ -23,7 +23,9 @@ module.exports = {
   },
 
   updateOrder: (req, res, next) => {
-    Order.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, order) => {
+    Order.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      .populate("books")
+      .exec((err, order) => {
       if (err) {
         console.error(err);
         return res.status(500).send(err);

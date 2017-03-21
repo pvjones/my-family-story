@@ -16,23 +16,22 @@
       bindToController: true,
       controllerAs: 'ctrl',
       link: link
-    }
+    };
 
     function link(scope, elem, attrs, ctrl) {
 
-      ctrl.removeItem = (itemIndex) => {
+      ctrl.removeItem = (bookId) => {
+        console.log(bookId)
         
-        setTimeout(ctrl.deleteBook(itemIndex), 1000);
+        $(`.cart-item-${bookId}`).slideUp(150, () => {
+          ctrl.deleteBook(bookId)
+          
+        });
+        
+        // addClass('remove-animation');
+      };
 
-
-
-      }
-
-
-
-    }
-
-
+    };
 
   };
 })();
