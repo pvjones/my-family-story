@@ -30,19 +30,19 @@
 
   <div class="container">
     <div class="row text-center title-block">
-      <span>
+      <span id="howItWorksSpan" >
         How it works
       </span>
     </div>
-    <div class="row how-it-works">
-      <how-it-works class="col-md-4 centered text-center" ng-repeat="elem in howItWorks track by $index" img-url="elem.imgUrl"
+    <div class="row how-it-works" >
+      <how-it-works  class="col-md-4 centered text-center howItWorks" ng-repeat="elem in howItWorks track by $index" img-url="elem.imgUrl"
         desc="elem.desc">
       </how-it-works>
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
+  <div class="container ">
+    <div class="row homeBottomCon" >
       <div class="col-md-12 centered">
         <div class="divider">
         </div>

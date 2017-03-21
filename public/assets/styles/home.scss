@@ -79,6 +79,7 @@
 .how-it-works {
   padding-bottom: 80px;
   height: 100%;
+
   img {
     width: 100%;
     height: auto;
@@ -98,4 +99,32 @@
     display: inline-block;
     margin-top: 20px;
   }
+}
+#howItWorksSpan{
+  opacity: 0;
+  margin-left: 300px;
+  transition: all 1s ease-in-out;
+}
+#howItWorksSpan.homeScrollanime{
+  opacity: 1;
+  margin-left: 0;
+
+}
+.how-it-works{
+  opacity: 0;
+  margin-top: 200px;
+  transition: all 2s ease-in-out;
+}
+.how-it-works.homeScrollanime{
+  opacity: 1;
+  margin-top: 0;
+}
+.homeBottomCon{
+  margin-left: 200px;
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+.homeBottomCon.homeScrollanime{
+  opacity: 1;
+  margin-left: 0;
 }
