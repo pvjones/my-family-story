@@ -29,6 +29,7 @@
   .table-body {
     display: flex;
     flex-direction: column;
+    
     .book-title {
       display: flex;
       width: 100%;
@@ -80,8 +81,9 @@
   .checkout {
     justify-content: space-between;
     margin-top: 20px;
+    margin-bottom: 50px;
     padding-right: 30px;
     padding-left: 30px;
   }
-
+  
 }
