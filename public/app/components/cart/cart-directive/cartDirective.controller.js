@@ -2,9 +2,9 @@
 
   angular
     .module('app')
-    .controller('cartDirectiveController', ['$scope', cartDirectiveController]);
-  
-  function cartDirectiveController($scope) {
+    .controller('cartDirectiveController', ['$scope', '$uibModal', cartDirectiveController]);
+
+  function cartDirectiveController($scope, $uibModal) {
 
     let ctrl = this;
 
@@ -28,5 +28,25 @@
       return total;
     };
 
+  $scope.openPaymentModal = () => {
+    let modalInstance = $uibModal.open({
+      animation: true,
+      ariaLabelledBy: 'ariaCardInfo',
+      templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
+      controller: 'paymentModalController',
+      resolve: {
+        mockPrice: function() {
+          return $scope.mockPrice;
+        }
+      }
+    })
+    modalInstance.result.then((param) => {
+      if(param == 'success'){
+        alert("Thank you! Your order was succesful.");
+      }
+    })
   };
+
+  };
+
 })();
