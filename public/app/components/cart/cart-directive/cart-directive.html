@@ -14,7 +14,14 @@
 <div class="table-body">
   <div class="table-body" ng-repeat="book in ctrl.order track by $index">
     <div class="table-row book-title">
-      {{book.title}}
+      <div>
+        {{book.title}}
+      </div>
+      <div class="remove-item">
+        <a class="underline-link hazard-link" ng-click="ctrl.removeItem($index)">
+          Remove <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
     <div class="table-body book-details">
       <div class="table-row page-type" ng-repeat="page in book.pageProducts">
@@ -41,7 +48,10 @@
     </div>
   </div>
   <div class="table-row checkout">
-    <a class="btn btn-lg btn-green">
+    <a class="btn btn-blue" ui-sref="book-builder">
+      Return to Books
+    </a>
+    <a class="btn btn-green">
       Check out
     </a>
   </div>
