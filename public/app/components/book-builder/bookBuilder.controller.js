@@ -6,6 +6,7 @@
       function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
 
         $scope.userBooks;
+        $scope.pages = [];
 
         let resetPages = () => {
           $scope.pages = [];

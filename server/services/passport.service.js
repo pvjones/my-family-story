@@ -32,7 +32,8 @@ passport.use(new Auth0Strategy(config.AUTH_CONFIG, (accessToken, refreshToken, e
         auth0id: profile.id
       }, (err, result) => {
         if (err) return done(err);
-        return done(null, result[0]);
+        console.log("result 0", result)
+        return done(null, result);
       });
     }
     // Can and does the username need to be updated?
