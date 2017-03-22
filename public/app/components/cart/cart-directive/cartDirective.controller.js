@@ -2,9 +2,9 @@
 
   angular
     .module('app')
-    .controller('cartDirectiveController', ['$scope', 'CartService', cartDirectiveController]);
-  
-  function cartDirectiveController($scope, CartService) {
+    .controller('cartDirectiveController', ['$scope', '$uibModal', 'CartService', cartDirectiveController]);
+
+  function cartDirectiveController($scope, $uibModal, CartService) {
 
     let ctrl = this;
 
@@ -31,7 +31,7 @@
     function getCartTotal(cart) {
       let total = 0;
       cart.forEach((book) => {
-        if (book.print_qty) total += book.print_qty;
+        if (book.print_qty) total += book.print_qty.price;
         book.pageProducts.forEach((pageProduct) => {
           total += pageProduct.subtotal;
         });
@@ -39,5 +39,26 @@
       return total;
     };
 
+  $scope.openPaymentModal = () => {
+    let modalInstance = $uibModal.open({
+      animation: true,
+      size: 'md',
+      ariaLabelledBy: 'ariaCardInfo',
+      templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
+      controller: 'paymentModalController',
+      resolve: {
+        mockPrice: function() {
+          return $scope.mockPrice;
+        }
+      }
+    })
+    modalInstance.result.then((param) => {
+      if(param == 'success'){
+        alert("Thank you! Your order was succesful.");
+      }
+    })
   };
+
+  };
+
 })();

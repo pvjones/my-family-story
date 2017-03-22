@@ -6,7 +6,12 @@ body {
 
 .view-wrapper {
   padding-top: 110px;
+<<<<<<< HEAD
   min-height: calc(100vh - 50px);
+=======
+  padding-bottom: 100px;
+  min-height: calc(100vh + 30px);
+>>>>>>> master
 }
 
 .title {
@@ -23,6 +28,7 @@ body {
 .btn {
   padding-top: 8px;
 }
+
 .btn-lg {
   padding-top:10px;
 }
@@ -78,10 +84,10 @@ body {
 
 // YELLOW BUTTON
 .btn-yellow, .btn-yellow:focus {
-  color: #F0A43B;
+  color: #ffb846;
   text-transform: uppercase;
   font-weight: 800;
-  border: 2px solid #F0A43B;
+  border: 2px solid #ffb846;
   border-radius: 5px;
   background-color: transparent;
   transition: background-color 0.15s linear, color 0.15s linear;
@@ -89,7 +95,7 @@ body {
 
 .btn-yellow:hover {
   color: white;
-  background-color: #F0A43B;
+  background-color: #ffb846;
 }
 
 // RED BUTTON
@@ -193,3 +199,98 @@ a.blue-link:before, a.blue-link:hover:before {
   border: 2px solid #6fb3db;
   outline: 0;
 }
+<<<<<<< HEAD
+=======
+
+// .open > .dropdown-menu {
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+// .dropdown-menu {
+//   display: block;
+//   opacity: 0;
+//   visibility: hidden;
+//   -webkit-transition: opacity 500ms ease, visibility 500ms ease;
+//   -moz-transition: opacity 500ms ease, visibility 500ms ease;
+//   -o-transition: opacity 500ms ease, visibility 500ms ease;
+//   transition: opacity 500ms ease, visibility 500ms ease;
+// }
+
+// UIB Dropdown styling
+.open > .dropdown-menu {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  z-index: 1;
+}
+.open > .dropdown-menu li a {
+  color: #000;  
+  z-index: 1
+}
+.dropdown-menu li {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  z-index: 1;
+  &:last-child {
+    border:none;
+  }
+}
+
+.dropdown-menu li a{
+  color: #fff;
+}
+.dropdown-menu {
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;  
+  animation-fill-mode: forwards; 
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+  display: block;
+  box-shadow: none;
+  border: 1px solid #888;
+  margin-top: 5px;
+  width: none;
+  padding: 0px 10px 0px 10px;
+  
+  transition: all 0.15s ease-out;
+  -webkit-transition: all 0.15s ease-out;
+
+  a:hover {
+    background: none !important;
+  }
+
+}
+.dropup .dropdown-menu {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;  
+}
+
+button#single-button {
+    z-index: 1;
+    font-weight: 700;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    color: black;
+    padding: 2px 10px 2px 10px;
+    border: 2px solid #333;
+    .caret {
+      margin-left: 5px;
+    }
+}
+
+// PRINT BUNDLE DROPDOWN STYLING
+
+.dropdown-menu {
+  .print-bundle-name {
+    font-size: 16px;
+  }
+  .print-bundle-description {
+    font-size: 10px;
+  }
+  .print-bundle-price {
+    font-size: 14px;
+  }
+}
+>>>>>>> master
