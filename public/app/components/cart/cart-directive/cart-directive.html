@@ -23,7 +23,9 @@
         </a>
       </div>
     </div>
+
     <div class="table-body book-details">
+
       <div class="table-row page-type" ng-repeat="page in book.pageProducts">
         <div class="table-cell item-column">
           {{page.page_type + ' Page'}}
@@ -35,7 +37,20 @@
           {{page.subtotal | currency: "$ ":0}}
         </div>
       </div>
+      <div class="table-row prints" ng-if="book.print_qty">
+        <div class="table-cell item-column">
+          <div class="prints-title">{{'Printed Copies'}}</div>
+        </div>
+        <div class="table-cell">
+          {{book.print_qty.name}}
+        </div>
+        <div class="table-cell price-column">
+          {{book.print_qty.price | currency: "$ ":0}}
+        </div>
+      </div>
+
     </div>
+
   </div>
   <div class="table-row cart-total">
     <div class="table-cell item-column">

@@ -20,15 +20,10 @@
 
     function link(scope, elem, attrs, ctrl) {
 
-      ctrl.removeItem = (bookId) => {
-        console.log(bookId)
-        
+      ctrl.removeItem = (bookId) => {        
         $(`.cart-item-${bookId}`).slideUp(150, () => {
           ctrl.deleteBook(bookId)
-          
         });
-        
-        // addClass('remove-animation');
       };
 
     };
