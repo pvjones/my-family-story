@@ -36,9 +36,15 @@
                <input type="text" class="form-control input-sm" id="customActivity" ng-model="page.custom_activity">
             </div>
             <div class="form-group" ng-if="page.page_type==='Portrait'">
-               <label>Upload a Photo</label>
-               <s3-uploader max-width="1200" max-height="1200" default-text="Upload" success-text="Photo Uploaded!" s3-Url></s3-uploader>
+              <div>
+                <label>Upload a Photo</label>
+                <s3-uploader max-width="1200" max-height="1200" default-text="Upload" success-text="Photo Uploaded!" s3-Url="page.image_url"></s3-uploader>
+              </div>
+              <div ng-if="page.image_url">
+                <img class="img-preview" ng-src="{{page.image_url}}"/>
+              </div>
             </div>
+            
          </form>
       </div>
    </div>

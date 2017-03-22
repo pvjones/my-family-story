@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('projectModalController', ['$scope', '$http', 'user', 'userBooks', '$uibModal', '$uibModalInstance', projectModalController]);
+    .controller('projectModalController', ['$scope', '$http', 'user', 'userBooks', 'bookService', '$uibModal', '$uibModalInstance', projectModalController]);
 
-    function projectModalController($scope, $http, user, userBooks, $uibModal, $uibModalInstance){
+    function projectModalController($scope, $http, user, userBooks, bookService, $uibModal, $uibModalInstance){
 
       $scope.userBooks = userBooks;
 
@@ -18,22 +18,14 @@
             templateUrl: '/app/components/book-builder/project-view-modal/delete-book-modal/deleteBookModal.html',
             controller: 'deleteBookModalController',
             resolve:{
-              userBooks: function(){
-                return $scope.userBooks;
-              },
-              index: function(){
-                return index;
-              }
+              userBooks: function(){ return $scope.userBooks },
+              index: function(){ return index }
             }
           })
-          modalInstance.result.then((param) => {
-            if(param === 'delete'){
-              console.log("Deleting ", userBooks[index])
+          modalInstance.result.then((res) => {
+            if(res === 'delete'){
               $scope.deleteBook(userBooks[index]);
               $scope.userBooks.splice(index, 1);
-            }
-            else {
-              console.log('cancelled');
             }
           })
       }
@@ -45,47 +37,31 @@
           templateUrl: '/app/components/book-builder/project-view-modal/open-alert-modal/alertModal.html',
           controller: 'alertModalCtrl'
         })
-        modalInstance.result.then((res) => {
-          console.log(res);
-        })
       }
 
       $scope.deleteBook = (book) => {
-        console.log(book);
-        return $http.delete(`/api/book/${book._id}`)
+        bookService.deleteBook(book)
         .then((res) => {
-          console.log("The book titled, " + book.title + " has been deleted.");
-          console.log(res);
+          console.log(res)
         })
-        .catch((err) => { 
-          console.error("Book Deletion Failed!", err) 
-        })
+        .catch((err) => {console.error(err)})
       }
 
       $scope.createNewBook = () => {
-        if($scope.newBookTitle !== undefined){
+        if(!$scope.newBookTitle){
+          $scope.openAlertModal();
+        } else {
           let book = {
             title: $scope.newBookTitle,
             title_img: $scope.titleImg,
-            user: user._id
+            user: user._id,
           }
-          return $http.post('/api/book', book)
-          .then((res) => { 
-            console.log(res);
-            $uibModalInstance.close(book);
-          })
-          .catch((err) => { 
-            console.error("Book creation failed!", err) 
-            $uibModalInstance.close('failed');
-          })
-        } else {
-          $scope.openAlertModal();
+          $uibModalInstance.close(book);
         }
-        
       }
       
-      $scope.cancel = function(){
-        $uibModalInstance.close('cancel');
+      $scope.close = function(){
+        $uibModalInstance.close('close');
       };
     }
 })();
