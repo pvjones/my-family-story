@@ -218,7 +218,7 @@ a.blue-link:before, a.blue-link:hover:before {
   z-index: 1;
 }
 .open > .dropdown-menu li a {
-  color: #000;  
+  color: #000;
   z-index: 1
 }
 .dropdown-menu li {
@@ -236,8 +236,8 @@ a.blue-link:before, a.blue-link:hover:before {
 .dropdown-menu {
   -webkit-transform-origin: top;
   transform-origin: top;
-  -webkit-animation-fill-mode: forwards;  
-  animation-fill-mode: forwards; 
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-transform: scale(1, 0);
   transform: scale(1, 0);
   display: block;
@@ -246,7 +246,7 @@ a.blue-link:before, a.blue-link:hover:before {
   margin-top: 5px;
   width: none;
   padding: 0px 10px 0px 10px;
-  
+
   transition: all 0.15s ease-out;
   -webkit-transition: all 0.15s ease-out;
 
@@ -257,7 +257,7 @@ a.blue-link:before, a.blue-link:hover:before {
 }
 .dropup .dropdown-menu {
   -webkit-transform-origin: bottom;
-  transform-origin: bottom;  
+  transform-origin: bottom;
 }
 
 button#single-button {

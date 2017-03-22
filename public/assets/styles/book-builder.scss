@@ -50,6 +50,18 @@
    }
 }
 
+
+.delete-box {
+  position: relative;
+  float: right;
+  top: 33px;
+  right: 25px;
+  width: 10px;
+  z-index: 1;
+
+}
+
+
 .delete-book-box {
   position: relative;
   float: right;
@@ -57,6 +69,9 @@
   right: 10px;
   width: 10px;
   z-index: 1;
+  color: #888888;
+  margin-right: 4px;
+  cursor: pointer;
 }
 
 .flex-box{
@@ -92,6 +107,10 @@
 
 .project-header {
   margin: 50px 0 30px 0;
+}
+
+.pVMbtn{
+  margin-top: 25px;
 }
 
 .bottom-buttons {
