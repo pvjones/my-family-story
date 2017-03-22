@@ -10,7 +10,7 @@
       restrict: 'E',
       scope: {
         s3Url: "=",
-        id: "="
+        repeatId: "="
       },
       templateUrl: './app/shared/directives/s3-uploader/s3-uploader.html',
       controller: 's3Controller',
