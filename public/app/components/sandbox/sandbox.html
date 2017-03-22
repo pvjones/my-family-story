@@ -1,4 +1,13 @@
+<div>
+  <s3-uploader max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Upload Complete" s3-url="s3url"></s3-uploader>
+</div>
+<div>
+  {{s3url}}
+</div>
+<div>
 
-<s3-uploader max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Upload Complete" s3-url="s3url"></s3-uploader>
-
-{{s3url}}
+<prints-dropdown prints-selection="printsSelection"></prints-dropdown>
+</div>
+<div>
+  {{printsSelection.price}}
+</div>

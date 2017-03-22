@@ -9,30 +9,25 @@
     return {
       restrict: 'E',
       scope: {
-        order: '='
+        order: '=',
+        cartTotal: '='
       },
       templateUrl: './app/components/cart/cart-directive/cart-directive.html',
       controller: 'cartDirectiveController',
       bindToController: true,
       controllerAs: 'ctrl',
       link: link
-    }
+    };
 
     function link(scope, elem, attrs, ctrl) {
 
-      ctrl.removeItem = (itemIndex) => {
-        
-        setTimeout(ctrl.deleteBook(itemIndex), 1000);
+      ctrl.removeItem = (bookId) => {        
+        $(`.cart-item-${bookId}`).slideUp(150, () => {
+          ctrl.deleteBook(bookId)
+        });
+      };
 
-
-
-      }
-
-
-
-    }
-
-
+    };
 
   };
 })();

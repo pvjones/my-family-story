@@ -2,10 +2,12 @@
 
   angular
     .module('app')
-    .config(['$stateProvider', '$urlRouterProvider', config])
+    .config(['$stateProvider', '$urlRouterProvider', 'stripeProvider', config])
     .run(['$rootScope', '$window', scrollFix]);
 
-  function config($stateProvider, $urlRouterProvider) {
+  function config($stateProvider, $urlRouterProvider, stripeProvider) {
+
+    stripeProvider.setPublishableKey('pk_test_yN68NiS92cu5tu6yrxsKiyxu');
 
     let getUser = ($state, AuthService) => {
       return AuthService.checkUser()
@@ -107,6 +109,11 @@
         resolve: {
           user: limitAdmin
         }
+      })
+      .state('payment', {
+        url: '/payment',
+        controller: 'paymentController',
+        templateUrl: './app/components/payment/payment.html'
       })
       // .state('place-order', {
       //   url: '/place-order',
