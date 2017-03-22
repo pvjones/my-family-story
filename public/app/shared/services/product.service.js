@@ -48,5 +48,22 @@
         })
     };
 
+    this.updateProduct = (product) => {
+      let _id = product._id
+      return $http({
+        method: 'PUT',
+        url: `/api/product/${_id}`,
+        data: JSON.stringify(product)
+      })
+        .then((response) => {
+          console.log("productService", response)
+          return response.data
+        })
+        .catch((error) => {
+          throw error;
+        });
+
+    };
+
   };
 })();
