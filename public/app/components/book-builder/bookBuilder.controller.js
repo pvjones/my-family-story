@@ -25,7 +25,7 @@
             resetPages();
             $scope.addNewPage();
             let book = {
-              title: title,
+              title: title.toUpperCase(),
               title_img: img,
               user: user,
               pages: $scope.pages
