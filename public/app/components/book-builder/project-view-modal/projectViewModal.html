@@ -1,35 +1,30 @@
 <div class="modal-header">
   <h2 class="modal-title text-center"><span ng-if="userBooks.length < 1">Create Your First Project</span><span ng-if="userBooks.length > 0">Select a Project</span></h2>
+  <span id="imgSliderTest1"></span><span id="imgSliderTest2"></span>
 </div>
 <div class="modal-body">
-  <!--<div class="row" ng-if="userBooks.length < 1">
-    <form>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <label for="bookTitle"><h4>Book Title</h4></label>
-          <input class="form-control" id="bookTitle" placeholder="Enter Title Here" ng-model="bookTitle">
+  <div class='imgSlider' bb-img-slider-dir>
+    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    <div class="book-project-holder" ng-if="userBooks.length > 0">
+
+
+      <div class="imgSliderAbs">
+
+
+        <div ng-repeat="book in userBooks track by $index" class="projectModelSelectionDiv">
+          <div ng-click="openDeleteBookModal($index)">
+            <img class="delete-book-box" src="./assets/images/remove.png"/>
+          </div>
+          <div class="project" ng-click="openBook(book)">
+              <h5 class="centered">{{book.title}}</h5>
+          </div>
         </div>
-      </div>
-      <div class="row text-center pad-top-sm">
-        <div class="col-md-6">
-          <s3-uploader max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Photo Uploaded!" s3-Url></s3-uploader>
-        </div>
-        <div class="col-md-6">
-          <button ng-click="checkScope()"></button>
-          <img src=""/>
-        </div>
-      </div>
-    </form>
-  </div>-->
-  <div class="book-project-holder" ng-if="userBooks.length > 0">
-    <div ng-repeat="book in userBooks track by $index">
-      <div ng-click="openDeleteBookModal($index)">
-        <img class="delete-book-box" src="./assets/images/remove.png"/>
-      </div>
-      <div class="project" ng-click="openBook(book)">
-          <h5 class="centered">{{book.title}}</h5>
+
+
       </div>
     </div>
+    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+
   </div>
   <div class="text-center">
     <h5> Or Start a New Project</h5>
