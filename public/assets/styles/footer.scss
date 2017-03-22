@@ -1,4 +1,25 @@
 .footerDiv{
-  text-align: center;
-  border-top: solid 1px black;
+  // border-top: 1px solid rgba(0,0,0,0.1);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .copyright {
+      margin-right: auto;
+    }
+    .social {
+      .fa {
+        font-size: 22px;
+        margin-left: 20px;
+      }
+    }
+  }
 }

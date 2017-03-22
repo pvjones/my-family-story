@@ -12,7 +12,6 @@
       ProductService.getAllProducts()
         .then((response) => {
           $scope.allProducts = response;
-          console.log($scope.allProducts)
         })
         .catch((error) => {
           console.log(error)

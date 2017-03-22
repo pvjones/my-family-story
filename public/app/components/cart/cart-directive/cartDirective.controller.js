@@ -31,7 +31,7 @@
     function getCartTotal(cart) {
       let total = 0;
       cart.forEach((book) => {
-        if (book.print_qty) total += book.print_qty;
+        if (book.print_qty) total += book.print_qty.price;
         book.pageProducts.forEach((pageProduct) => {
           total += pageProduct.subtotal;
         });
