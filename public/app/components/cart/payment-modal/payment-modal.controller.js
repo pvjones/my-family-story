@@ -38,8 +38,11 @@ angular.module('app')
        }
        $uibModalInstance.close('cancel');
      });
- };
+   };
 
+ $scope.cancel = function() {
+   $uibModalInstance.close('cancel');
+ }
 
 
 })

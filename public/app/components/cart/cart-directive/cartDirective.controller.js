@@ -42,7 +42,7 @@
   ctrl.openPaymentModal = () => {
     let modalInstance = $uibModal.open({
       animation: true,
-      size: 'md',
+      size: 'lg',
       ariaLabelledBy: 'ariaCardInfo',
       templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
       controller: 'paymentModalController',
@@ -55,6 +55,9 @@
     modalInstance.result.then((param) => {
       if(param == 'success'){
         alert("Thank you! Your order was succesful.");
+      }
+      if (param == 'cancel') {
+        console.log("Cancelled");
       }
     })
   };
