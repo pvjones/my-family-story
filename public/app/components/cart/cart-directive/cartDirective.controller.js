@@ -39,7 +39,7 @@
       return total;
     };
 
-  $scope.openPaymentModal = () => {
+  ctrl.openPaymentModal = () => {
     let modalInstance = $uibModal.open({
       animation: true,
       size: 'md',
@@ -47,8 +47,8 @@
       templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
       controller: 'paymentModalController',
       resolve: {
-        mockPrice: function() {
-          return $scope.mockPrice;
+        cartTotal: function() {
+          return ctrl.cartTotal;
         }
       }
     })
