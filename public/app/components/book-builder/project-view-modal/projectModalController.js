@@ -38,6 +38,18 @@
           })
       }
 
+      $scope.openAlertModal = () => {
+        let modalInstance = $uibModal.open({
+          animation: true,
+          size: 'sm',
+          templateUrl: '/app/components/book-builder/project-view-modal/open-alert-modal/alertModal.html',
+          controller: 'alertModalCtrl'
+        })
+        modalInstance.result.then((res) => {
+          console.log(res);
+        })
+      }
+
       $scope.deleteBook = (book) => {
         console.log(book);
         return $http.delete(`/api/book/${book._id}`)
@@ -51,20 +63,25 @@
       }
 
       $scope.createNewBook = () => {
-        let book = {
-          title: $scope.newBookTitle,
-          title_img: $scope.titleImg,
-          user: user._id
+        if($scope.newBookTitle !== undefined){
+          let book = {
+            title: $scope.newBookTitle,
+            title_img: $scope.titleImg,
+            user: user._id
+          }
+          return $http.post('/api/book', book)
+          .then((res) => { 
+            console.log(res);
+            $uibModalInstance.close(book);
+          })
+          .catch((err) => { 
+            console.error("Book creation failed!", err) 
+            $uibModalInstance.close('failed');
+          })
+        } else {
+          $scope.openAlertModal();
         }
-        return $http.post('/api/book', book)
-        .then((res) => { 
-          console.log(res);
-          $uibModalInstance.close(book);
-        })
-        .catch((err) => { 
-          console.error("Book creation failed!", err) 
-          $uibModalInstance.close('failed');
-        })
+        
       }
       
       $scope.cancel = function(){

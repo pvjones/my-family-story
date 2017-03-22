@@ -30,8 +30,8 @@
    flex-flow: row nowrap;
    justify-content: center;
    .project {
-      width: 100px;
-      height: 120px;
+      width: 170px;
+      height: 220px;
       border: 2px solid #555;
       border-radius: 3px;
       margin: 0 5px;
@@ -50,61 +50,6 @@
    }
 }
 
-.page-anime{
-  animation: 0.2s pageanime 1 forwards;
-}
-
-@keyframes pageanime{
-  0%{
-    transform: scale(1);
-    opacity: 1;
-  }
-  50%{
-    transform: scale(1.03333);
-  }
-  100%{
-    transform: scale(0.5);
-    opacity: 0;
-  }
-}
-
-.custom-page {
-   margin-top: 15px;
-  //  transform: scale(0.2);
-  //  transition: all ease-in-out 0.4s;
-
-   h5{
-      font-weight: 800;
-      padding-left: 15px;
-      margin-bottom: 0;
-   }
-   .main-body{
-      background-color: #fff;
-      padding: 20px 10px 10px 10px;
-   }
-   .tiny-text{
-      font-size: 12px;
-      width: 100%;
-   }
-   .select-box{
-      font-size: 14px;
-      font-weight: 800;
-      padding: 1px 0 0 4px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-   }
-}
-
-.delete-box {
-  position: relative;
-  float: right;
-  top: 33px;
-  right: 25px;
-  width: 10px;
-  z-index: 1;
-}
-
 .delete-book-box {
   position: relative;
   float: right;
@@ -113,24 +58,6 @@
   width: 10px;
   z-index: 1;
 }
-
-.pageinitial{
-  animation: 0.2s pageinitial 1 forwards;
-}
-@keyframes pageinitial{
-  0%{
-    transform: scale(0);
-    opacity: 0;
-  }
-  50%{
-    transform: scale(1.03333);
-  }
-  100%{
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 
 .flex-box{
    display: flex;
