@@ -1,5 +1,11 @@
 <div class="container cart-table">
-
-  <cart order="order"></cart>
-
+  <div class="cart-loading" ng-if="!order">
+    <div class="message">
+      {{defaultMessage}}
+    </div>
+    <div class="button" ng-if="defaultMessage != 'Loading...'">
+      <a class="btn btn-lg btn-blue" ui-sref="book-builder">Create a project</a>
+    </div>
+  </div>
+  <cart order="order" cart-total="cartTotal" ng-if="order"></cart>
 </div>
