@@ -6,8 +6,12 @@ body {
 
 .view-wrapper {
   padding-top: 110px;
+<<<<<<< HEAD
+  min-height: calc(100vh - 50px);
+=======
   padding-bottom: 100px;
   min-height: calc(100vh + 30px);
+>>>>>>> master
 }
 
 .title {
@@ -127,7 +131,7 @@ a.underline-link:before {
   bottom: 0;
   left: 0;
   background-color: #444;
-  
+
   opacity: 0;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -193,8 +197,10 @@ a.blue-link:before, a.blue-link:hover:before {
   color: white;
   background-color: #6fb3db;
   border: 2px solid #6fb3db;
-  outline: 0; 
+  outline: 0;
 }
+<<<<<<< HEAD
+=======
 
 // .open > .dropdown-menu {
 //   opacity: 1;
@@ -287,3 +293,4 @@ button#single-button {
     font-size: 14px;
   }
 }
+>>>>>>> master
