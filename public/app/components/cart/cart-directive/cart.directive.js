@@ -9,7 +9,8 @@
     return {
       restrict: 'E',
       scope: {
-        order: '='
+        order: '=',
+        cartTotal: '='
       },
       templateUrl: './app/components/cart/cart-directive/cart-directive.html',
       controller: 'cartDirectiveController',
