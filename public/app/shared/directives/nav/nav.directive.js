@@ -18,12 +18,14 @@
           if (winScroll > 110) {
             $(elem)
               .addClass('sticky-nav');
-              // $('#hamDropDownUl').css("padding-top", "60px");
+
+              $('#navLogo').addClass("sticky-nav")
               $('#hamDropDownUl').addClass("hamDropDownUlWinScroll");
           } else {
             $(elem)
               .removeClass('sticky-nav');
-              // $('#hamDropDownUl').css("padding-top", "100px");
+
+              $('#navLogo').removeClass("sticky-nav")
               $('#hamDropDownUl').removeClass("hamDropDownUlWinScroll");
           }
         })

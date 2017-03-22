@@ -12,11 +12,22 @@
       .catch((err) => {console.error(err)})
     }
 
-    this.saveCurrentBook = (id, book) => {
-      return $http.put(`/api/book/${id}`, book)
+    this.createNewBook = (book) => {
+      return $http.post('/api/book', book)
       .then((res) => {return res})
       .catch((err) => {console.error(err)})
     }
 
+    this.saveBook = (book) => {
+      return $http.put(`/api/book/${book._id}`, book)
+      .then((res) => {return res})
+      .catch((err) => {console.error(err)})
+    }
+
+    this.deleteBook = (book) => {
+      return $http.delete(`/api/book/${book._id}`)
+      .then((res) => {return res})
+      .catch((err) => {console.error(err)})
+    }
   };
 })();

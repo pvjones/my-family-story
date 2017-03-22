@@ -5,51 +5,60 @@
 
       function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
 
+        $scope.userBooks;
         $scope.user = user;
-        $scope.pages = [];
-        $scope.currentBook = {};
-
+        
+        let resetPages = () => {
+          $scope.pages = [];
+        }
 
         $scope.getUserBooks = () => {
           bookService.getUserBooks(user._id)
-          .then((res) => {
-            $scope.userBooks = res;
-          })
-        }
-        $scope.getUserBooks();
-
-        $scope.createNewBook = () => {
-          $scope.addNewPage;
-          let book = {
-            title: $scope.bookTitle,
-            title_img: "this will be title image", //$scope.titleImg,
-            user: user._id,
-            pages: $scope.pages
-          }
-          return $http.post('/api/book', book)
-          .then((res) => { 
-            console.log(res);
-          })
-          .catch((err) => { console.error("Book creation failed!", err) })
+          .then((res) => { $scope.userBooks = res })
         }
 
-        $scope.getBookPages = (book) => {
-          if($scope.currentBook != book){
-            $scope.pages = [];
-            $scope.currentBook = book;
-            if(!book.pages){
-              book.pages = [];
-            }
-            let pageArr = book.pages;
-            if(pageArr.length < 1){
-              $scope.addNewPage('', 'Basic', '', '', '', false, $scope.pages.length + 1);
-            } else {
-              for(var i of pageArr){
-                $scope.fillPage(i);
-              }
-            }
+        $scope.createNewBook = (title, img, user) => {
+          console.log($scope.bookTitle);
+          if($scope.userBooks.length === 0 && !title){
+            $scope.openAlertModal();
           } else {
-            console.log("this book is already selected");
+            resetPages();
+            $scope.addNewPage();
+            let book = {
+              title: title.toUpperCase(),
+              title_img: img,
+              user: user,
+              pages: $scope.pages
+            }
+            bookService.createNewBook(book)
+            .then((res) => { 
+              $scope.currentBook = res.data;
+              $scope.fillBookInfo($scope.currentBook);
+              $scope.getUserBooks();
+            })
+            .catch((err) => { console.error("Book creation failed!", err) })
+          }
+        }
+
+        $scope.initialLoad = () => {
+          bookService.getUserBooks(user._id)
+          .then((res) => { 
+            $scope.userBooks = res;
+            if($scope.userBooks.length > 0){
+              $scope.fillBookInfo($scope.userBooks[$scope.userBooks.length - 1])
+            } else {
+              //Provide HTML for new project
+            }
+          })
+          .catch((err) => { console.error(err) })
+        }
+        $scope.initialLoad();
+
+        $scope.fillBookInfo = (book) => {
+          resetPages();
+          $scope.currentBook = book;
+          for(var i of book.pages){
+            $scope.fillPage(i);
           }
         }
 
@@ -94,13 +103,11 @@
           }, 250)
         }
 
-        $scope.saveCurrentBook = () => {
+        $scope.saveBook = () => {
           $scope.currentBook.pages = $scope.pages;
-
-          bookService.saveCurrentBook($scope.currentBook._id, $scope.currentBook)
+          bookService.saveBook($scope.currentBook)
           .then((res) => {
-            console.log("Save current book response: ", res, $scope.currentBook._id);
-
+            console.log("Save current book response: ", res.data);
           })
         }
 
@@ -110,26 +117,33 @@
             templateUrl: '/app/components/book-builder/project-view-modal/projectViewModal.html',
             controller: 'projectModalController',
             resolve: {
-              user: function() {
-                return $scope.user;
-              },
-              userBooks: function() {
-                return $scope.userBooks;
-              }
+              user: function() { return user },
+              userBooks: function() { return $scope.userBooks }
             }
           })
           modalInstance.result.then((data) => {
-            if(data == 'cancel'){
-              console.log("cancelled");
-            }
-            else {
-              console.log(data);
+            if(data == "close"){ console.log("Closed")} 
+            else if(data.hasOwnProperty('title') && !data.hasOwnProperty('pages')){
+              $scope.createNewBook(data.title, data.title_img, data.user);
               $scope.getUserBooks();
-              $scope.getBookPages(data);
+            } else {
+              $scope.getUserBooks();
+              $scope.fillBookInfo(data);
             }
           })
         }
 
-      };
+        $scope.openAlertModal = () => {
+          let modalInstance = $uibModal.open({
+            animation: true,
+            size: 'sm',
+            templateUrl: '/app/components/book-builder/project-view-modal/open-alert-modal/alertModal.html',
+            controller: 'alertModalCtrl'
+          })
+        }
 
+        $scope.sendToCart = () => {
+          $scope.saveBook();
+        }
+      }
 })();

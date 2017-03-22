@@ -1,3 +1,17 @@
+
+.cart-loading {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: auto;
+  transform: translateX(-50%);
+  font-size: 32px;
+  text-align: center;
+  .button {
+    margin-top: 30px;
+  }  
+}
+
 .cart-table {
   margin-top: 50px;
   display: flex;
