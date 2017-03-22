@@ -6,8 +6,8 @@
       function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
 
         $scope.userBooks;
-        $scope.pages = [];
-
+        $scope.user = user;
+        
         let resetPages = () => {
           $scope.pages = [];
         }
@@ -18,20 +18,26 @@
         }
 
         $scope.createNewBook = (title, img, user) => {
-          resetPages();
-          $scope.addNewPage();
-          let book = {
-            title: title,
-            title_img: img,
-            user: user,
-            pages: $scope.pages
+          console.log($scope.bookTitle);
+          if($scope.userBooks.length === 0 && !title){
+            $scope.openAlertModal();
+          } else {
+            resetPages();
+            $scope.addNewPage();
+            let book = {
+              title: title.toUpperCase(),
+              title_img: img,
+              user: user,
+              pages: $scope.pages
+            }
+            bookService.createNewBook(book)
+            .then((res) => { 
+              $scope.currentBook = res.data;
+              $scope.fillBookInfo($scope.currentBook);
+              $scope.getUserBooks();
+            })
+            .catch((err) => { console.error("Book creation failed!", err) })
           }
-          bookService.createNewBook(book)
-          .then((res) => { 
-            $scope.currentBook = res.data;
-            $scope.fillBookInfo($scope.currentBook);
-          })
-          .catch((err) => { console.error("Book creation failed!", err) })
         }
 
         $scope.initialLoad = () => {
@@ -124,6 +130,15 @@
               $scope.getUserBooks();
               $scope.fillBookInfo(data);
             }
+          })
+        }
+
+        $scope.openAlertModal = () => {
+          let modalInstance = $uibModal.open({
+            animation: true,
+            size: 'sm',
+            templateUrl: '/app/components/book-builder/project-view-modal/open-alert-modal/alertModal.html',
+            controller: 'alertModalCtrl'
           })
         }
 
