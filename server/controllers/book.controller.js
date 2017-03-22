@@ -23,7 +23,7 @@ module.exports = {
   },
 
   readBookById: (req, res, next) => {
-    Book.find(req.params.id, (err, book) => {
+    Book.findById(req.params.id, (err, book) => {
       if (err) {
         console.error(err);
         return res.status(500).send(err);

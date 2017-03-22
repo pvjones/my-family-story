@@ -62,6 +62,9 @@ app.get('/api/logout', function(req, res, next) {
   res.status(200).send('logged out');
 });
 
+//* STRIPE *//
+const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);  //Q. JAK, is this necessary here? A. Everyone else has one; why you gotta be like that?
+
 //* AMAZONS3 ENDPOINT CONTROLLER *//
 const s3 = require('./controllers/s3.controller');
 
@@ -76,6 +79,7 @@ const userController = require('./controllers/user.controller');
 //* ENDPOINT SERVICES *//
 const bookService = require('./services/book.service');
 const orderService = require('./services/order.service');
+const paymentService = require('./services/payment.service')
 
 //* ADDRESS ENDPOINTS *//
 app.post('/api/address', addressController.createAddress);
@@ -99,12 +103,6 @@ app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
 app.get('/api/order/:id', orderService.getOrderDetails);
 
-//* PAGE ENDPOINTS *//
-// app.post('/api/page', pageController.createPage);
-// app.get('/api/page', pageController.readPage);
-// app.put('/api/page/:id', pageController.updatePage);
-// app.delete('/api/page/:id', pageController.deletePage);
-
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);
 app.get('/api/product', productController.readProduct);
@@ -116,6 +114,9 @@ app.post('/api/user', userController.createUser);
 app.get('/api/user', userController.readUser);
 app.get('/api/auth/me', userController.getCurrentUser);
 app.put('/api/user/:id', userController.updateUser);
+
+//* PAYMENT ENDPOINTS *//
+app.post('/api/payment', paymentService.postPayment);
 
 //* AMAZON ENDPOINTS *//
 app.post('/api/upload-photos', s3.sendImageData);
