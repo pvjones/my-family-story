@@ -6,6 +6,15 @@
     function projectModalController($scope, $http, user, userBooks, $uibModal, $uibModalInstance){
 
       $scope.userBooks = userBooks;
+      $scope.checkBookLength = false;
+      if($scope.userBooks.length < 3){
+        console.log('check book llength is true');
+        $scope.checkBookLength = true;
+      }
+      if($scope.userBooks.length >= 3){
+        console.log('check book llength is true');
+        $scope.checkBookLength = false;
+      }
 
       $scope.openBook = (book) => {
         $uibModalInstance.close(book);
@@ -31,6 +40,13 @@
               console.log("Deleting ", userBooks[index])
               $scope.deleteBook(userBooks[index]);
               $scope.userBooks.splice(index, 1);
+              if($scope.userBooks.length < 3){
+                console.log('check book llength is true');
+                $scope.checkBookLength = true;
+              }
+              if($scope.userBooks.length >= 3){
+                $scope.checkBookLength = false;
+              }
             }
             else {
               console.log('cancelled');
@@ -44,7 +60,7 @@
         .then((res) => {
           console.log("The book titled, " + book.title + " has been deleted.");
           console.log(res);
-          
+
         })
         .catch((err) => {
           console.error("Book Deletion Failed!", err)

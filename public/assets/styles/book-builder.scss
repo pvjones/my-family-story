@@ -102,6 +102,7 @@
   right: 25px;
   width: 10px;
   z-index: 1;
+
 }
 
 .delete-book-box {
@@ -111,6 +112,9 @@
   right: 10px;
   width: 10px;
   z-index: 1;
+  color: #888888;
+  margin-right: 4px;
+  cursor: pointer;
 }
 
 .pageinitial{
@@ -164,4 +168,7 @@
 
 .project-header {
   margin: 50px 0 30px 0;
+}
+.pVMbtn{
+  margin-top: 25px;
 }

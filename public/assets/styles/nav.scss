@@ -33,8 +33,9 @@
       text-align: center;
       svg{
         padding-top: 2%;
-        height: 93%;
-        width: auto;
+        transition: all 0.15s ease;
+        height: 102px;
+        width: 105px;
         // path{
         //   fill: none;
         //   stroke: black;
@@ -43,6 +44,10 @@
         //   stroke-dashoffset: 181000;
         //   animation: 8s logo 1 forwards 0.5s;
         // }
+      }
+      svg.sticky-nav{
+        height: 60px;
+        width: 80px;
       }
 //  @keyframes logo {
 //   0%{
