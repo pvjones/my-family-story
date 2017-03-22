@@ -1,6 +1,7 @@
 angular.module('app')
-.controller('paymentModalController', ($scope, stripe, $http, $state, $uibModalInstance) => {
+.controller('paymentModalController', ($scope, stripe, $http, $state, $uibModalInstance, cartTotal) => {
 
+  $scope.cartTotal = cartTotal;
 
   $scope.payment = {};
 
@@ -16,7 +17,7 @@ angular.module('app')
         method: 'POST',
         url: '/api/payment',
         data: {
-          amount: $scope.mockPrice,
+          amount: $scope.cartTotal,
           payment: payment
         }
       })
