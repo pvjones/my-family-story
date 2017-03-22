@@ -63,7 +63,7 @@ app.get('/api/logout', function(req, res, next) {
 });
 
 //* STRIPE *//
-const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);  //JAK, is this necessary here? 
+const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);  //Q. JAK, is this necessary here? A. Everyone else has one; why you gotta be like that?
 
 //* AMAZONS3 ENDPOINT CONTROLLER *//
 const s3 = require('./controllers/s3.controller');

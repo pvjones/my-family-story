@@ -42,6 +42,7 @@
   $scope.openPaymentModal = () => {
     let modalInstance = $uibModal.open({
       animation: true,
+      size: 'md',
       ariaLabelledBy: 'ariaCardInfo',
       templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
       controller: 'paymentModalController',
