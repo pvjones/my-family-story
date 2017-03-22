@@ -1,0 +1,42 @@
+
+.imgSlider{
+  // background: green;
+  height: 210px;
+  position: relative;
+  // width: 465px;
+  margin: 0 auto;
+  display: flex;
+}
+.book-project-holder{
+  // background: blue;
+  position: relative;
+  width: 465px;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 210px;
+  display: flex;
+
+}
+.book-project-holder.bookArrLength{
+  justify-content: center;
+  flex-direction: row;
+}
+.imgSliderAbs{
+  position: absolute;
+  display: flex;
+  transition: all 1s ease-in-out;
+
+}
+
+#imgSliderTest1, #imgSliderTest2{
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 100px;
+  color: rgb(183, 181, 181);
+  font-weight: 400;
+  font-size: 30px;
+}
+#imgSliderTest2{
+  // height: 0;
+  transform: scaleX(-1);
+}
