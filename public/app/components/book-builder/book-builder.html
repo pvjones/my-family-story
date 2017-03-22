@@ -50,10 +50,12 @@
         </div>
     </div>-->
     <div class="row">
-      <h2>{{currentBook.title}}</h2>
-    </div>
-    <div ng-repeat="page in pages track by $index">
-      <book-page page="page" index="$index"></book-page>
+      <div class="col-md-12">
+        <h2>{{currentBook.title}}</h2>
+        <div ng-repeat="page in pages track by $index">
+          <book-page class="row" page="page" index="$index"></book-page>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -67,7 +69,10 @@
   </div>
   <div class="container">
     <div class="row">
-        <button class="btn btn-yellow" ng-click="saveCurrentBook()">SAVE</button><button class="btn btn-green" ng-click="sendProjectInfo()">SUBMIT</button>
+      <div class="col-md-12 bottom-buttons">
+        <button class="btn btn-yellow left-btn" ng-click="saveBook()">SAVE</button>
+        <button class="btn btn-green right-btn" ng-click="sendToCart()">SEND TO CART</button>
+      </div>
     </div>
   </div>
 </div>

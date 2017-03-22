@@ -1,159 +1,123 @@
-
-  <div id="credit-card-modal" class="container">
-      <section class="row">
-        <div class="" id="ariaCardInfo">
+<div id="credit-card-modal" class="container" style="line-height:2">
+    <section class="row">
+        <form name="cardInfoForm" class="col-xs-6">
             <h2>Card Info</h2>
-        </div>
-            <form name="cardInfoForm" class="col-xs-6">
-              <section>
-                <label>Amount to charge:</label>
-                <input class="form-control" type="text" ng-model="mockPrice" placeholder="type in 145.00" required />
-              </section>
-              <section class='form-group'>
-                  <label>Name on card:</label>
-                  <input
-                  type="text"
-                  name="name"
-                  class='form-control'
-                  placeholder='First and last'
-                  required>
-              </section>
-                <div class="form-group">
-                    <label for="number">Card Number</label>
-                    <div class="">
-                        <div class="">
-                            <i class=""></i>
-                            <input
-                              class='form-control'
-                              ng-model="payment.card.number"
-                              type="text"
-                              placeholder="use one of Stripe's test card numbers"
-                              required>
-                        </div>
-                        <div class="" ng-if="cardType">
-                            {{cardType}}
-                        </div>
-                    </div>
-                    <div class="" ng-show="numberError && cardInfoForm.number.$dirty">
-                        Invalid card number
-                    </div>
-                </div>
-                <section class='form-group'>
-                    <label>Exp. Mo</label>
-                    <input
-                    class='form-control'
-                    ng-model="payment.card.exp_month"
-                    type="text"
-                    name="name"
-                    placeholder="MM">
-                </section>
-                <section class='form-group'>
-                    <label>Exp. Yr</label>
-                    <input
-                    class='form-control'
-                    ng-model="payment.card.exp_year"
-                    type="text"
-                    name="name"
-                    placeholder="YY">
-                </section>
-                <!-- <div class="form-group">
-                    <div class="">
-                        <label for="month">Expiration Date: </label>
-                        <select class="" name="month" id="month" ng-model="model.month" ng-change="validateExpiry(model.month, model.year)" required>
-                            <option value="">Month</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                          </select>
-                          <div class="" ng-show="expiryError">
-                              Invalid expiration date
-                          </div>
-                    </div>
-                    <div class="">
-                        <select class="" name="year" id="year"         ng-model="payment.card.exp_month" required>
-                            <option value="">Year</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
-                          </select>
-                    </div> -->
-                    <div class="field four wide required">
-                        <label for="cvc">CVC Code</label>
-                        <div class="">
-                            <i class="ui lock icon"></i>
-                            <input
-                            class='form-control'
-                            ng-model="payment.card.cvc"
-                            placeholder='random CVC number'
-                            type="text"
-                            required>
-                        </div>
-                        <div class="" ng-show="cvcError && cardInfoForm.cvc.$dirty">
-                            Invalid CVC code
-                        </div>
-                    </div>
-                    <div class="">
-                        <label for="zip">Zip Code</label>
-                        <input class="form-control" type="text" name="zip" id="zip" required placeholder="Zip Code" ng-model="model.accountNumber" pattern="[0-9]+" minlength="5" maxlength="5">
-                    </div>
-            <div class="">
+            <section class="required">
+                <label>Amount to charge: {{cartTotal | currency }}</label>
+                <br />
+            </section>
+            <section class='form-group'>
+                <label>Name on card:</label>
+                <input type="text" name="name" class='form-control' placeholder='First and last' required>
+            </section>
+            <div class="form-group">
+                <label for="number">Card Number</label>
                 <div class="">
-                    Cancel
+                    <div class="">
+                        <i class=""></i>
+                        <input class='form-control' ng-model="payment.card.number" type="text" placeholder="use one of Stripe's test card numbers" required>
+                    </div>
+                    <div class="" ng-if="cardType">
+                        {{cardType}}
+                    </div>
                 </div>
-                <button class='btn btn-primary' type='sumbit' ng-click="charge(payment)">Confirm</button>
-          </div>
-            </form>
-          </section>
+                <div class="" ng-show="numberError && cardInfoForm.number.$dirty">
+                    Invalid card number
+                </div>
+            </div>
+            <section id="CREDITCARDDATE">
+                <label>Expiration Date </label>
+                <div class="required" style="display:inline-block">
+                    <select class="" name="month" id="month" ng-model="payment.card.exp_month" ng-change="validateExpiry(model.month, model.year)" required>
+                  <option value="">Month</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                    <div class="ui pointing red basic label" ng-show="expiryError">
+                        Invalid expiration date
+                    </div>
+                </div>
+                <div class="required" style="display:inline-block">
+                    <select class="" name="year" id="year" ng-model="payment.card.exp_year" ng-change="validateExpiry(model.month, model.year)" required>
+                  <option value="">Year</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                </select>
+                </div>
+            </section>
+            <div class="required">
+                <label for="cvc">CVC Code</label>
+                <div class="">
+                    <i class="ui lock icon"></i>
+                    <input class='form-control' ng-model="payment.card.cvc" placeholder='random CVC number' type="text" required>
+                </div>
+                <div class="" ng-show="cvcError && cardInfoForm.cvc.$dirty">
+                    Invalid CVC code
+                </div>
+            </div>
+            <div class="">
+                <label for="zip">Zip Code</label>
+                <input class="form-control" type="text" name="zip" id="zip" required placeholder="Zip Code" ng-model="model.accountNumber" pattern="[0-9]+" minlength="5" maxlength="5">
+            </div>
+            <br />
+            <div class="">
+                <button type="button" name="button" class="btn-red">Cancel</button>
+                <button class='btn-blue' type='sumbit' ng-click="charge(payment)">Confirm</button>
+            </div>
+        </form>
+    </section>
 
-            <section class="row">
-            <h2>Shipping Address</h2>
-            <form name="cardInfoForm" class="col-xs-6">
-              <div>
+    <section class="row">
+        <h2>Shipping Address</h2>
+        <form name="cardInfoForm" class="col-xs-6">
+            <div>
                 <label for="name">Name</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <div>
                 <label for="name">ADDRESS</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <div>
                 <label for="name">ADDRESS 2</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <div>
                 <label for="name">STATE</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <div>
                 <label for="name">ZIP</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <div>
                 <label for="name">COUNTRY</label>
-                <input class="form-control" type="text" name="name" required placeholder="Name"  ng-model="shippingModel.name">
-              </div>
-              <br />
-              <br />
-            </form>
-          </section>
-  </div>
+                <input class="form-control" type="text" name="name" required placeholder="Name" ng-model="shippingModel.name">
+            </div>
+            <br />
+            <br />
+        </form>
+    </section>
+</div>
