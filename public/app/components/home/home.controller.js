@@ -17,7 +17,7 @@
       },
       {
         imgUrl: '../../../assets/images/HIW3.png',
-        desc: 'You\'ll recieve your custom coloring book as a digital file, or choose to have it printed and delivered to your door.<br /><a class="underline-link about-link" href="/#!/start"><em>Learn more</em></a>'
+        desc: 'You\'ll receive your custom coloring book as a digital file, or choose to have it printed and delivered to your door.<br /><a class="underline-link about-link" href="/#!/start"><em>Learn more</em></a>'
       }
     ];
 

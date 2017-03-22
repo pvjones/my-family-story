@@ -44,9 +44,10 @@
         .then((res) => {
           console.log("The book titled, " + book.title + " has been deleted.");
           console.log(res);
+          
         })
-        .catch((err) => { 
-          console.error("Book Deletion Failed!", err) 
+        .catch((err) => {
+          console.error("Book Deletion Failed!", err)
         })
       }
 
@@ -57,16 +58,16 @@
           user: user._id
         }
         return $http.post('/api/book', book)
-        .then((res) => { 
+        .then((res) => {
           console.log(res);
           $uibModalInstance.close(book);
         })
-        .catch((err) => { 
-          console.error("Book creation failed!", err) 
+        .catch((err) => {
+          console.error("Book creation failed!", err)
           $uibModalInstance.close('failed');
         })
       }
-      
+
       $scope.cancel = function(){
         $uibModalInstance.close('cancel');
       };

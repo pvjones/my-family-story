@@ -80,8 +80,9 @@
 .how-it-works {
   padding-bottom: 80px;
   height: 100%;
+
   img {
-    width: 100%;
+    width: 85%;
     height: auto;
     margin: auto;
     border-radius: 3px;
@@ -99,4 +100,32 @@
     display: inline-block;
     margin-top: 20px;
   }
+}
+#howItWorksSpan{
+  opacity: 0;
+  margin-left: 100px;
+  transition: all 0.5s ease-in-out;
+}
+#howItWorksSpan.homeScrollanime{
+  opacity: 1;
+  margin-left: 0;
+
+}
+.how-it-works{
+  opacity: 0;
+  margin-top: 100px;
+  transition: all 0.5s ease-in-out;
+}
+.how-it-works.homeScrollanime{
+  opacity: 1;
+  margin-top: 0;
+}
+.homeBottomCon{
+  margin-left: 100px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.homeBottomCon.homeScrollanime{
+  opacity: 1;
+  margin-left: 0;
 }
