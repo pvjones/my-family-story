@@ -19,7 +19,7 @@
       ctrl.cartTotal = getCartTotal(ctrl.order.cart);
       $scope.$apply()
 
-      CartService.updateOrder(ctrl.order)
+      CartService.updateCart(ctrl.order)
         .then((res) => {
           ctrl.order = res;
         })
