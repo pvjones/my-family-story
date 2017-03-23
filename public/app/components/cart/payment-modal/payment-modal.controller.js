@@ -33,5 +33,41 @@ angular.module('app')
    $uibModalInstance.close('cancel');
   }
 
+  // $scope.validateNumber = function(value) {
+  //   if (value) {
+  //       if ($scope.payment.card.number.validateCardNumber(value)) {
+  //           $scope.numberError = false;
+  //           $scope.cardInfoForm.number.$setValidity("number", true);
+  //           $scope.cardType = Stripe.card.cardType(value);
+  //       } else {
+  //           $scope.numberError = true;
+  //           $scope.cardInfoForm.number.$setValidity("number", false);
+  //       }
+  //   }
+  // }
+  // $scope.validateExpiry = function(month, year) {
+  //     if (month && year) {
+  //         let exp = month + ' ' + year;
+  //         if (Stripe.card.validateExpiry(exp)) {
+  //             $scope.expiryError = false;
+  //             $scope.cardInfoForm.month.$setValidity("month", true);
+  //         } else {
+  //             $scope.expiryError = true;
+  //             $scope.cardInfoForm.month.$setValidity("month", false);
+  //         }
+  //     }
+  // }
+  // $scope.validateCVC = function(value) {
+  //     if (value) {
+  //         if (Stripe.card.validateCVC(value)) {
+  //             $scope.cvcError = false;
+  //             $scope.cardInfoForm.cvc.$setValidity("cvc", true);
+  //         } else {
+  //             $scope.cvcError = true;
+  //             $scope.cardInfoForm.cvc.$setValidity("cvc", false);
+  //         }
+  //     }
+  // }
+
 
 })

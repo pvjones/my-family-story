@@ -17,7 +17,7 @@
                         <label for="number">Card Number</label>
                         <div class="">
                             <i class=""></i>
-                            <input class="" ng-model="payment.card.number" type="text" placeholder="use one of Stripe's test card numbers" required>
+                            <input class="" name="number" ng-model="payment.card.number" type="text" placeholder="use one of Stripe's test card numbers" required>
                         </div>
                         <div class="" ng-if="cardType">
                             {{cardType}}
@@ -30,7 +30,7 @@
                     <div>
                         <label>Expiration Date </label>
                         <div class="required" style="display:inline-block">
-                            <select class="" name="month" id="month" ng-model="payment.card.exp_month" ng-change="validateExpiry(model.month, model.year)" required>
+                            <select class="" name="month" id="month" ng-model="payment.card.exp_month" ng-change="validateExpiry(payment.card.exp_month, payment.card.exp_year)" required>
                     <option value="">Month</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -74,7 +74,7 @@
                         <label for="cvc">CVC Code</label>
                         <div class="">
                             <i class="ui lock icon"></i>
-                            <input class="" ng-model="payment.card.cvc" placeholder='random CVC number' type="text" required>
+                            <input class="" name="cvc" ng-model="payment.card.cvc" placeholder='random CVC number' type="text" required>
                         </div>
                         <div class="" ng-show="cvcError && cardInfoForm.cvc.$dirty">
                             Invalid CVC code
