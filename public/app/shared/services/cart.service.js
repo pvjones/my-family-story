@@ -52,5 +52,15 @@
         })
     };
 
+    this.putShipAddress = function(orderId, shipping) {
+      return $http({
+        method: 'PUT',
+        url: '/api/order/' + orderId,
+        data: {ship_address: shipping}
+      })
+    }
+
+
+
   };
 })();

@@ -17,7 +17,6 @@ module.exports = {
   },
 
   getActiveOrder: (req, res, next) => {
-    console.log("looking for completed order")
     Order.find({
       "user": req.params.user,
       "completed": { $exists: false }
