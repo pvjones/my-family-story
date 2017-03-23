@@ -12,9 +12,6 @@
         $scope.getUserOrders = () => {
           CartService.getAllOrders(user)
           .then((res) => {
-            // if(res.length < 1){
-            //   $scope.userOrders = 
-            // }
             console.log("Orders: ", res);
           })
         }
@@ -173,13 +170,18 @@
         }
 
         $scope.saveToOrder = (book, user) => {
-          CartService.createNewOrder(book, user)
-          .then((res) => {
-            console.log("Order Creation: ", res);
-          })
-          .catch((err) => {
-            console.log("Order Error: ",err);
-          })
+          if($scope.activeOrder === 0){
+            CartService.createNewOrder(book, user)
+            .then((res) => {
+              console.log("Order Creation: ", res);
+            })
+          } else {
+            CartService.updateOrder(book)
+            .then((res) => {
+              console.log("Order Updated: ", res);
+            })
+          }
+          
         }
 
       }
