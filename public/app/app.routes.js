@@ -110,10 +110,9 @@
           user: limitAdmin
         }
       })
-      .state('payment', {
-        url: '/payment',
-        controller: 'paymentController',
-        templateUrl: './app/components/payment/payment.html'
+      .state('thanks', {
+        url: '/thanks',
+        templateUrl: './app/components/thanks/thanks.html'
       })
       // .state('place-order', {
       //   url: '/place-order',
