@@ -15,15 +15,29 @@
       controller: 'pageDirCtrl',
       link: (scope, elem, attrs) => {
 
-        setTimeout(() => $('modal-delete').on('click', function() {
-          if($('.con' + scope.index).hasClass('pageinitial')){
-            $('.con' + scope.index).removeClass('pageinitial');
-          }
-          $('.con' + scope.index).addClass('page-anime');
-          setTimeout(function(){
-            $('.con' + scope.index).removeClass('page-anime');
-          }, 250);
-        }), 250);
+        setTimeout(function(){
+          $('.page' + scope.index).on('click', function(){
+            console.log(scope.index);
+            setTimeout(function(){
+              $('.modal-delete').on('click', function(){
+                console.log('deleteeeee');
+                if($('.con' + scope.index).hasClass('pageinitial')){
+                  $('.con' + scope.index).removeClass('pageinitial');
+                }
+
+                $('.con' + scope.index).addClass('page-anime');
+                setTimeout(function(){
+                  $('.con' + scope.index).removeClass('page-anime');
+                }, 400);
+              })
+            }, 10)
+          })
+        }, 0);
+        // scope.$watch(elem, function(newValue, oldValue){
+        //   if($('.modal-delete')){
+        //     console.log('modal is here');
+        //   }
+        // })
       }
     }
   };

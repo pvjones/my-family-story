@@ -1,23 +1,23 @@
 (function(){
   angular
     .module('app')
-    .controller('pageDirCtrl', ['$scope', '$uibModal', pageDirCtrl]);
+    .controller('pageDirCtrl', ['$scope', '$uibModal', '$timeout', pageDirCtrl]);
 
-    function pageDirCtrl($scope, $uibModal){
-      
+    function pageDirCtrl($scope, $uibModal, $timeout){
+
       $scope.page_type = "Basic";
       $scope.activity_type = "Crossword";
       $scope.custom_activity = "";
       $scope.edit_allowed = false;
 
       $scope.pageTypes = [
-        {name: "Basic", value: "Basic"}, 
+        {name: "Basic", value: "Basic"},
         {name: "Activity", value: "Activity"},
         {name: "Portrait", value: "Portrait"}
       ]
 
       $scope.activity_types = [
-        {name: "Crossword", value: "Crossword"}, 
+        {name: "Crossword", value: "Crossword"},
         {name: "Connect the Dots", value: "Connect the Dots"},
         {name: "Maze", value: "Maze"},
         {name: "Custom", value: "Custom"}
@@ -27,7 +27,7 @@
         {name: "No", value: false},
         {name: "Yes", value: true}
       ]
-    
+
       $scope.openDeletePageModal = () => {
       let modalInstance = $uibModal.open({
         animation: true,
@@ -43,7 +43,9 @@
       modalInstance.result.then((param) => {
         console.log($scope);
         if(param == 'delete'){
-          console.log($scope.$parent.$parent.removePage($scope.index));
+          $timeout(function(){
+            $scope.$parent.$parent.removePage($scope.index);
+          }, 200);
         }
         else {
           console.log('cancelled');
