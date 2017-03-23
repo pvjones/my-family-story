@@ -7,10 +7,23 @@
   function sandboxController($scope, S3Service) {
 
     $scope.items = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
+      {
+        id: 1,
+        text: 'foo'
+      },
+      {
+        id: 2,
+        text: 'bar'
+      },
+      {
+        id: 3,
+        text: 'baz'
+      },
+      {
+        id: 4,
+        text: 'faz'
+      }
+    ];
 
   $scope.$watch('printsSelection', (newValue) => {
     console.log('parent scope', newValue)
