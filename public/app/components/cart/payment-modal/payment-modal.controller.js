@@ -1,27 +1,16 @@
 angular.module('app')
-.controller('paymentModalController', ($scope, stripe, $http, $state, $uibModalInstance, cartTotal) => {
+.controller('paymentModalController', ($scope, stripe, $http, $state, $uibModalInstance, cartTotal, CartService, StripeService) => {
 
   $scope.cartTotal = cartTotal;
 
   $scope.payment = {};
 
-  $scope.charge = function () {
-    return stripe.card.createToken($scope.payment.card)
-    .then(function (response) {
-      console.log('token created for card ending in ', response.card.last4);
-      var payment = angular.copy($scope.payment);
-      payment.card = void 0;
-      payment.token = response.id;
+  $scope.putShipAddress = function(orderId) {
+    CartService.putShipAddress(orderId, $scope.shipping)
+  }
 
-      return $http({
-        method: 'POST',
-        url: '/api/payment',
-        data: {
-          amount: $scope.cartTotal,
-          payment: payment
-        }
-      })
-    })
+  $scope.charge = function () {
+    StripeService.makePayment($scope.payment.card, $scope.payment)
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
       $uibModalInstance.close('success');

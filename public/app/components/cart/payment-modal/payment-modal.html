@@ -95,27 +95,31 @@
             <form name="cardInfoForm">
                 <div>
                     <label for="name">Name</label>
-                    <input class="" type="text" name="name" required ng-model="shippingModel.name">
+                    <input class="" type="text" name="name" required ng-model="shipping.ship_name">
                 </div>
                 <div>
                     <label for="address1">Address</label>
-                    <input class="" type="text" name="address1" required ng-model="shippingModel.address1">
+                    <input class="" type="text" name="address1" required ng-model="shipping.ship_address1">
                 </div>
                 <div>
                     <label for="address2">Address 2</label>
-                    <input class="" type="text" name="address2" required ng-model="shippingModel.address2">
+                    <input class="" type="text" name="address2" ng-model="shipping.ship_address2">
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <input class="" type="text" name="city" required ng-model="shipping.ship_city">
                 </div>
                 <div>
                     <label for="state">State</label>
-                    <input class="" type="text" name="state" required ng-model="shippingModel.state">
+                    <input class="" type="text" name="state" required ng-model="shipping.ship_state">
                 </div>
                 <div>
                     <label for="zip">Zip</label>
-                    <input class="" type="text" name="zip" required ng-model="shippingModel.zip">
+                    <input class="" type="text" name="zip" required ng-model="shipping.ship_zip">
                 </div>
                 <div>
                     <label for="country">Country</label>
-                    <input class="" type="text" name="country" required ng-model="shippingModel.country">
+                    <input class="" type="text" name="country" required ng-model="shipping.ship_country">
                 </div>
                 <br />
             </form>
@@ -123,7 +127,7 @@
         </div>
         <div class="">
             <button type="button" name="button" class="btn btn-red" ng-click="cancel()">Cancel</button>
-            <button class="btn btn-blue" type='sumbit' ng-click="charge(payment)">Confirm</button>
+            <button class="btn btn-blue" type='submit' ng-click="charge(payment); putShipAddress('58cb1b92134e39dd0e8c27bc')">Confirm</button>
         </div>
     </div>
 </div>
