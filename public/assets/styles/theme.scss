@@ -23,6 +23,9 @@ body {
 // GENERAL BUTTON STYLES
 .btn {
   padding-top: 8px;
+  &:focus:active, &:focus, &:active {
+    outline: none;
+  }
 }
 
 .btn-lg {
@@ -173,10 +176,8 @@ a.blue-link:before, a.blue-link:hover:before {
 .s3-input + label {
   color: #6fb3db;
   font-size: 14px;
-  margin: 2px;
   display: inline-block;
-  height: 30px;
-  padding: 0 15px;
+  padding: 2px 15px 0px 15px;
   text-align: center;
   line-height: 30px;
   text-transform: uppercase;
