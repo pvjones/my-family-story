@@ -2,8 +2,10 @@
    <div class="row">
      <div class="col-md-12">
         <h5>PAGE {{page.page_number}}</h5>
-        <img class="delete-box {{'page' + index}}" src="./assets/images/remove.png" id="deleter"  
-        ng-click="openDeletePageModal()">
+        <a class="delete-box hazard-link {{'page' + index}}" id="deleter"  
+        ng-click="openDeletePageModal()"> 
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
       </div>
    </div>
    <div class="row main-body">
@@ -37,11 +39,10 @@
             </div>
             <div class="form-group" ng-if="page.page_type==='Portrait'">
               <div>
-                <label>Upload a Photo</label>
-                <s3-uploader max-width="1200" max-height="1200" default-text="Upload" success-text="Photo Uploaded!" s3-Url="page.image_url"></s3-uploader>
+                <s3-uploader repeat-id="index" max-width="1200" max-height="1200" default-text="Upload Photo" success-text="Photo Uploaded!" s3-url="page.image_url"></s3-uploader>
               </div>
-              <div ng-if="page.image_url">
-                <img class="img-preview" ng-src="{{page.image_url}}"/>
+              <div ng-if="page.image_url" class="img-preview">
+                <img ng-src="{{page.image_url}}"/>
               </div>
             </div>
             
