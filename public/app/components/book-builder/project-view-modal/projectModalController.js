@@ -8,11 +8,11 @@
       $scope.userBooks = userBooks;
       $scope.checkBookLength = false;
       if($scope.userBooks.length < 3){
-        console.log('check book llength is true');
+        console.log('check book length is true');
         $scope.checkBookLength = true;
       }
       if($scope.userBooks.length >= 3){
-        console.log('check book llength is true');
+        console.log('check book length is true');
         $scope.checkBookLength = false;
       }
 

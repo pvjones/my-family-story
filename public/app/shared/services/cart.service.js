@@ -6,6 +6,30 @@
 
   function CartService($http, CleanseCartService) {
 
+    this.createNewOrder = (book, user) => {
+      let order = {
+        books: [book],
+        user: user._id
+      }
+      return $http.post('/api/order', order)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("Error creating order: ", err);
+      })
+    }
+
+    this.getAllOrders = (user) => {
+      return $http.get(`/api/order?user=${user._id}`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("Error getting orders: ", err);
+      })
+    }
+
     this.getOrderDetails = (orderId) => {
       return $http({
         method: 'GET',

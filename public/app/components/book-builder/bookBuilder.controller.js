@@ -1,13 +1,24 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', '$uibModal', '$timeout', 'user', 'bookService', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
 
-      function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
+      function bookBuilderController($scope, $uibModal, $timeout, user, bookService, CartService){
 
         $scope.saved = false;
         $scope.userBooks;
         $scope.user = user;
+        
+        $scope.getUserOrders = () => {
+          CartService.getAllOrders(user)
+          .then((res) => {
+            // if(res.length < 1){
+            //   $scope.userOrders = 
+            // }
+            console.log("Orders: ", res);
+          })
+        }
+        $scope.getUserOrders();
         
         let resetPages = () => {
           $scope.pages = [];
@@ -153,12 +164,23 @@
             controller: 'printsModalCtrl'
           })
           modalInstance.result.then((data) => {
-            $scope.currentBook.print_qty = data;
-            $scope.saveBook();
+            if(data !== 'cancel'){
+              $scope.currentBook.print_qty = data;
+              $scope.saveBook(); 
+              $scope.saveToOrder($scope.currentBook, user);     
+            }
           })
         }
 
-
+        $scope.saveToOrder = (book, user) => {
+          CartService.createNewOrder(book, user)
+          .then((res) => {
+            console.log("Order Creation: ", res);
+          })
+          .catch((err) => {
+            console.log("Order Error: ",err);
+          })
+        }
 
       }
 })();
