@@ -77,9 +77,10 @@
       .prints-title {
         margin-left: -30px;
       }
-
     }
-
+    .single-item {
+      border: none;
+    }
   }
 
   .cart-total {
@@ -111,5 +112,4 @@
     padding-right: 25px;
     padding-left: 25px;
   }
-
 }
