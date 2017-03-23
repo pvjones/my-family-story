@@ -30,10 +30,11 @@
             })
             .catch((err) => {
               messageHandler();
+              console.log("messagehandler catch")
             });
         })
         .catch((err) => {
-          console.log("active order err", err);
+          console.log("active order catch", err);
         })
     }
 
