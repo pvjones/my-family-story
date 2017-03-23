@@ -18,8 +18,8 @@ let order = new mongoose.Schema({
     ship_country: {type: String}
   },
   completed: {
-    stripe_transaction_ID: {type: String},
-    date: {type: Date, default: new Date()}
+    stripe_transaction_ID: { type: String },
+    date: { type: Date, default: new Date() }
   }
 
 });
