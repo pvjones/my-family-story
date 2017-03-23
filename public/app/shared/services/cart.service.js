@@ -56,10 +56,10 @@
         });
     };
 
-    this.updateOrder = (newOrder) => {
-      let orderId = newOrder._id;
+    this.updateCart = (updatedOrder) => {
+      let orderId = updatedOrder._id;
       let newOrderData = {
-        books: newOrder.cart.map((book) => {
+        books: updatedOrder.cart.map((book) => {
           return book._id
         })
       };
