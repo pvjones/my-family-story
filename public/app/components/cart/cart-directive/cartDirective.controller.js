@@ -40,19 +40,23 @@
       return total;
     };
 
-    ctrl.openPaymentModal = () => {
-      let modalInstance = $uibModal.open({
-        animation: true,
-        size: 'lg',
-        ariaLabelledBy: 'ariaCardInfo',
-        templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
-        controller: 'paymentModalController',
-        resolve: {
-          cartTotal: function () {
-            return ctrl.cartTotal;
-          }
+  ctrl.openPaymentModal = () => {
+    let modalInstance = $uibModal.open({
+      animation: true,
+      size: 'lg',
+      ariaLabelledBy: 'ariaCardInfo',
+      templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
+      controller: 'paymentModalController',
+      resolve: {
+        cartTotal: function() {
+          return ctrl.cartTotal;
+        },
+        orderId: function() {
+          console.log("From the cart directive", ctrl.order._id);
+          return ctrl.order._id;
         }
-      })
+      }
+    })
       modalInstance.result.then((param) => {
         if (param == 'success') {
           console.log("From cartDirectiveController: Successful payment");
