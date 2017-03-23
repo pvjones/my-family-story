@@ -9,7 +9,8 @@
     return {
       restrict: 'E',
       scope: {
-        s3Url: "="
+        s3Url: "=",
+        repeatId: "="
       },
       templateUrl: './app/shared/directives/s3-uploader/s3-uploader.html',
       controller: 's3Controller',
@@ -22,7 +23,7 @@
         
         ctrl.inputText = attrs.defaultText;
         ctrl.successText = attrs.successText;
-
+ 
         let input = angular.element(elem[0].querySelector('[s3-input]'));
 
         input.on('change', (onChangeEvent) => {

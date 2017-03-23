@@ -45,12 +45,13 @@
       <h5> Or Start a New Project</h5>
     </div>
   </div>
+  
   <div class="row">
     <form>
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-          <input type="text" class="form-control" placeholder="Give Your Project a Title" ng-model="newBookTitle"/>
-          <button class="btn btn-blue pVMbtn" ng-click="createNewBook()">ADD NEW PROJECT</button>
+          <input type="text" class="form-control" placeholder="New Project Title" ng-model="newBookTitle"/>
+          <button class="btn btn-blue btn-add-project" ng-click="createNewBook()">ADD NEW PROJECT</button>
         </div>
       </div>
       <div class="row text-center pad-top-sm">
@@ -60,7 +61,6 @@
       </div>
     </form>
   </div>
-
 </div> <!--end modal body-->
 <div class="modal-footer">
   <button class="btn btn-yellow" type="button" ng-click="close()">CLOSE</button>

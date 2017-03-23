@@ -1,6 +1,5 @@
 .main-gray-bg {
    background-color: #efefef;
-   min-height: 100vh;
    padding-bottom: 50px;
 }
 
@@ -51,6 +50,7 @@
       box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
    }
 }
+
 .delete-box {
   position: relative;
   float: right;
@@ -59,6 +59,7 @@
   width: 10px;
   z-index: 1;
 }
+
 .delete-book-box {
   position: relative;
   float: right;
@@ -98,14 +99,21 @@
 }
 
 .project-header {
-  margin: 50px 0 30px 0;
+  margin: 30px 0 10px 0;
 }
-.pVMbtn{
-  margin-top: 25px;
+
+.new-project-box {
+  margin-top: 18px;
+  border-top: 1px solid #dbdbdb;
+  padding-top: 10px;
+  .btn-blue {
+    margin-top: 12px;
+  }
 }
+
 .bottom-buttons {
   margin: 20px 0 0 0;
-  padding-top: 10px;
+  padding-top: 20px;
   border-top: 1px solid #aaa;
   .left-btn {
     float: left;

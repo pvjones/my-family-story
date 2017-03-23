@@ -9,12 +9,17 @@ let order = new mongoose.Schema({
   tax: {type: Number},
   shipping: {type: Number},
   ship_address: {
+    ship_name: {type: String},
     ship_address1: {type: String},
     ship_address2: {type: String},
     ship_city: {type: String},
     ship_state: {type: String},
     ship_zip: {type: String},
     ship_country: {type: String}
+  },
+  completed: {
+    stripe_transaction_ID: { type: String },
+    date: { type: Date }
   }
 
 });
