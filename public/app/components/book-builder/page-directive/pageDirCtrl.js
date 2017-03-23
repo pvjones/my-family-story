@@ -9,6 +9,7 @@
       $scope.activity_type = "Crossword";
       $scope.custom_activity = "";
       $scope.edit_allowed = false;
+      $scope.wasPageDeleted = false;
 
       $scope.pageTypes = [
         {name: "Basic", value: "Basic"},
@@ -40,12 +41,16 @@
           }
         }
       })
+
       modalInstance.result.then((param) => {
-        console.log($scope);
         if(param == 'delete'){
+          $scope.wasPageDeleted = true;
           $timeout(function(){
+            console.log($scope.index);
             $scope.$parent.$parent.removePage($scope.index);
-          }, 200);
+            $scope.wasPageDeleted = false;
+            console.log($scope.index);
+          }, 300);
         }
         else {
           console.log('cancelled');

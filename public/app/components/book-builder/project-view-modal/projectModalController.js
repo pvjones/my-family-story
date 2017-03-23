@@ -8,11 +8,9 @@
       $scope.userBooks = userBooks;
       $scope.checkBookLength = false;
       if($scope.userBooks.length < 3){
-        console.log('check book llength is true');
         $scope.checkBookLength = true;
       }
       if($scope.userBooks.length >= 3){
-        console.log('check book llength is true');
         $scope.checkBookLength = false;
       }
 
@@ -36,7 +34,6 @@
               $scope.deleteBook(userBooks[index]);
               $scope.userBooks.splice(index, 1);
               if($scope.userBooks.length < 3){
-                console.log('check book llength is true');
                 $scope.checkBookLength = true;
               }
               if($scope.userBooks.length >= 3){
