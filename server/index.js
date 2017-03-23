@@ -102,6 +102,7 @@ app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
 app.get('/api/order/:id', orderService.getOrderDetails);
+app.get('/api/activeorder/:user', orderService.getActiveOrder);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);

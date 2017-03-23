@@ -6,6 +6,19 @@
 
   function CartService($http, CleanseCartService) {
 
+    this.getActiveOrder = (userId) => {
+      return $http({
+        method: 'GET',
+        url: `/api/activeorder/${userId}`
+      })
+      .then((res) => {
+        return res.data[0];
+      })
+      .catch((err) => {
+        throw err;
+      })
+    }
+
     this.getOrderDetails = (orderId) => {
       return $http({
         method: 'GET',
@@ -26,7 +39,6 @@
           return book._id
         })
       };
-
       return $http({
         method: 'PUT',
         url: `/api/order/${orderId}`,

@@ -15,6 +15,10 @@ let order = new mongoose.Schema({
     ship_state: {type: String},
     ship_zip: {type: String},
     ship_country: {type: String}
+  },
+  completed: {
+    stripe_transaction_ID: { type: String },
+    date: { type: Date, default: new Date() }
   }
 
 });

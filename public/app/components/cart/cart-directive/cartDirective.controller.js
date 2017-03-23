@@ -9,7 +9,7 @@
     let ctrl = this;
 
     $scope.$watch('ctrl.order', (newVal) => {
-        if (newVal) ctrl.cartTotal = getCartTotal(newVal["cart"]);
+      if (newVal) ctrl.cartTotal = getCartTotal(newVal["cart"]);
     })
 
     ctrl.deleteBook = (bookId) => {
@@ -24,6 +24,7 @@
           ctrl.order = res;
         })
         .catch((err) => {
+          ctrl.order = {};
           console.log(err);
         })
     }
@@ -39,25 +40,25 @@
       return total;
     };
 
-  ctrl.openPaymentModal = () => {
-    let modalInstance = $uibModal.open({
-      animation: true,
-      size: 'md',
-      ariaLabelledBy: 'ariaCardInfo',
-      templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
-      controller: 'paymentModalController',
-      resolve: {
-        cartTotal: function() {
-          return ctrl.cartTotal;
+    ctrl.openPaymentModal = () => {
+      let modalInstance = $uibModal.open({
+        animation: true,
+        size: 'md',
+        ariaLabelledBy: 'ariaCardInfo',
+        templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
+        controller: 'paymentModalController',
+        resolve: {
+          cartTotal: function () {
+            return ctrl.cartTotal;
+          }
         }
-      }
-    })
-    modalInstance.result.then((param) => {
-      if(param == 'success'){
-        alert("Thank you! Your order was succesful.");
-      }
-    })
-  };
+      })
+      modalInstance.result.then((param) => {
+        if (param == 'success') {
+          alert("Thank you! Your order was succesful.");
+        }
+      })
+    };
 
   };
 
