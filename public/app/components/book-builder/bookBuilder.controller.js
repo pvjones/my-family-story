@@ -1,21 +1,24 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
 
-      function bookBuilderController($scope, $uibModal, $timeout, user, bookService, CartService){
+      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, CartService){
 
         $scope.saved = false;
         $scope.userBooks;
         $scope.user = user;
         
-        $scope.getUserOrders = () => {
-          CartService.getAllOrders(user)
+        $scope.getActiveOrder = () => {
+          CartService.getActiveOrder(user._id)
           .then((res) => {
-            console.log("Orders: ", res);
+            $scope.activeOrder = res;
+            $scope.orderBooks = res.books;
+            console.log("Active Order: ", $scope.activeOrder);
+            console.log("Books: ",$scope.orderBooks);
           })
         }
-        $scope.getUserOrders();
+        $scope.getActiveOrder();
         
         let resetPages = () => {
           $scope.pages = [];
@@ -170,15 +173,19 @@
         }
 
         $scope.saveToOrder = (book, user) => {
-          if($scope.activeOrder === 0){
+          if(!$scope.activeOrder){
             CartService.createNewOrder(book, user)
             .then((res) => {
               console.log("Order Creation: ", res);
+              $state.go('cart');
             })
           } else {
-            CartService.updateOrder(book)
+            let newBookArray = $scope.activeOrder.books;
+            newBookArray.push(book._id)
+            CartService.addBookToOrder($scope.activeOrder._id, newBookArray)
             .then((res) => {
               console.log("Order Updated: ", res);
+              $state.go('cart');
             })
           }
           

@@ -8,7 +8,7 @@
 
     this.createNewOrder = (book, user) => {
       let order = {
-        books: [book],
+        books: [book._id],
         user: user._id
       }
       return $http.post('/api/order', order)
@@ -17,6 +17,16 @@
       })
       .catch((err) => {
         console.log("Error creating order: ", err);
+      })
+    }
+
+    this.addBookToOrder = (orderId, bookArr) => {
+      return $http.put(`/api/order/${orderId}`, {'books': bookArr})
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("Error adding book to order: ", err);
       })
     }
 
@@ -73,6 +83,6 @@
         data: {ship_address: shipping}
       })
     }
-    
+
   };
 })();
