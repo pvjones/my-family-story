@@ -70,8 +70,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 bottom-buttons">
-        <button class="btn btn-yellow left-btn" ng-click="saveBook()">SAVE</button>
-        <button class="btn btn-green right-btn" ng-click="sendToCart()">SEND TO CART</button>
+        <button animate-fade condition="saved" class="btn btn-yellow left-btn" ng-click="saveBook()">SAVE PROJECT</button>
+        <!--<button class="btn btn-yellow left-btn" ng-click="saveBook()" ng-if="saved === false">SAVE PROJECT</button>
+        <button class="btn btn-green left-btn" ng-if="saved === true">PROJECT SAVED</button>-->
+        <button class="btn btn-green right-btn" ng-click="openPrintsModal()">SELECT PRINT QTY</button>
       </div>
     </div>
   </div>

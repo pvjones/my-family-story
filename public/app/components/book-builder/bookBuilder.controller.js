@@ -5,6 +5,7 @@
 
       function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
 
+        $scope.saved = false;
         $scope.userBooks;
         $scope.user = user;
         
@@ -88,6 +89,7 @@
               page_number: $scope.pages.length + 1
             }
           )
+          $scope.saved = false;
         }
 
         let updatePageNums = (arr) => {
@@ -101,6 +103,7 @@
             $scope.pages.splice(i, 1);
             updatePageNums($scope.pages);
           }, 250)
+          $scope.saved = false;
         }
 
         $scope.saveBook = () => {
@@ -108,6 +111,7 @@
           bookService.saveBook($scope.currentBook)
           .then((res) => {
             console.log("Save current book response: ", res.data);
+            $scope.saved = true;
           })
         }
 
@@ -142,8 +146,19 @@
           })
         }
 
-        $scope.sendToCart = () => {
-          $scope.saveBook();
+        $scope.openPrintsModal = () => {
+          let modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '/app/components/book-builder/prints-modal/printsModal.html',
+            controller: 'printsModalCtrl'
+          })
+          modalInstance.result.then((data) => {
+            $scope.currentBook.print_qty = data;
+            $scope.saveBook();
+          })
         }
+
+
+
       }
 })();
