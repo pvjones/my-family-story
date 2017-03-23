@@ -12,12 +12,13 @@
     let userId = user._id;
     console.log(userId)
 
-    getActiveOrder("58c87346d2ce4ecb7d5ff417")
+    getActiveOrder("58c87346d2ce4ecb7d5ff417");
 
-    $scope.$watch('order', (newVal) => {
-      console.log('New')
+    $scope.$watch('order', (newVal, oldVal) => {
+      if (newVal !== oldVal) {
       messageHandler(newVal);
-    })
+      }
+    });
 
     function getActiveOrder(userId) {
       CartService.getActiveOrder(userId)
@@ -29,17 +30,18 @@
               messageHandler(res);
             })
             .catch((err) => {
-              messageHandler();
+              messageHandler(err);
               console.log("messagehandler catch")
             });
         })
         .catch((err) => {
+          messageHandler(err)
           console.log("active order catch", err);
-        })
-    }
+        });
+    };
 
     function messageHandler(order) {
-      if (!order || order.cart.length < 1) {
+      if (!order || !order.cart || order.cart.length < 1) {
         $scope.defaultMessage = "Your cart is currently empty";
       } else {
         $scope.showCart = true;
