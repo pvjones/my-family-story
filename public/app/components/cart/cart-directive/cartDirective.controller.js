@@ -49,6 +49,10 @@
       resolve: {
         cartTotal: function() {
           return ctrl.cartTotal;
+        },
+        orderId: function() {
+          console.log("From the cart directive", ctrl.order._id);
+          return ctrl.order._id;
         }
       }
     })
