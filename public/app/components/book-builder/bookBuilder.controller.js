@@ -13,9 +13,6 @@
           CartService.getActiveOrder(user._id)
           .then((res) => {
             $scope.activeOrder = res;
-            $scope.orderBooks = res.books;
-            console.log("Active Order: ", $scope.activeOrder);
-            console.log("Books: ",$scope.orderBooks);
           })
         }
         $scope.getActiveOrder();
@@ -30,7 +27,6 @@
         }
 
         $scope.createNewBook = (title, img, user) => {
-          console.log($scope.bookTitle);
           if($scope.userBooks.length === 0 && !title){
             $scope.openAlertModal();
           } else {
@@ -121,7 +117,6 @@
           $scope.currentBook.pages = $scope.pages;
           bookService.saveBook($scope.currentBook)
           .then((res) => {
-            console.log("Save current book response: ", res.data);
             $scope.saved = true;
           })
         }
@@ -173,23 +168,32 @@
         }
 
         $scope.saveToOrder = (book, user) => {
-          if(!$scope.activeOrder){
-            CartService.createNewOrder(book, user)
+          if(!$scope.activeOrder._id){
+            CartService.createNewOrder(book._id, user._id)
             .then((res) => {
-              console.log("Order Creation: ", res);
               $state.go('cart');
             })
           } else {
             let newBookArray = $scope.activeOrder.books;
-            newBookArray.push(book._id)
-            CartService.addBookToOrder($scope.activeOrder._id, newBookArray)
-            .then((res) => {
-              console.log("Order Updated: ", res);
-              $state.go('cart');
-            })
+            let dupe = false;
+            for(var i in newBookArray){
+              if(book._id == newBookArray[i]){
+                dupe = true;
+              }
+            }
+            if(dupe === false){
+              newBookArray.push(book._id)
+              CartService.addBookToOrder($scope.activeOrder._id, newBookArray)
+              .then((res) => {
+                $state.go('cart');
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+            } else {
+              $state.go('about');
+            }
           }
-          
         }
-
       }
 })();

@@ -6,10 +6,10 @@
 
   function CartService($http, CleanseCartService) {
 
-    this.createNewOrder = (book, user) => {
+    this.createNewOrder = (bookId, userId) => {
       let order = {
-        books: [book._id],
-        user: user._id
+        books: [bookId],
+        user: userId
       }
       return $http.post('/api/order', order)
       .then((res) => {
@@ -36,7 +36,11 @@
         url: `/api/activeorder/${userId}`
       })
       .then((res) => {
-        return res.data[0];
+        if(res === 'No active orders'){
+          console.log(res);
+        } else {
+          return res.data[0];
+        }
       })
       .catch((err) => {
         throw err;
