@@ -37,7 +37,7 @@
           {{page.subtotal | currency: "$ ":0}}
         </div>
       </div>
-      <div class="table-row prints" ng-if="book.print_qty">
+      <div class="table-row prints" ng-class="{ 'single-item': ctrl.order }" ng-if="book.print_qty" >
         <div class="table-cell item-column">
           <div class="prints-title">{{'Printed Copies'}}</div>
         </div>
