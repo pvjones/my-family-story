@@ -23,7 +23,7 @@ body {
 // GENERAL BUTTON STYLES
 .btn {
   padding-top: 8px;
-  &:focus:active, &:focus, &:active {
+  &:focus:active, &:focus, &:active &:target{
     outline: none;
   }
 }

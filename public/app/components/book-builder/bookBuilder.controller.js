@@ -1,12 +1,21 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', '$uibModal', '$timeout', 'user', 'bookService', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
 
-      function bookBuilderController($scope, $uibModal, $timeout, user, bookService){
+      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, CartService){
 
+        $scope.saved = false;
         $scope.userBooks;
         $scope.user = user;
+        
+        $scope.getActiveOrder = () => {
+          CartService.getActiveOrder(user._id)
+          .then((res) => {
+            $scope.activeOrder = res;
+          })
+        }
+        $scope.getActiveOrder();
         
         let resetPages = () => {
           $scope.pages = [];
@@ -18,7 +27,6 @@
         }
 
         $scope.createNewBook = (title, img, user) => {
-          console.log($scope.bookTitle);
           if($scope.userBooks.length === 0 && !title){
             $scope.openAlertModal();
           } else {
@@ -88,6 +96,7 @@
               page_number: $scope.pages.length + 1
             }
           )
+          $scope.saved = false;
         }
 
         let updatePageNums = (arr) => {
@@ -101,13 +110,14 @@
             $scope.pages.splice(i, 1);
             updatePageNums($scope.pages);
           }, 250)
+          $scope.saved = false;
         }
 
         $scope.saveBook = () => {
           $scope.currentBook.pages = $scope.pages;
           bookService.saveBook($scope.currentBook)
           .then((res) => {
-            console.log("Save current book response: ", res.data);
+            $scope.saved = true;
           })
         }
 
@@ -142,8 +152,48 @@
           })
         }
 
-        $scope.sendToCart = () => {
-          $scope.saveBook();
+        $scope.openPrintsModal = () => {
+          let modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '/app/components/book-builder/prints-modal/printsModal.html',
+            controller: 'printsModalCtrl'
+          })
+          modalInstance.result.then((data) => {
+            if(data !== 'cancel'){
+              $scope.currentBook.print_qty = data;
+              $scope.saveBook(); 
+              $scope.saveToOrder($scope.currentBook, user);     
+            }
+          })
+        }
+
+        $scope.saveToOrder = (book, user) => {
+          if(!$scope.activeOrder._id){
+            CartService.createNewOrder(book._id, user._id)
+            .then((res) => {
+              $state.go('cart');
+            })
+          } else {
+            let newBookArray = $scope.activeOrder.books;
+            let dupe = false;
+            for(var i in newBookArray){
+              if(book._id == newBookArray[i]){
+                dupe = true;
+              }
+            }
+            if(dupe === false){
+              newBookArray.push(book._id)
+              CartService.addBookToOrder($scope.activeOrder._id, newBookArray)
+              .then((res) => {
+                $state.go('cart');
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+            } else {
+              $state.go('about');
+            }
+          }
         }
       }
 })();

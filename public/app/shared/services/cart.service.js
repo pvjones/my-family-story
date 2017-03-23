@@ -6,13 +6,41 @@
 
   function CartService($http, CleanseCartService) {
 
+    this.createNewOrder = (bookId, userId) => {
+      let order = {
+        books: [bookId],
+        user: userId
+      }
+      return $http.post('/api/order', order)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("Error creating order: ", err);
+      })
+    }
+
+    this.addBookToOrder = (orderId, bookArr) => {
+      return $http.put(`/api/order/${orderId}`, {'books': bookArr})
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log("Error adding book to order: ", err);
+      })
+    }
+
     this.getActiveOrder = (userId) => {
       return $http({
         method: 'GET',
         url: `/api/activeorder/${userId}`
       })
       .then((res) => {
-        return res.data[0];
+        if(res === 'No active orders'){
+          console.log(res);
+        } else {
+          return res.data[0];
+        }
       })
       .catch((err) => {
         throw err;
@@ -59,8 +87,6 @@
         data: {ship_address: shipping}
       })
     }
-
-
 
   };
 })();

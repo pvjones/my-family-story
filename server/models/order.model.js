@@ -19,7 +19,7 @@ let order = new mongoose.Schema({
   },
   completed: {
     stripe_transaction_ID: { type: String },
-    date: { type: Date, default: new Date() }
+    date: { type: Date }
   }
 
 });

@@ -26,7 +26,7 @@ module.exports = {
           console.error(err);
           return res.status(500).send(err);
         } else if (order.length === 0) {
-          return res.status(500).send('No active orders')
+          return res.status(200).send('No active orders')
         } else {
           res.status(200).send(order);
         }
