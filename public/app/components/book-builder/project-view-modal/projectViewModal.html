@@ -7,7 +7,6 @@
   <div class='imgSlider' bb-img-slider-dir>
     <i id="imgSliderTest2" class="fa fa-chevron-right fa-4x" aria-hidden="true"></i>
     <div class="book-project-holder" ng-class="{bookArrLength: checkBookLength}" ng-if="userBooks.length > 0">
-
       <div class="imgSliderAbs">
         <div ng-repeat="book in userBooks track by $index" class="projectModelSelectionDiv">
           <div ng-click="openDeleteBookModal($index)">
@@ -20,22 +19,17 @@
         </div>
       </div>
     </div>
-
     <i id="imgSliderTest1" class="fa fa-chevron-right fa-3x" aria-hidden="true"></i>
   </div>
   <div class="row new-project-box">
     <div class="text-center">
       <h5> Or Start a New Project</h5>
     </div>
-
-  </div>
-  
-  <div class="row">
     <form>
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-          <input type="text" class="form-control" placeholder="Give Your Project a Title" ng-model="newBookTitle"/>
-          <button class="btn btn-blue pVMbtn" ng-click="createNewBook()">ADD NEW PROJECT</button>
+          <input type="text" class="form-control" placeholder="New Project Title" ng-model="newBookTitle"/>
+          <button class="btn btn-blue btn-add-project" ng-click="createNewBook()">ADD NEW PROJECT</button>
         </div>
       </div>
       <div class="row text-center pad-top-sm">
@@ -45,7 +39,6 @@
       </div>
     </form>
   </div>
-
 </div> <!--end modal body-->
 <div class="modal-footer">
   <button class="btn btn-yellow" type="button" ng-click="close()">CLOSE</button>
