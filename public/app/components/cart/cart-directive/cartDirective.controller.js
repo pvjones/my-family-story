@@ -9,7 +9,7 @@
     let ctrl = this;
 
     $scope.$watch('ctrl.order', (newVal) => {
-        if (newVal) ctrl.cartTotal = getCartTotal(newVal["cart"]);
+      if (newVal) ctrl.cartTotal = getCartTotal(newVal["cart"]);
     })
 
     ctrl.deleteBook = (bookId) => {
@@ -19,11 +19,12 @@
       ctrl.cartTotal = getCartTotal(ctrl.order.cart);
       $scope.$apply()
 
-      CartService.updateOrder(ctrl.order)
+      CartService.updateCart(ctrl.order)
         .then((res) => {
           ctrl.order = res;
         })
         .catch((err) => {
+          ctrl.order = {};
           console.log(err);
         })
     }
@@ -54,17 +55,16 @@
           console.log("From the cart directive", ctrl.order._id);
           return ctrl.order._id;
         }
-      }
-    })
-    modalInstance.result.then((param) => {
-      if(param == 'success'){
-        console.log("From cartDirectiveController: Successful payment");
-      }
-      if (param == 'cancel') {
-        console.log("Cancelled");
-      }
-    })
-  };
+      })
+      modalInstance.result.then((param) => {
+        if (param == 'success') {
+          console.log("From cartDirectiveController: Successful payment");
+        }
+        if (param == 'cancel') {
+          console.log("Cancelled");
+        }
+      })
+    };
 
   };
 

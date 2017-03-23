@@ -6,6 +6,19 @@
 
   function CartService($http, CleanseCartService) {
 
+    this.getActiveOrder = (userId) => {
+      return $http({
+        method: 'GET',
+        url: `/api/activeorder/${userId}`
+      })
+      .then((res) => {
+        return res.data[0];
+      })
+      .catch((err) => {
+        throw err;
+      })
+    }
+
     this.getOrderDetails = (orderId) => {
       return $http({
         method: 'GET',
@@ -19,14 +32,13 @@
         });
     };
 
-    this.updateOrder = (newOrder) => {
-      let orderId = newOrder._id;
+    this.updateCart = (updatedOrder) => {
+      let orderId = updatedOrder._id;
       let newOrderData = {
-        books: newOrder.cart.map((book) => {
+        books: updatedOrder.cart.map((book) => {
           return book._id
         })
       };
-
       return $http({
         method: 'PUT',
         url: `/api/order/${orderId}`,
