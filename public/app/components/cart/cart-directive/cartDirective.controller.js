@@ -55,7 +55,8 @@
           console.log("From the cart directive", ctrl.order._id);
           return ctrl.order._id;
         }
-      })
+      }
+    })
       modalInstance.result.then((param) => {
         if (param == 'success') {
           console.log("From cartDirectiveController: Successful payment");
