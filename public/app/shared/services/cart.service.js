@@ -20,13 +20,16 @@
       })
     }
 
-    this.getAllOrders = (user) => {
-      return $http.get(`/api/order?user=${user._id}`)
+    this.getActiveOrder = (userId) => {
+      return $http({
+        method: 'GET',
+        url: `/api/activeorder/${userId}`
+      })
       .then((res) => {
-        return res.data;
+        return res.data[0];
       })
       .catch((err) => {
-        console.log("Error getting orders: ", err);
+        throw err;
       })
     }
 
@@ -50,7 +53,6 @@
           return book._id
         })
       };
-
       return $http({
         method: 'PUT',
         url: `/api/order/${orderId}`,
@@ -71,8 +73,6 @@
         data: {ship_address: shipping}
       })
     }
-
-
-
+    
   };
 })();

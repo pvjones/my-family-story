@@ -1,29 +1,49 @@
-(function(){
+(function () {
   angular
 
-  .module('app')
-  .controller('cartController', ['$scope', 'CartService', cartController]);
+    .module('app')
+    .controller('cartController', ['user', '$scope', 'CartService', cartController]);
 
-  function cartController($scope, CartService) {
+  function cartController(user, $scope, CartService) {
 
+    $scope.showCart = false;
     $scope.defaultMessage = "Loading..."
 
-    getCurrentOrder("58cb1b92134e39dd0e8c27bc")
+    let userId = user._id;
+    console.log(userId)
 
-    function getCurrentOrder(orderId) {
-      CartService.getOrderDetails(orderId)
+    getActiveOrder("58c87346d2ce4ecb7d5ff417")
+
+    $scope.$watch('order', (newVal) => {
+      console.log('New')
+      messageHandler(newVal);
+    })
+
+    function getActiveOrder(userId) {
+      CartService.getActiveOrder(userId)
         .then((res) => {
-          $scope.order = res;
-          console.log($scope.order.cart.length)
-          if ($scope.order.cart.length == 0) {
-            $scope.defaultMessage = 'Your cart is currently empty';
-          }
+          let orderId = res._id;
+          CartService.getOrderDetails(orderId)
+            .then((res) => {
+              $scope.order = res;
+              messageHandler(res);
+            })
+            .catch((err) => {
+              messageHandler();
+            });
         })
         .catch((err) => {
-          $scope.defaultMessage = 'Your cart is currently empty'
-          console.log(err);
-        });
+          console.log("active order err", err);
+        })
     }
 
-  }
+    function messageHandler(order) {
+      if (!order || order.cart.length < 1) {
+        $scope.defaultMessage = "Your cart is currently empty";
+      } else {
+        $scope.showCart = true;
+      }
+    };
+
+  };
 })();
