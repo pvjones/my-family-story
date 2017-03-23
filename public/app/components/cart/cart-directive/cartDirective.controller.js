@@ -54,7 +54,7 @@
     })
     modalInstance.result.then((param) => {
       if(param == 'success'){
-        alert("Thank you! Your order was succesful.");
+        console.log("From cartDirectiveController: Successful payment");
       }
       if (param == 'cancel') {
         console.log("Cancelled");

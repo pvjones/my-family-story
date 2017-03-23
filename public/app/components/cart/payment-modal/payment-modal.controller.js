@@ -10,11 +10,11 @@ angular.module('app')
   }
 
   $scope.charge = function () {
-    StripeService.makePayment($scope.payment.card, $scope.payment)
+    StripeService.makePayment($scope.payment.card, $scope.payment) //Run this by Stephen tomorrow
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
       $uibModalInstance.close('success');
-      //$state.go('congrats');
+      $state.go('thanks');
     })
     .catch(function (err) {
        if (err.type && /^Stripe/.test(err.type)) {
@@ -29,9 +29,9 @@ angular.module('app')
      });
    };
 
- $scope.cancel = function() {
+  $scope.cancel = function() {
    $uibModalInstance.close('cancel');
- }
+  }
 
 
 })

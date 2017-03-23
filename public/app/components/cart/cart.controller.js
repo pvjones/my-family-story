@@ -8,7 +8,7 @@
 
     $scope.defaultMessage = "Loading..."
 
-    getCurrentOrder("58cb1b92134e39dd0e8c27bc")
+    getCurrentOrder("58d344501542ff92d4fe14af")
 
     function getCurrentOrder(orderId) {
       CartService.getOrderDetails(orderId)
