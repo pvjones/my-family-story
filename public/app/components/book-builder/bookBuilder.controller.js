@@ -123,18 +123,22 @@
           let m = modalService.openViewProjectsModal(user, $scope.userBooks)
           m.result.then((data) => {
             if(data == "close"){ console.log("Closed")} 
-            else if(data.hasOwnProperty('title') && !data.hasOwnProperty('pages')){
-              $scope.createNewBook(data.title, data.title_img, data.user);
-              $scope.getUserBooks();
-            } else {
+            else {
               $scope.getUserBooks();
               $scope.fillBookInfo(data);
             }
           })
         }
 
-        $scope.openCreateProjectModal = () => {
-
+        $scope.openNewProjectModal = () => {
+          let m = modalService.openNewProjectModal() 
+          m.result.then((data) => {
+            if(data == "close"){ console.log("Closed")}
+            else {
+              $scope.createNewBook(data.title, data.title_img, user._id);
+              $scope.getUserBooks();
+            }
+          })
         }
 
         $scope.openAlertModal = () => {
@@ -146,13 +150,9 @@
           })
         }
 
-        $scope.openPrintsModal = () => {
-          let modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: '/app/components/book-builder/prints-modal/printsModal.html',
-            controller: 'printsModalCtrl'
-          })
-          modalInstance.result.then((data) => {
+        $scope.selectPrints = () => {
+          let m = modalService.openPrintsModal()
+          m.result.then((data) => {
             if(data !== 'cancel'){
               $scope.currentBook.print_qty = data;
               $scope.saveBook(); 

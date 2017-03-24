@@ -9,7 +9,7 @@
         let modalInstance = $uibModal.open({
           animation: true,
           size: 'sm',
-          templateUrl: '/app/components/book-builder/prints-modal/alertPrintModal.html',
+          templateUrl: '/app/shared/modals/prints-modal/alertPrintModal.html',
           controller: 'alertPrintModalCtrl'
         })
       }

@@ -8,7 +8,7 @@
       this.openViewProjectsModal = (user, userBooks) => {
         return $uibModal.open({
           animation: true,
-          templateUrl: '/app/shared/modals/viewProjectsModal.html',
+          templateUrl: '/app/shared/modals/view-projects-modal/viewProjectsModal.html',
           controller: 'viewProjectModalCtrl',
           resolve: {
             user: function() { return user },
@@ -17,15 +17,42 @@
         })
       }
 
-      this.openCreateProjectModal = () => {
+      this.openDeleteBookModal = (userBooks, index) => {
         return $uibModal.open({
           animation: true,
-          templateUrl: '/app/shared/modals/createProjectModal.html',
-          controller: 'createProjectModalCtrl',
-          resolve: {
-            
+          size: 'sm',
+          templateUrl: '/app/shared/modals/delete-book-modal/deleteBookModal.html',
+          controller: 'deleteBookModalCtrl',
+          resolve:{
+            userBooks: function(){ return userBooks },
+            index: function(){ return index }
           }
         })
+      }
+
+      this.openNewProjectModal = (user) => {
+        return $uibModal.open({
+          animation: true,
+          templateUrl: '/app/shared/modals/new-project-modal/newProjectModal.html',
+          controller: 'newProjectModalCtrl'
+        })
+      }
+
+      this.openAlertModal = () => {
+        return $uibModal.open({
+          animation: true,
+          size: 'sm',
+          templateUrl: '/app/shared/modals/alertModal.html',
+          controller: 'alertModalCtrl'
+        })
+      }
+
+      this.openPrintsModal = () => {
+          return $uibModal.open({
+            animation: true,
+            templateUrl: '/app/shared/modals/prints-modal/printsModal.html',
+            controller: 'printsModalCtrl'
+          })
       }
 
     }
