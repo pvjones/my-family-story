@@ -1,6 +1,6 @@
 .main-gray-bg {
    background-color: #efefef;
-   padding-bottom: 50px;
+   padding-bottom: 20px;
 }
 
 .modal {
@@ -27,7 +27,6 @@
    padding: 10px;
    display: flex;
    flex-flow: row nowrap;
-  //  justify-content: center;
    .project {
       width: 140px;
       height: 193px;
@@ -35,6 +34,9 @@
       border-radius: 3px;
       margin: 0 5px;
       color: #222;
+      @media screen and (max-width: 562px){
+        width: 175px;
+      }
       .centered {
          margin: 50% auto;
          padding: 0 10px;
@@ -56,7 +58,6 @@
   right: 25px;
   width: 10px;
   z-index: 1;
-
 }
 
 .delete-book-box {
@@ -70,13 +71,21 @@
   margin-right: 4px;
   cursor: pointer;
 }
-
 .flex-box{
    display: flex;
    flex-flow: row nowrap;
    justify-content: space-between;
 }
-
+.flex-center{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
+   .flexed {
+     margin: 25px 10px;
+   }
+}
 .flexy{
    flex: 0 1 calc(100%/3);
    padding: 20px;
@@ -84,11 +93,9 @@
       width: 100%;
    }
 }
-
 .descrowtrigger{
   cursor: pointer;
 }
-
 .descrow{
   height: 490px;
   overflow: hidden;
@@ -97,7 +104,6 @@
 .descrow.trigger{
   height: 0px;
 }
-
 .pad-top-sm{
   padding-top: 10px;
 }
@@ -115,10 +121,6 @@
   }
 }
 
-// .btn-add-project{
-//   margin-top: 12px;
-// }
-
 .bottom-buttons {
   margin: 20px 0 0 0;
   padding-top: 20px;
@@ -129,4 +131,8 @@
   .right-btn {
     float: right;
   }
+}
+
+.upper {
+  text-transform: uppercase;
 }
