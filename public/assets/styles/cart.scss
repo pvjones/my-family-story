@@ -77,10 +77,15 @@
         margin-left: -30px;
       }
     }
+
     .single-item {
       border: none;
     }
   }
+
+  .no-border {
+      border: none !important;
+    }
 
   .cart-total {
     margin-top: 20px;
