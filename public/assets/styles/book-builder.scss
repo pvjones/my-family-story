@@ -1,6 +1,6 @@
 .main-gray-bg {
    background-color: #efefef;
-   padding-bottom: 50px;
+   padding-bottom: 20px;
 }
 
 .modal {
@@ -76,6 +76,16 @@
    flex-flow: row nowrap;
    justify-content: space-between;
 }
+.flex-center{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
+   .flexed {
+     margin: 25px 10px;
+   }
+}
 .flexy{
    flex: 0 1 calc(100%/3);
    padding: 20px;
@@ -121,4 +131,8 @@
   .right-btn {
     float: right;
   }
+}
+
+.upper {
+  text-transform: uppercase;
 }

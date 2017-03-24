@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'modalService', 'CartService', bookBuilderController]);
 
-      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, CartService){
+      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, modalService, CartService){
 
         $scope.saved = false;
         $scope.userBooks;
@@ -11,9 +11,7 @@
 
         $scope.getActiveOrder = () => {
           CartService.getActiveOrder(user._id)
-          .then((res) => {
-            $scope.activeOrder = res;
-          })
+          .then((res) => { $scope.activeOrder = res })
         }
         $scope.getActiveOrder();
 
@@ -33,7 +31,7 @@
             resetPages();
             $scope.addNewPage();
             let book = {
-              title: title.toUpperCase(),
+              title: title,
               title_img: img,
               user: user,
               pages: $scope.pages
@@ -111,7 +109,7 @@
               $scope.pages.splice(i, 1);
               updatePageNums($scope.pages);
             }, 250)
-          }        
+          }
           $scope.saved = false;
         }
 
@@ -122,27 +120,30 @@
             $scope.saved = true;
           })
         }
-
-        $scope.openProjectModal = () => {
-          let modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: '/app/components/book-builder/project-view-modal/projectViewModal.html',
-            controller: 'projectModalController',
-            resolve: {
-              user: function() { return user },
-              userBooks: function() { return $scope.userBooks }
-            }
-          })
-          modalInstance.result.then((data) => {
+        $scope.openViewProjectsModal = () => {
+          let m = modalService.openViewProjectsModal(user, $scope.userBooks)
+          m.result.then((data) => {
             if(data == "close"){ console.log("Closed")}
-            else if(data.hasOwnProperty('title') && !data.hasOwnProperty('pages')){
-              $scope.createNewBook(data.title, data.title_img, data.user);
-              $scope.getUserBooks();
-            } else {
+            else {
               $scope.getUserBooks();
               $scope.fillBookInfo(data);
             }
           })
+        }
+
+        $scope.openNewProjectModal = () => {
+          let m = modalService.openNewProjectModal()
+          m.result.then((data) => {
+            if(data == "close"){ console.log("Closed")}
+            else {
+              $scope.createNewBook(data.title, data.title_img, user._id);
+              $scope.getUserBooks();
+            }
+          })
+        }
+
+        $scope.openReviewModal = () => {
+          let m = modalService.openReviewModal()
         }
 
         $scope.openAlertModal = () => {
@@ -154,13 +155,9 @@
           })
         }
 
-        $scope.openPrintsModal = () => {
-          let modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: '/app/components/book-builder/prints-modal/printsModal.html',
-            controller: 'printsModalCtrl'
-          })
-          modalInstance.result.then((data) => {
+        $scope.selectPrints = () => {
+          let m = modalService.openPrintsModal()
+          m.result.then((data) => {
             if(data !== 'cancel'){
               $scope.currentBook.print_qty = data;
               $scope.saveBook();

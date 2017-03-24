@@ -9,6 +9,8 @@
 
     stripeProvider.setPublishableKey('pk_test_yN68NiS92cu5tu6yrxsKiyxu');
 
+    $urlRouterProvider.when('/admin', '/admin/projects');
+
     let getUser = ($state, AuthService) => {
       return AuthService.checkUser()
         .then((res) => {
@@ -110,20 +112,35 @@
           user: limitAdmin
         }
       })
+          .state('admin.products', {
+            url: '/products',
+            templateUrl: './app/components/admin/products/products.html',
+            controller: 'adminProductsController'
+          })
+          .state('admin.projects', {
+            url: '/projects',
+            templateUrl: './app/components/admin/projects/projects.html',
+            controller: 'adminProjectsController'
+          })
+          .state('admin.archive', {
+            url: '/archive',
+            templateUrl: './app/components/admin/archive/archive.html',
+            controller: 'adminArchiveController'
+          })
       .state('thanks', {
         url: '/thanks',
         templateUrl: './app/components/thanks/thanks.html'
       })
-      // .state('place-order', {
-      //   url: '/place-order',
-      //   controller: 'placeOrderController',
-      //   templateUrl: './components/place-order/place-order.html'
-      // })
-      // .state('confirmation', {
-      //   url: '/confirmation',
-      //   controller: 'confirmationController',
-      //   templateUrl: './components/confirmation/confirmation.html'
-      // })
+    // .state('place-order', {
+    //   url: '/place-order',
+    //   controller: 'placeOrderController',
+    //   templateUrl: './components/place-order/place-order.html'
+    // })
+    // .state('confirmation', {
+    //   url: '/confirmation',
+    //   controller: 'confirmationController',
+    //   templateUrl: './components/confirmation/confirmation.html'
+    // })
 
     $urlRouterProvider
       .otherwise('/home');

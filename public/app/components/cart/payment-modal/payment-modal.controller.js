@@ -3,7 +3,8 @@ angular.module('app')
 
   $scope.cartTotal = cartTotal;
 
-  $scope.orderId = orderId;
+  const unique_order_id = orderId;
+  console.log("HEY, paymentModalController", orderId, unique_order_id)
 
   $scope.payment = {
     card: {
@@ -11,7 +12,7 @@ angular.module('app')
       number: "4242424242424242",
       exp_month: "01",
       exp_year: "19",
-      cvc: "123"
+      cvc: "123",
     }
   };
 
@@ -26,28 +27,31 @@ angular.module('app')
   }
 
   $scope.putShipAddress = function(orderId) {
-    CartService.putShipAddress($scope.orderId, $scope.ship_info)
+    CartService.putShipAddress(unique_order_id, $scope.ship_info)
   }
 
-  $scope.charge = function () {
+  $scope.charge = function (orderId) {
     return stripe.card.createToken($scope.payment.card)
     .then(function (response) {
       console.log('token created for card ending in ', response.card.last4);
-      var payment = angular.copy($scope.payment); //Arrgh, what's this payment stuff?
+      var payment = angular.copy($scope.payment);
       payment.card = void 0;
       payment.token = response.id;
+      console.log(unique_order_id);
 
       return $http({
         method: 'POST',
         url: '/api/payment',
         data: {
           amount: $scope.cartTotal * 100,
-          payment: payment
+          payment: payment,
+          orderId: unique_order_id
         }
       })
     })
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
+      $uibModalInstance.close('cancel');
       $state.go('thanks');
     })
     .catch(function (err) {
