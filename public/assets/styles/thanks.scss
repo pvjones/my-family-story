@@ -1,0 +1,17 @@
+.thanks-wrapper {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background: url(./assets/images/jumbotron.jpg) no-repeat center center fixed;
+  // background-size: contain;
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+}
