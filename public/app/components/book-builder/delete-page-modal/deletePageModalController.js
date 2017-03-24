@@ -5,7 +5,7 @@
 
     function deletePageModalController($scope, $uibModalInstance, pageNum){
 
-      console.log(pageNum);
+      console.log(pageNum, 'pagenum');
 
       $scope.delete = () => {
         $uibModalInstance.close('delete');

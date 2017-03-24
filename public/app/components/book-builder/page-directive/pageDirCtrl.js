@@ -11,6 +11,7 @@
       $scope.edit_allowed = false;
       $scope.wasPageDeleted = false;
 
+
       $scope.pageTypes = [
         {name: "Basic", value: "Basic"},
         {name: "Activity", value: "Activity"},
@@ -41,6 +42,7 @@
           }
         }
       })
+      console.log($scope.page.page_number);
 
       modalInstance.result.then((param) => {
         if(param == 'delete'){

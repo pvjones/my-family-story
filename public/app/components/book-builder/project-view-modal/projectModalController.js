@@ -30,6 +30,7 @@
             }
           })
           modalInstance.result.then((res) => {
+            $scope.deletedIndex = index;
             if(res === 'delete'){
               $scope.deleteBook(userBooks[index]);
               $scope.userBooks.splice(index, 1);

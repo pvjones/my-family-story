@@ -8,7 +8,7 @@
         $scope.saved = false;
         $scope.userBooks;
         $scope.user = user;
-        
+
         $scope.getActiveOrder = () => {
           CartService.getActiveOrder(user._id)
           .then((res) => {
@@ -16,7 +16,7 @@
           })
         }
         $scope.getActiveOrder();
-        
+
         let resetPages = () => {
           $scope.pages = [];
         }
@@ -39,7 +39,7 @@
               pages: $scope.pages
             }
             bookService.createNewBook(book)
-            .then((res) => { 
+            .then((res) => {
               $scope.currentBook = res.data;
               $scope.fillBookInfo($scope.currentBook);
               $scope.getUserBooks();
@@ -50,7 +50,7 @@
 
         $scope.initialLoad = () => {
           bookService.getUserBooks(user._id)
-          .then((res) => { 
+          .then((res) => {
             $scope.userBooks = res;
             if($scope.userBooks.length > 0){
               $scope.fillBookInfo($scope.userBooks[$scope.userBooks.length - 1])
@@ -106,10 +106,12 @@
         }
 
         $scope.removePage = (i) => {
-          $timeout(() => {
-            $scope.pages.splice(i, 1);
-            updatePageNums($scope.pages);
-          }, 250)
+          if($scope.pages.length > 1){
+            $timeout(() => {
+              $scope.pages.splice(i, 1);
+              updatePageNums($scope.pages);
+            }, 250)
+          }        
           $scope.saved = false;
         }
 
@@ -132,7 +134,7 @@
             }
           })
           modalInstance.result.then((data) => {
-            if(data == "close"){ console.log("Closed")} 
+            if(data == "close"){ console.log("Closed")}
             else if(data.hasOwnProperty('title') && !data.hasOwnProperty('pages')){
               $scope.createNewBook(data.title, data.title_img, data.user);
               $scope.getUserBooks();
@@ -161,8 +163,8 @@
           modalInstance.result.then((data) => {
             if(data !== 'cancel'){
               $scope.currentBook.print_qty = data;
-              $scope.saveBook(); 
-              $scope.saveToOrder($scope.currentBook, user);     
+              $scope.saveBook();
+              $scope.saveToOrder($scope.currentBook, user);
             }
           })
         }
