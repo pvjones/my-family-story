@@ -80,6 +80,10 @@
         })
     };
 
+    // this.markOrderComplete = function(param) {
+    //
+    // }
+
     this.putShipAddress = function(orderId, shipping) {
       return $http({
         method: 'PUT',
