@@ -13,6 +13,7 @@
       if($scope.userBooks.length >= 3){
         $scope.checkBookLength = false;
       }
+
       $scope.openBook = (book) => {
         $uibModalInstance.close(book);
       }

@@ -4,7 +4,7 @@
       <div class="col-md-12 project-header" >
         <button class="btn btn-blue" ng-click="openViewProjectsModal()">View All Projects</button>
         <button class="btn btn-blue" ng-click="openNewProjectModal()">Create New Project</button>
-        <button class="btn btn-blue" ng-click="openReviewPageOptionsModal()">Review Page Options</button>
+        <button class="btn btn-blue" ng-click="openReviewModal()">Review Page Options</button>
       </div>
     </div>
     <div class="row project-header" ng-if="userBooks.length === 0">
@@ -26,31 +26,6 @@
         </div>
       </div>
     </div>
-    <!--<h6 bookbuilder-Dir class="text-center descrowtrigger" ><span id="bookbuilderHideSpan">Hide</span> Page Descriptions</h6>
-     <h6 bookbuilder-Dir class="text-center descrowtrigger" ng-click="toggleTopUI()"><span ng-if="topVis">Hide</span><span ng-if="!topVis">Review</span> Page Descriptions</h6>
-
-    <div class="row descrow" ng-if="topVis" >
-        <div class="flex-box">
-          <div class="flexy">
-              <img src="./../assets/images/basic-page.jpg" />
-              <h4>BASIC PAGE</h4>
-              <h5>One page of text and a corresponding custom drawing.</h5>
-              <h4>$10.00</h4>
-          </div>
-          <div class="flexy">
-              <img src="./../assets/images/activity-page.jpg" />
-              <h4>ACTIVITY PAGE</h4>
-              <h5>Incorporate a small activity onto the page! Choose a crossword, connect-the-dots, or a maze and submit your text.</h5>
-              <h4>$15.00</h4>
-          </div>
-          <div class="flexy">
-              <img src="./../assets/images/portrait-page.jpg" />
-              <h4>PORTRAIT PAGE</h4>
-              <h5>Upload a portrait of your relative and it will be turned into a custom line drawing (drawings of faces on basic pages will be more generic).</h5>
-              <h4>$20.00</h4>
-          </div>
-        </div>
-    </div>-->
     <div class="row">
       <div class="col-md-12">
         <h2 class="upper">{{currentBook.title}}</h2>

@@ -38,6 +38,14 @@
         })
       }
 
+      this.openReviewModal =() => {
+        return $uibModal.open({
+          animation: true,
+          templateUrl: '/app/shared/modals/review-modal/reviewModal.html',
+          controller: 'reviewModalCtrl'
+        })
+      }
+
       this.openAlertModal = () => {
         return $uibModal.open({
           animation: true,

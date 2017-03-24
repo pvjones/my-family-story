@@ -141,6 +141,10 @@
           })
         }
 
+        $scope.openReviewModal = () => {
+          let m = modalService.openReviewModal()
+        }
+
         $scope.openAlertModal = () => {
           let modalInstance = $uibModal.open({
             animation: true,
