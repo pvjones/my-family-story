@@ -100,3 +100,14 @@
   margin-right: 9px;
   transform: scaleX(-1);
 }
+// .imgSliderAnime{
+//   animation: 1s imgSliderAnime 1 forwards;
+// }
+@keyframes imgSliderAnime{
+  0%{
+    transform: translateX(150px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
