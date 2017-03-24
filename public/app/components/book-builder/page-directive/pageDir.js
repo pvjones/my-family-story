@@ -15,15 +15,23 @@
       controller: 'pageDirCtrl',
       link: (scope, elem, attrs) => {
 
-        setTimeout(() => $('modal-delete').on('click', function() {
-          if($('.con' + scope.index).hasClass('pageinitial')){
-            $('.con' + scope.index).removeClass('pageinitial');
+
+        scope.$watch('wasPageDeleted' ,function(newValue, oldValue){
+          if(newValue){
+            console.log('I can not believe this worked');
+
+            if($('.con' + scope.index).hasClass('pageinitial')){
+              $('.con' + scope.index).removeClass('pageinitial');
+            }
+            $('.con' + scope.index).addClass('page-anime');
+            setTimeout(function(){
+              $('.con' + scope.index).removeClass('page-anime');
+            }, 550);
           }
-          $('.con' + scope.index).addClass('page-anime');
-          setTimeout(function(){
-            $('.con' + scope.index).removeClass('page-anime');
-          }, 250);
-        }), 250);
+          else{
+            console.log('you suck');
+          }
+        })
       }
     }
   };
