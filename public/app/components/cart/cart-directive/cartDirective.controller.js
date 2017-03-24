@@ -44,7 +44,6 @@
     let modalInstance = $uibModal.open({
       animation: true,
       size: 'lg',
-      ariaLabelledBy: 'ariaCardInfo',
       templateUrl: 'app/components/cart/payment-modal/payment-modal.html',
       controller: 'paymentModalController',
       resolve: {
@@ -52,7 +51,6 @@
           return ctrl.cartTotal;
         },
         orderId: function() {
-          console.log("From the cart directive", ctrl.order._id);
           return ctrl.order._id;
         }
       }
