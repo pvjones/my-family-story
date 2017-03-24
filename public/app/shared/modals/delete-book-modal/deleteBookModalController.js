@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('deleteBookModalController', ['$scope', '$uibModalInstance', 'userBooks', 'index', deleteBookModalController]);
+    .controller('deleteBookModalCtrl', ['$scope', '$uibModalInstance', 'userBooks', 'index', deleteBookModalCtrl]);
 
-    function deleteBookModalController($scope, $uibModalInstance, userBooks, index){
+    function deleteBookModalCtrl($scope, $uibModalInstance, userBooks, index){
       console.log($scope);
       
       $scope.preTitle = userBooks[index].title;
