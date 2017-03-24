@@ -1,5 +1,7 @@
 const config = require('../config.js')
 const stripe = require('stripe')(config.STRIPE_KEYS.test_secret_key);
+const orderController = require('../controllers/order.controller');
+
 
 module.exports = {
   postPayment: (req, res, next) => {
@@ -40,12 +42,17 @@ module.exports = {
   			console.log(err);
   		}
   		else {
+        //orderController.updateOrder(req.body.id, {"order.completed.stripe_transaction_ID": charge.id})
   			console.log('charge: ', charge);
   		}
+
        res.sendStatus(200);
     // if (err && err.type === 'StripeCardError') {
     //   // The card has been declined
     // }
-  });
+  })
   }
+
+
+
 }

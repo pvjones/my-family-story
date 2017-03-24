@@ -11,7 +11,7 @@ angular.module('app')
       number: "4242424242424242",
       exp_month: "01",
       exp_year: "19",
-      cvc: "123"
+      cvc: "123",
     }
   };
 
@@ -48,6 +48,7 @@ angular.module('app')
     })
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
+      $uibModalInstance.close('cancel');
       $state.go('thanks');
     })
     .catch(function (err) {
