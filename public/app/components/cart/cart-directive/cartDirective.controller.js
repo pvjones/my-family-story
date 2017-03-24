@@ -41,6 +41,7 @@
     };
 
   ctrl.openPaymentModal = () => {
+    console.log("Cart Directive says: ", ctrl.order);
     let modalInstance = $uibModal.open({
       animation: true,
       size: 'lg',
