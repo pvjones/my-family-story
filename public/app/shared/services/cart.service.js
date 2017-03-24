@@ -70,7 +70,7 @@
       return $http({
         method: 'PUT',
         url: `/api/order/${orderId}`,
-        data: JSON.stringify(newOrderData)
+        data: newOrderData
       })
         .then((res) => {
           return CleanseCartService.cleanseOrder(res.data);
