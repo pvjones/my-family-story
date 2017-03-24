@@ -9,7 +9,7 @@
     $scope.showCart = false;
     $scope.defaultMessage = "Loading..."
 
-    getActiveOrder('58c87346d2ce4ecb7d5ff417');
+    getActiveOrder(user._id);
 
     $scope.$watch('order', (newVal, oldVal) => {
       if (newVal !== oldVal) {

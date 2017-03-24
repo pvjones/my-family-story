@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('projectModalController', ['$scope', '$http', 'user', 'userBooks', 'bookService', '$uibModal', '$uibModalInstance', projectModalController]);
+    .controller('viewProjectModalCtrl', ['$scope', '$http', 'user', 'userBooks', 'bookService', '$uibModal', '$uibModalInstance', viewProjectModalCtrl]);
 
-    function projectModalController($scope, $http, user, userBooks, bookService, $uibModal, $uibModalInstance){
+    function viewProjectModalCtrl($scope, $http, user, userBooks, bookService, $uibModal, $uibModalInstance){
 
       $scope.userBooks = userBooks;
       $scope.checkBookLength = false;

@@ -1,9 +1,9 @@
 (function(){
    angular
     .module('app')
-    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'CartService', bookBuilderController]);
+    .controller('bookBuilderController', ['$scope', '$state', '$uibModal', '$timeout', 'user', 'bookService', 'modalService', 'CartService', bookBuilderController]);
 
-      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, CartService){
+      function bookBuilderController($scope, $state, $uibModal, $timeout, user, bookService, modalService, CartService){
 
         $scope.saved = false;
         $scope.userBooks;
@@ -11,9 +11,7 @@
         
         $scope.getActiveOrder = () => {
           CartService.getActiveOrder(user._id)
-          .then((res) => {
-            $scope.activeOrder = res;
-          })
+          .then((res) => { $scope.activeOrder = res })
         }
         $scope.getActiveOrder();
         
@@ -33,7 +31,7 @@
             resetPages();
             $scope.addNewPage();
             let book = {
-              title: title.toUpperCase(),
+              title: title,
               title_img: img,
               user: user,
               pages: $scope.pages
@@ -121,17 +119,9 @@
           })
         }
 
-        $scope.openProjectModal = () => {
-          let modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: '/app/components/book-builder/project-view-modal/projectViewModal.html',
-            controller: 'projectModalController',
-            resolve: {
-              user: function() { return user },
-              userBooks: function() { return $scope.userBooks }
-            }
-          })
-          modalInstance.result.then((data) => {
+        $scope.openViewProjectsModal = () => {
+          let m = modalService.openViewProjectsModal(user, $scope.userBooks)
+          m.result.then((data) => {
             if(data == "close"){ console.log("Closed")} 
             else if(data.hasOwnProperty('title') && !data.hasOwnProperty('pages')){
               $scope.createNewBook(data.title, data.title_img, data.user);
@@ -141,6 +131,10 @@
               $scope.fillBookInfo(data);
             }
           })
+        }
+
+        $scope.openCreateProjectModal = () => {
+
         }
 
         $scope.openAlertModal = () => {

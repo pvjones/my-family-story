@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row" ng-if="userBooks.length !== 0">
       <div class="col-md-12 project-header" >
-        <button class="btn btn-blue" ng-click="openProjectModal()">View All Projects</button>
+        <button class="btn btn-blue" ng-click="openViewProjectsModal()">View All Projects</button>
+        <button class="btn btn-blue" ng-click="openNewProjectModal()">Create New Project</button>
+        <button class="btn btn-blue" ng-click="openReviewPageOptionsModal()">Review Page Options</button>
       </div>
     </div>
     <div class="row project-header" ng-if="userBooks.length === 0">
@@ -51,7 +53,7 @@
     </div>-->
     <div class="row">
       <div class="col-md-12">
-        <h2>{{currentBook.title}}</h2>
+        <h2 class="upper">{{currentBook.title}}</h2>
         <div ng-repeat="page in pages track by $index">
           <book-page class="row" page="page" index="$index"></book-page>
         </div>
