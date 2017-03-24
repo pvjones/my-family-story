@@ -122,8 +122,7 @@
         $scope.openViewProjectsModal = () => {
           let m = modalService.openViewProjectsModal(user, $scope.userBooks)
           m.result.then((data) => {
-            if(data == "close"){ console.log("Closed")} 
-            else {
+            if(data !== "close"){
               $scope.getUserBooks();
               $scope.fillBookInfo(data);
             }
@@ -133,8 +132,7 @@
         $scope.openNewProjectModal = () => {
           let m = modalService.openNewProjectModal() 
           m.result.then((data) => {
-            if(data == "close"){ console.log("Closed")}
-            else {
+            if(data !== "close"){
               $scope.createNewBook(data.title, data.title_img, user._id);
               $scope.getUserBooks();
             }
