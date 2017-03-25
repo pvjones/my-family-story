@@ -26,7 +26,7 @@
 
     this.deleteBook = (book) => {
       return $http.delete(`/api/book/${book._id}`)
-      .then((res) => {return res})
+      .then((res) => {return res.data})
       .catch((err) => {console.error(err)})
     }
   };

@@ -122,8 +122,15 @@
         $scope.openViewProjectsModal = () => {
           let m = modalService.openViewProjectsModal(user, $scope.userBooks)
           m.result.then((data) => {
-            if(data !== "close"){
-              $scope.getUserBooks();
+            $scope.getUserBooks();        
+            if(data.message == "closed"){
+              for(var i of data.deleted){
+                if($scope.currentBook._id === i){
+                  $scope.fillBookInfo($scope.userBooks[$scope.userBooks.length -1]);
+                  break;
+                }
+              }
+            } else {
               $scope.fillBookInfo(data);
             }
           })
