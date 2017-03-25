@@ -1,0 +1,20 @@
+<tr ng-repeat="order in ctrl.allOrders track by $index" class="order-row" ui-sref="home">
+  <td class="product-title">
+    {{order.user.firstname}} {{order.user.lastname}}
+  </td>
+  <td class="product-desc">
+    {{order.user.email}}
+  </td>
+  <td>
+    {{ctrl.countTotalPages(order)}}
+  </td>
+  <td>
+    {{order.completed.date | date:'short'}}
+  </td>
+  <td class="product-price">
+    {{order.completed.stripe_transaction_id}}
+  </td>
+  <td>
+    <a class="btn btn-yellow">Archive</a>
+  </td>
+</tr>

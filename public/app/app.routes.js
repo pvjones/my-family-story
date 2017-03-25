@@ -9,7 +9,7 @@
 
     stripeProvider.setPublishableKey('pk_test_yN68NiS92cu5tu6yrxsKiyxu');
 
-    $urlRouterProvider.when('/admin', '/admin/projects');
+    $urlRouterProvider.when('/admin', '/admin/orders');
 
     let getUser = ($state, AuthService) => {
       return AuthService.checkUser()
@@ -117,10 +117,10 @@
             templateUrl: './app/components/admin/products/products.html',
             controller: 'adminProductsController'
           })
-          .state('admin.projects', {
-            url: '/projects',
-            templateUrl: './app/components/admin/projects/projects.html',
-            controller: 'adminProjectsController'
+          .state('admin.orders', {
+            url: '/orders',
+            templateUrl: './app/components/admin/orders/orders.html',
+            controller: 'adminOrdersController'
           })
           .state('admin.archive', {
             url: '/archive',

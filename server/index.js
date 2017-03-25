@@ -78,7 +78,6 @@ const userController = require('./controllers/user.controller');
 
 //* ENDPOINT SERVICES *//
 const bookService = require('./services/book.service');
-const orderService = require('./services/order.service');
 const paymentService = require('./services/payment.service')
 
 //* ADDRESS ENDPOINTS *//
@@ -89,20 +88,21 @@ app.delete('/api/address/:id', addressController.deleteAddress);
 
 //* BOOK ENDPOINTS *//
 app.post('/api/book', bookController.createBook);
+app.delete('/api/book/:id', bookController.deleteBook);
+app.put('/api/book/:id', bookController.updateBook);
 app.get('/api/book', bookController.readBook);
 app.get('/api/book/:id', bookController.readBookById);
-app.put('/api/book/:id', bookController.updateBook);
-app.delete('/api/book/:id', bookController.deleteBook);
 app.get('/api/book/user/:id', bookService.getBooksByUser);
 
 
 //* ORDER ENDPOINTS *//
 app.post('/api/order', orderController.createOrder);
-app.get('/api/order', orderController.readOrder);
 app.put('/api/order/:id', orderController.updateOrder);
 app.delete('/api/order/:id', orderController.deleteOrder);
-app.get('/api/order/:id', orderService.getOrderDetails);
-app.get('/api/activeorder/:user', orderService.getActiveOrder);
+app.get('/api/order/:id', orderController.getOrderDetails);
+app.get('/api/activeorder/:user', orderController.getActiveOrder);
+app.get('/api/order', orderController.readOrder);
+app.get('/api/allactiveorders', orderController.getAllActiveOrders);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);
