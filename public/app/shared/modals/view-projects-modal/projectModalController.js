@@ -6,6 +6,7 @@
     function viewProjectModalCtrl($scope, $http, user, userBooks, bookService, modalService, $uibModal, $uibModalInstance){
 
       $scope.userBooks = userBooks;
+      let deletedBooks = [];
       $scope.checkBookLength = false;
       if($scope.userBooks.length < 3){
         $scope.checkBookLength = true;
@@ -36,12 +37,18 @@
 
       $scope.deleteBook = (book) => {
         bookService.deleteBook(book)
-        .then((res) => { console.log(res) })
+        .then((data) => { 
+          let deletedbookId = data._id;
+          deletedBooks.push(deletedbookId);
+        })
         .catch((err) => { console.error(err) })
       }
 
       $scope.close = function(){
-        $uibModalInstance.close('close');
+        $uibModalInstance.close({
+          message: "closed",
+          deleted: deletedBooks
+        });
       };
     }
 })();

@@ -75,6 +75,7 @@
    display: flex;
    flex-flow: row nowrap;
    justify-content: space-between;
+   margin: 0 20px;
 }
 .flex-center{
    display: flex;
@@ -89,6 +90,10 @@
 .flexy{
    flex: 0 1 calc(100%/3);
    padding: 20px;
+   h4 {
+     padding: 10px 0;
+     font-weight: 700;
+   }
    img {
       width: 100%;
    }

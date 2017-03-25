@@ -25,7 +25,6 @@
               transTotal -= 1;
               $('.imgSliderAbs').css("transform", "translateX(" + transX + "px)");
               $('.imgSliderAbs2').css("transform", "translateX(" + transXM + "px)");
-              console.log(transTotal, 'transTotal');
             }
             else{
               lengthSaver = scope.userBooks.length;
