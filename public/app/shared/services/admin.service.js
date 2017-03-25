@@ -23,5 +23,19 @@
         });
     };
 
+    this.getOneOrderById = (orderId) => {
+      return $http({
+        method: 'GET',
+        url: `/api/order/${orderId}`
+      })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+          throw err;
+        });
+    };
+
   };
 })();

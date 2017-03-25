@@ -54,6 +54,7 @@ module.exports = {
         path: 'books',
         populate: { path: 'print_qty' }
       })
+      .populate("user")
       .exec((err, order) => {
         if (err) {
           return res.status(500).send(err);

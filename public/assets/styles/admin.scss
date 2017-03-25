@@ -15,7 +15,7 @@
   }
 }
 
-// PROJECTS VIEW
+// ORDERS VIEW
 .orders-view {
   .orders-table {
     .order-row {
@@ -31,6 +31,27 @@
       .btn {
         padding: 3px 10px 0px 10px;
       }
+    }
+  }
+  .sub-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    
+    div {
+      margin-right: 30px;
+    }
+    a {
+      position: relative;
+      top: -1px;
+    }
+    .fa {
+      position: relative;
+      top: -1px;
+      font-size: 14px;
+      margin-right: 5px;
     }
   }
 }
@@ -90,6 +111,10 @@
     }
   }
 }
+
+// DETAILS
+
+
 
 .archive-view {
 
