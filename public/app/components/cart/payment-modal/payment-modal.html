@@ -3,47 +3,47 @@
   <div class="cart-modal-col">
     <form>
         <h2>Card Info</h2>
-        <section class='form-group'>
+        <div class='form-group'>
           <label>Amount to charge {{cartTotal | currency }}</label>
-        </section>
-        <section class='form-group'>
+        </div>
+        <div class='form-group'>
             <label>Name on card</label>
             <input
             type="text"
             name="name"
             ng-model="payment.card.name"
             required>
-        </section>
-        <section class='form-group'>
+        </div>
+        <div class='form-group'>
             <label>Card number</label>
             <input
             ng-model="payment.card.number"
             type="text"
             required>
-        </section>
+        </div>
 
         <div class="cart-modal-group">
-          <section class="form-group">
+          <div class="form-group">
               <label>CVC</label>
               <input
               ng-model="payment.card.cvc"
               type="text"
               required>
-          </section>
-          <section class="form-group">
+          </div>
+          <div class="form-group">
               <label>Zip code</label>
               <input
               ng-model="card_zip"
               type="text"
               required>
-          </section>
+          </div>
         </div>
 
         <div>
         <label class="cart-modal-inline">
           Expiration date
         </label>
-          <section class="cart-modal-inline">
+          <div class="cart-modal-inline">
               <select
               ng-model="payment.card.exp_month"
               required >
@@ -61,8 +61,8 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
             </select>
-          </section>
-          <section class="cart-modal-inline">
+          </div>
+          <div class="cart-modal-inline">
             <select name="year" id="year" ng-model="payment.card.exp_year" ng-change="validateExpiry(model.month, model.year)" >
               <option value="">Year</option>
               <option value="17">17</option>
@@ -80,12 +80,11 @@
               <option value="29">29</option>
               <option value="30">30</option>
             </select>
-          </section>
+          </div>
         </div>
 
     </form>
   </div>
-
 
 
   <div class="cart-modal-col">
