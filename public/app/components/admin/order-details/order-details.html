@@ -30,7 +30,7 @@
       </div>
       <div class="user-info-details">
         <p>Amount:</p>
-        <p>{{order.completed.total}}</p><br />
+        <p>{{order.completed.total / 100 | currency:$}}</p><br />
         <p>Date:</p>
         <p>{{order.completed.date | date:"short"}}</p><br />
         <p>Transaction ID:</p>
@@ -50,5 +50,7 @@
       </div>
     </div>
   </div>
+
+  <order-details-book class="row book-info-details" ng-repeat="book in order.books track by $index" book="book" book-number="{{$index}}"></order-details-book>
 
 </div>
