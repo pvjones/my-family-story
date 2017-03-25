@@ -1,57 +1,98 @@
 .admin-main {
-  margin-top: 30px;
+  .sub-nav-wrapper {
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 20px;
+  }
+  .sub-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    div {
+      margin-right: 30px;
+    }
+  }
 }
 
-.product-table {
-  position: relative;
-  td {
-    vertical-align: top;
-    text-align:left;
-  }
-  img {
-    width: auto;
-    height: 80px;
-  }
-  td input, {
-    width: 70%;
-    padding: 5px;
-    border: 1px solid white;
-    outline: none;
-  }
-  td input:focus {
-    border: 1px solid #c8c8c8;
-    border-radius: 3px;
-  }
-  .product-title {
-    min-width: 80px;
-  }
-  .fa {
-    vertical-align: top;
-    font-size: 12px;
-  }
-  .product-desc {
-    width: 70%;
-  }
-  .product-price {
-    min-width: 120px;
-    padding-left: 45px;
-  }
-  .desc-input {
-    border: 1px solid #e8e8e8;
-    border-radius: 3px;
-    padding: 5px;
-    width: 90%;
-    height: 80px;
-  }
-  .desc-input:focus {
-    border: 1px solid #c8c8c8;
-    border-radius: 3px;
-    outline: none;
-  }
-  .submit-button {
-    text-align: right;
-    padding-top: 20px;
-    padding-right: 5%;
+// PROJECTS VIEW
+.orders-view {
+  .orders-table {
+    .order-row {
+      background-color: transparent;
+      transition: all 0.15s ease-in-out;
+      &:hover {
+        background-color: #fafafa;
+        cursor: pointer;
+      }
+      td {
+        vertical-align: middle;
+      }
+      .btn {
+        padding: 3px 10px 0px 10px;
+      }
+    }
   }
 }
+
+// PRODUCTS VIEW
+.products-view {
+  .product-table {
+    position: relative;
+    td {
+      vertical-align: top;
+      text-align:left;
+    }
+    img {
+      width: auto;
+      height: 80px;
+    }
+    td input, {
+      width: 70%;
+      padding: 5px;
+      border: 1px solid white;
+      outline: none;
+    }
+    td input:focus {
+      border: 1px solid #c8c8c8;
+      border-radius: 3px;
+    }
+    .product-title {
+      min-width: 80px;
+    }
+    .fa {
+      vertical-align: top;
+      font-size: 12px;
+    }
+    .product-desc {
+      width: 70%;
+    }
+    .product-price {
+      min-width: 120px;
+      padding-left: 45px;
+    }
+    .desc-input {
+      border: 1px solid #e8e8e8;
+      border-radius: 3px;
+      padding: 5px;
+      width: 90%;
+      height: 80px;
+    }
+    .desc-input:focus {
+      border: 1px solid #c8c8c8;
+      border-radius: 3px;
+      outline: none;
+    }
+    .submit-button {
+      text-align: right;
+      padding-top: 20px;
+      padding-right: 5%;
+    }
+  }
+}
+
+.archive-view {
+
+}
+
 
