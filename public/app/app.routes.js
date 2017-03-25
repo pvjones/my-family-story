@@ -127,6 +127,11 @@
             templateUrl: './app/components/admin/archive/archive.html',
             controller: 'adminArchiveController'
           })
+          .state('admin.order-details', {
+            url:'/order-details/:id',
+            templateUrl: './app/components/admin/order-details/order-details.html',
+            controller: 'orderDetailsController'
+          })
       .state('thanks', {
         url: '/thanks',
         templateUrl: './app/components/thanks/thanks.html'
