@@ -23,6 +23,20 @@
         });
     };
 
+    this.getAllArchivedOrders = () => {
+      return $http({
+        method: 'GET',
+        url: `/api/allarchivedorders`
+      })
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+          throw err;
+        })
+    };
+
     this.getOneOrderById = (orderId) => {
       return $http({
         method: 'GET',
@@ -35,6 +49,22 @@
           console.log(err);
           throw err;
         });
+    };
+
+    this.updateOrder = (orderId, update) => {
+
+      return $http({
+        method: 'PUT',
+        url: `/api/order/${orderId}`,
+        data: update
+      })
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
     };
 
   };

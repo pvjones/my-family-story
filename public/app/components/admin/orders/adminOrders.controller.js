@@ -11,8 +11,13 @@
     function getAllActiveOrders() {
       AdminService.getAllActiveOrders()
         .then((res) => {
-          $scope.allOrders = res;
-          console.log(res)
+          if (!Array.isArray(res)) {
+            console.log(res);
+            $scope.allOrders = [];
+            return;
+          } else {
+            $scope.allOrders = res;
+          };
         })
         .catch((err) => {
           console.log(err);

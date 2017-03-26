@@ -7,7 +7,7 @@
   function orderDetailsBook() {
 
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: './app/components/admin/order-details/order-details-book-directive/order-details-book.html',
       scope: true,
       link: link
@@ -15,8 +15,7 @@
 
     function link(scope, elem, attrs) {
 
-      scope.book = attrs.book;
-      scope.bookNumber = +attrs.bookNumber
+      scope.bookNumber = +attrs.bookNumber;
 
     }
 

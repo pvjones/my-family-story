@@ -30,7 +30,7 @@
       </div>
       <div class="user-info-details">
         <p>Amount:</p>
-        <p>{{order.completed.total / 100 | currency:$}}</p><br />
+        <p>{{order.completed.total | currency:$}}</p><br />
         <p>Date:</p>
         <p>{{order.completed.date | date:"short"}}</p><br />
         <p>Transaction ID:</p>
@@ -43,6 +43,7 @@
       </div>
       <div class="user-info-details">
         <p>Address:</p>
+        <p ng-if="order.ship_address.ship_name">{{order.ship_address.ship_name}}</p>
         <p>{{order.ship_address.ship_address1}}</p>
         <p>{{order.ship_address.ship_address2}}</p>
         <p>{{order.ship_address.ship_city + ", " + order.ship_address.ship_state + " " + order.ship_address.ship_zip}}</p>
@@ -51,6 +52,6 @@
     </div>
   </div>
 
-  <order-details-book class="row book-info-details" ng-repeat="book in order.books track by $index" book="book" book-number="{{$index}}"></order-details-book>
+  <div order-details-book class="row book-info-details" ng-repeat="book in order.books track by $index" book-number="{{$index}}"></div>
 
 </div>

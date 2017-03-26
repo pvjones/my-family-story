@@ -15,6 +15,6 @@
     {{order.completed.stripe_transaction_id}}
   </td>
   <td>
-    <a class="btn btn-yellow">Archive</a>
+    <a class="btn btn-yellow" ng-click="ctrl.toggleArchived(order, ctrl.toggleSwitch)">{{ctrl.toggleSwitch}}</a>
   </td>
 </tr>
