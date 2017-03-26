@@ -83,6 +83,31 @@ module.exports = {
   getAllActiveOrders: (req, res, next) => {
     Order.find({
       "completed": { $exists: true, $ne: null },
+      "archived": { $ne: true }
+    })
+      .populate({
+        path: 'books',
+        populate: { path: 'print_qty' }
+      })
+      .populate({
+        path: 'user'
+      })
+      .exec((err, orders) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send(err);
+        } else if (orders.length === 0) {
+          return res.status(200).send('No active orders')
+        } else {
+          res.status(200).send(orders);
+        }
+      });
+  },
+
+  getAllArchivedOrders: (req, res, next) => {
+    Order.find({
+      "completed": { $exists: true, $ne: null },
+      "archived": { $exists: true, $ne: false }
     })
       .populate({
         path: 'books',
