@@ -51,5 +51,21 @@
         });
     };
 
+    this.updateOrder = (orderId, update) => {
+
+      return $http({
+        method: 'PUT',
+        url: `/api/order/${orderId}`,
+        data: update
+      })
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+    };
+
   };
 })();

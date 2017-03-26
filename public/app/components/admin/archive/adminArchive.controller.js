@@ -11,13 +11,17 @@
     function getAllArchivedOrders() {
       AdminService.getAllArchivedOrders()
         .then((res) => {
+          if (!Array.isArray(res)) {
+            console.log(res);
+            $scope.allOrders = [];
+            return;
+          } else {
           $scope.allOrders = res;
-          console.log(res)
+          };
         })
         .catch((err) => {
           console.log(err);
-        })
-
+        });
     };
 
   };

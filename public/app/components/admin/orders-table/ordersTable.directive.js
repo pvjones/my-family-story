@@ -8,7 +8,8 @@
     return {
       restrict: 'A',
       scope: {
-        allOrders: '='
+        allOrders: '=',
+        toggleSwitch: '@'
       },
       templateUrl: './app/components/admin/orders-table/orders-table.html',
       controller: 'ordersTableController',
@@ -18,8 +19,8 @@
     };
 
     function link(scope, elem, attrs, ctrl) {
+     
 
     };
-
   };
 })();
