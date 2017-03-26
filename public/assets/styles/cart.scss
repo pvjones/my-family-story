@@ -176,3 +176,38 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+
+  .modal {
+    margin: 60px 0;
+  }
+
+  .modal-dialog {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .cart-modal {
+    display: block;
+  }
+
+  .cart-modal-col form {
+    width: 85vw;
+    input {
+      width: 75vw;
+    }
+  }
+
+  .cart-modal .modal-form-button-container {
+    display: block;
+    margin: auto;
+    width: 60vw;
+
+    button {
+      margin: auto;
+    }
+  }
+
+
+}
