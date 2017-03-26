@@ -6,10 +6,10 @@
 
   function adminArchiveController($scope, AdminService) {
 
-    getAllActiveOrders();
+    getAllArchivedOrders();
 
-    function getAllActiveOrders() {
-      AdminService.getAllActiveOrders()
+    function getAllArchivedOrders() {
+      AdminService.getAllArchivedOrders()
         .then((res) => {
           $scope.allOrders = res;
           console.log(res)

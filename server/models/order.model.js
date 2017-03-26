@@ -20,7 +20,8 @@ let order = new mongoose.Schema({
   completed: {
     stripe_transaction_id: { type: String },
     date: { type: Date }
-  }
+  },
+  archived: { type: Boolean }
 
 });
 

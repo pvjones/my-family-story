@@ -15,7 +15,6 @@
 
     function link(scope, elem, attrs) {
 
-      
       scope.bookNumber = +attrs.bookNumber;
 
     }

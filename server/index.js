@@ -103,6 +103,7 @@ app.get('/api/order/:id', orderController.getOrderDetails);
 app.get('/api/activeorder/:user', orderController.getActiveOrder);
 app.get('/api/order', orderController.readOrder);
 app.get('/api/allactiveorders', orderController.getAllActiveOrders);
+app.get('/api/allarchivedorders', orderController.getAllArchivedOrders);
 
 //* PRODUCT ENDPOINTS *//
 app.post('/api/product', productController.createProduct);
