@@ -1,3 +1,29 @@
+.admin-filters {
+  text-align: right;
+}
+
+.admin-input {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding-left: 10px;
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ccc;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: #ccc;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: #ccc;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: #ccc;
+  }
+  &:active, &:focus {
+    outline: none;
+    border: 1px solid grey;
+  }
+}
+
 .admin-main {
   .sub-nav-wrapper {
     border-bottom: 1px solid #e8e8e8;
@@ -15,9 +41,15 @@
   }
 }
 
+.admin-view-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
 // ORDERS VIEW
 .orders-view {
   .orders-table {
+    border-top: 2px solid #d8d8d8;
     .order-row {
       background-color: transparent;
       transition: all 0.15s ease-in-out;
@@ -114,7 +146,9 @@
 
 // PRODUCTS VIEW
 .products-view {
+  
   .product-table {
+    border-top: 2px solid #d8d8d8;
     position: relative;
     td {
       vertical-align: top;

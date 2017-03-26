@@ -2,7 +2,15 @@
   
   <div class="row">
     <div class="col-md-12">
-      <p>Archived Orders</p>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="admin-view-title">Archived Orders</p>
+        </div>
+        <div class="col-md-6 admin-filters">
+        
+          <input class="admin-input" type="text" placeholder="Search orders" ng-model="search.orderfilter" />
+        </div>
+      </div>
 
       <table class="table orders-table">
         <thead>
@@ -15,7 +23,7 @@
             <th>Unarchive</th>
           </tr>
         </thead>
-        <tbody orders-table all-orders="allOrders" toggle-switch="unarchive">
+        <tbody orders-table all-orders="allOrders" toggle-switch="unarchive" order-filter="search.orderFilter">
         </tbody>
       </table>
 
