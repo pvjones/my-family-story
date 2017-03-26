@@ -50,7 +50,7 @@ module.exports = {
   			console.log(err);
   		}
   		else {
-        var obj = {stripe_transaction_id: charge.id, date: new Date()};
+        var obj = {stripe_transaction_id: charge.id, date: new Date(), total: charge.amount / 100 };
         Order.findByIdAndUpdate(req.body.orderId, {completed: obj}, function(err, res) {
           if (err) {
             console.log('error: ', error);
