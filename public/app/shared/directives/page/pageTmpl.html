@@ -2,7 +2,7 @@
    <div class="row">
      <div class="col-md-12">
         <h5 class="page-number">PAGE {{page.page_number}}</h5>
-        <a class="delete-box hazard-link {{'page' + index}}" id="deleter"  
+        <a ng-if="$parent.pages.length > 1" class="delete-box hazard-link {{'page' + index}}" id="deleter"  
         ng-click="openDeletePageModal()"> 
           <i class="fa fa-times" aria-hidden="true"></i>
         </a>
