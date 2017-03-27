@@ -4,27 +4,6 @@ angular.module('app')
   $scope.cartTotal = cartTotal;
 
   const unique_order_id = orderId;
-  console.log("HEY, paymentModalController", orderId, unique_order_id)
-
-  $scope.payment = {
-    card: {
-      name: "Meg Ryan",
-      number: "4242424242424242",
-      exp_month: "01",
-      exp_year: "19",
-      cvc: "123",
-    }
-  };
-
-  $scope.ship_info = {
-    ship_name: "Ghengis Khan",
-    ship_address1: "Fourth yurt from the left",
-    ship_address2: "",
-    ship_city: "Philadelphia",
-    ship_state: "PA",
-    ship_zip: "10001",
-    ship_country: "Uzbekibekibekistan"
-  }
 
   $scope.putShipAddress = function(orderId) {
     CartService.putShipAddress(unique_order_id, $scope.ship_info)
