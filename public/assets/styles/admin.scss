@@ -1,5 +1,10 @@
 .admin-filters {
   text-align: right;
+  display: inline-block;
+  .admin-filters-title {
+    margin-right: 10px;
+
+  }
 }
 
 .admin-input {

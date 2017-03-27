@@ -16,6 +16,7 @@
             $scope.allOrders = [];
             return;
           } else {
+            console.log(res)
             $scope.allOrders = res;
           };
         })

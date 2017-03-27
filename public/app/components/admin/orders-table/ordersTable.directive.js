@@ -10,7 +10,8 @@
       scope: {
         allOrders: '=',
         toggleSwitch: '@',
-        orderFilter: '='
+        filterPredicate: '=',
+        orderPredicate: '='
       },
       templateUrl: './app/components/admin/orders-table/orders-table.html',
       controller: 'ordersTableController',
@@ -20,7 +21,7 @@
     };
 
     function link(scope, elem, attrs, ctrl) {
-     
+      
       
     };
   };
