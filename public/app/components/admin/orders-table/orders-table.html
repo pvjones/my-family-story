@@ -1,6 +1,6 @@
 <tr ng-repeat="order in ctrl.allOrders track by $index | filter:orderFilter" class="order-row">
   <td class="product-title" ui-sref="admin.order-details({id:order._id})">
-    {{order.user.firstname}} {{order.user.lastname}}
+    {{orderFilter}}{{order.user.firstname}} {{order.user.lastname}}
   </td>
   <td class="product-desc" ui-sref="admin.order-details({id:order._id})">
     {{order.user.email}}
